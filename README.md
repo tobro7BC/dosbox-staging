@@ -7,6 +7,8 @@ This repository attempts to modernize the DOSBox codebase by using current
 development practices and tools, fixing issues, and adding features that better
 support today's systems.
 
+This is Wengier's Extended Edition of DOSBox Staging.
+
 ### Build status
 
 [![Linux x86\_64 build status][build-lin1-badge]][build-linux]
