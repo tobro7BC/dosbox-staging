@@ -1883,13 +1883,18 @@ Bitu DEBUG_Loop(void) {
 	return DEBUG_CheckKeys();
 }
 
+#include <queue>
 extern SDL_Window *pdc_window;
+extern std::queue<SDL_Event> pdc_event_queue;
 
 void DEBUG_Enable(bool pressed) {
 	if (!pressed)
 		return;
 	static bool showhelp=false;
 	debugging=true;
+
+	pdc_event_queue = {};
+
 	SDL_RaiseWindow(pdc_window);
 	SetCodeWinStart();
 	DEBUG_DrawScreen();
@@ -2234,14 +2239,10 @@ static void DEBUG_ProgramStart(Program * * make) {
 // INIT
 
 void DEBUG_SetupConsole(void) {
-#ifdef WIN32
-	WIN32_Console();
-#else
 	tcgetattr(0,&consolesettings);
 	//curses must be inited first in order to catch the resize (is an event)
 //	printf("\e[8;50;80t"); //resize terminal
 //	fflush(NULL);
-#endif
 	memset((void *)&dbg,0,sizeof(dbg));
 	debugging=false;
 //	dbg.active_win=3;

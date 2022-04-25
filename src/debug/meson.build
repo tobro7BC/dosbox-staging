@@ -2,7 +2,6 @@ libdebug_sources = files([
   'debug.cpp',
   'debug_disasm.cpp',
   'debug_gui.cpp',
-  'debug_win32.cpp',
 ])
 
 libdebug = static_library('debug', libdebug_sources,
