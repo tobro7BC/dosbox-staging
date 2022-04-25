@@ -53,13 +53,6 @@ using namespace std;
 
 SDL_Window *GFX_GetSDLWindow(void);
 
-#ifdef WIN32
-void WIN32_Console();
-#else
-#include <termios.h>
-#include <unistd.h>
-static struct termios consolesettings;
-#endif
 int old_cursor_state;
 
 // Forwards
@@ -2239,7 +2232,7 @@ static void DEBUG_ProgramStart(Program * * make) {
 // INIT
 
 void DEBUG_SetupConsole(void) {
-	tcgetattr(0,&consolesettings);
+	//tcgetattr(0,&consolesettings);
 	//curses must be inited first in order to catch the resize (is an event)
 //	printf("\e[8;50;80t"); //resize terminal
 //	fflush(NULL);
@@ -2256,7 +2249,7 @@ void DEBUG_ShutDown(Section * /*sec*/) {
 	curs_set(old_cursor_state);
 	endwin();
 #ifndef WIN32
-	tcsetattr(0, TCSANOW,&consolesettings);
+	//tcsetattr(0, TCSANOW,&consolesettings);
 //	printf("\e[0m\e[2J"); //Seems to destroy scrolling
 //	printf("\ec"); //Doesn't seem to be needed anymore
 //	fflush(NULL);
