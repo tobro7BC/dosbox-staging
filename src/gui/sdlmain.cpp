@@ -32,6 +32,11 @@
 #include <sys/types.h>
 #include <tuple>
 #include <math.h>
+
+#if C_DEBUG
+#include <queue>
+#endif
+
 #ifdef WIN32
 #include <signal.h>
 #include <process.h>
@@ -3569,6 +3574,29 @@ static void FinalizeWindowState()
 	GFX_ResetScreen();
 }
 
+#if C_DEBUG
+extern SDL_Window *pdc_window;
+extern std::queue<SDL_Event> pdc_event_queue;
+
+static bool isDebuggerEvent(const SDL_Event &event)
+{
+	const auto dbgWndId = SDL_GetWindowID(pdc_window);
+
+	return (
+		(event.type == SDL_WINDOWEVENT || 
+		event.type == SDL_KEYUP || event.type == SDL_KEYDOWN ||
+		event.type == SDL_TEXTINPUT || event.type == SDL_TEXTEDITING ||
+		event.type == SDL_MOUSEMOTION || event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) &&
+		dbgWndId == event.window.windowID
+	);
+}
+
+SDL_Window *GFX_GetSDLWindow(void)
+{
+	return sdl.window;
+}
+#endif
+
 bool GFX_Events()
 {
 #if defined(MACOSX)
@@ -3597,6 +3625,12 @@ bool GFX_Events()
 	}
 #endif
 	while (SDL_PollEvent(&event)) {
+#if C_DEBUG		
+		if (isDebuggerEvent(event)) {
+			pdc_event_queue.push(event);
+			continue;
+		}
+#endif		
 		switch (event.type) {
 		case SDL_WINDOWEVENT:
 			switch (event.window.event) {

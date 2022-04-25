@@ -51,6 +51,8 @@ using namespace std;
 #include "keyboard.h"
 #include "setup.h"
 
+SDL_Window *GFX_GetSDLWindow(void);
+
 #ifdef WIN32
 void WIN32_Console();
 #else
@@ -1584,7 +1586,6 @@ char* AnalyzeInstruction(char* inst, bool saveSelector) {
 	return result;
 }
 
-
 int32_t DEBUG_Run(int32_t amount,bool quickexit) {
 	skipFirstInstruction = true;
 	CPU_Cycles = amount;
@@ -1595,6 +1596,7 @@ int32_t DEBUG_Run(int32_t amount,bool quickexit) {
 		CBreakpoint::ActivateBreakpoints();
 		DOSBOX_SetNormalLoop();
 	}
+
 	return ret;
 }
 
@@ -1766,6 +1768,8 @@ uint32_t DEBUG_CheckKeys(void) {
 
 				ret = DEBUG_Run(1,false);
 				skipDraw = true; // don't update screen after this instruction
+
+				SDL_RaiseWindow(GFX_GetSDLWindow());				
 				break;
 		case KEY_F(8):	// Toggle printable characters
 				showPrintable = !showPrintable;
@@ -1879,11 +1883,14 @@ Bitu DEBUG_Loop(void) {
 	return DEBUG_CheckKeys();
 }
 
+extern SDL_Window *pdc_window;
+
 void DEBUG_Enable(bool pressed) {
 	if (!pressed)
 		return;
 	static bool showhelp=false;
 	debugging=true;
+	SDL_RaiseWindow(pdc_window);
 	SetCodeWinStart();
 	DEBUG_DrawScreen();
 	DOSBOX_SetLoop(&DEBUG_Loop);

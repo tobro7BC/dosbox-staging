@@ -24,9 +24,9 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <curses.h>
 #include <string.h>
 
+#include "curses.h"
 #include "cross.h"
 #include "string_utils.h"
 #include "support.h"
@@ -297,7 +297,7 @@ void DBGUI_StartUp(void) {
 	#ifndef WIN32
 	printf("\033[8;50;80t");
 	fflush(NULL);
-	resizeterm(50,80);
+	resize_term(50,80);
 	touchwin(dbg.win_main);
 	#endif
 	old_cursor_state = curs_set(0);
