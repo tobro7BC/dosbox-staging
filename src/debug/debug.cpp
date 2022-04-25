@@ -1587,6 +1587,7 @@ int32_t DEBUG_Run(int32_t amount,bool quickexit) {
 	else {
 		// ensure all breakpoints are activated
 		CBreakpoint::ActivateBreakpoints();
+		SDL_RaiseWindow(GFX_GetSDLWindow());				
 		DOSBOX_SetNormalLoop();
 	}
 
@@ -1762,7 +1763,6 @@ uint32_t DEBUG_CheckKeys(void) {
 				ret = DEBUG_Run(1,false);
 				skipDraw = true; // don't update screen after this instruction
 
-				SDL_RaiseWindow(GFX_GetSDLWindow());				
 				break;
 		case KEY_F(8):	// Toggle printable characters
 				showPrintable = !showPrintable;
