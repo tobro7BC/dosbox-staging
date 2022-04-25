@@ -3586,7 +3586,10 @@ static bool isDebuggerEvent(const SDL_Event &event)
 		(event.type == SDL_WINDOWEVENT || 
 		event.type == SDL_KEYUP || event.type == SDL_KEYDOWN ||
 		event.type == SDL_TEXTINPUT || event.type == SDL_TEXTEDITING ||
-		event.type == SDL_MOUSEMOTION || event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP) &&
+		event.type == SDL_MOUSEMOTION || 
+		event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP ||
+		event.type == SDL_MOUSEWHEEL ||
+		event.type == SDL_USEREVENT) &&
 		dbgWndId == event.window.windowID
 	);
 }
