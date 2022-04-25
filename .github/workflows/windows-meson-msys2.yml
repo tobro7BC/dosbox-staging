@@ -28,19 +28,19 @@ jobs:
             arch: i686
             sys: MINGW32
             cc: gcc
-            max_warnings: 1
+            max_warnings: 30
           - name: GCC (MinGW) x86_64
             toolchain: ""
             arch: x86_64
             sys: MINGW64
             cc: gcc
-            max_warnings: 1
+            max_warnings: 30
           - name: GCC (UCRT) x86_64
             toolchain: ucrt-
             arch: x86_64
             sys: UCRT64
             cc: gcc
-            max_warnings: 1
+            max_warnings: 30
           - name: Clang x86_64
             toolchain: clang-
             arch: x86_64

@@ -434,6 +434,7 @@ int PDC_get_key(void)
         break;
     case SDL_MOUSEMOTION:
         SDL_ShowCursor(SDL_ENABLE);
+        [[fallthrough]];
     case SDL_MOUSEBUTTONUP:
     case SDL_MOUSEBUTTONDOWN:
     case SDL_MOUSEWHEEL:
