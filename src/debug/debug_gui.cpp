@@ -294,12 +294,8 @@ void DBGUI_StartUp(void) {
 	noecho();       /* don't echo input */
 	nodelay(dbg.win_main,true);
 	keypad(dbg.win_main,true);
-	#ifndef WIN32
-	printf("\033[8;50;80t");
-	fflush(NULL);
 	resize_term(50,80);
 	touchwin(dbg.win_main);
-	#endif
 	old_cursor_state = curs_set(0);
 	start_color();
 	cycle_count=0;

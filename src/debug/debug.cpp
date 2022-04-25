@@ -2248,12 +2248,12 @@ void DEBUG_ShutDown(Section * /*sec*/) {
 	CDebugVar::DeleteAll();
 	curs_set(old_cursor_state);
 	endwin();
-#ifndef WIN32
+//#ifndef WIN32
 	//tcsetattr(0, TCSANOW,&consolesettings);
 //	printf("\e[0m\e[2J"); //Seems to destroy scrolling
 //	printf("\ec"); //Doesn't seem to be needed anymore
 //	fflush(NULL);
-#endif
+//#endif
 }
 
 Bitu debugCallback;
