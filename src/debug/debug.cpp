@@ -728,7 +728,7 @@ static void DrawData(void) {
 				if (ch<32 || !isprint(*reinterpret_cast<unsigned char*>(&ch))) ch='.';
 				mvwaddch (dbg.win_data,y,63+x,ch);
 			} else {
-#ifdef __PDCURSES__
+#if PDCURSES
 				mvwaddrawch (dbg.win_data,y,63+x,ch);
 #else
 				if (ch<32) ch='.';
@@ -1618,7 +1618,7 @@ uint32_t DEBUG_CheckKeys(void) {
 	}
 
 	if (key>0 || numberrun) {
-#if defined(WIN32) && defined(__PDCURSES__)
+#if defined(WIN32) && PDCURSES
 		switch (key) {
 		case PADENTER:	key=0x0A;	break;
 		case PADSLASH:	key='/';	break;

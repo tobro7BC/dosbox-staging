@@ -24,15 +24,19 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <curses.h>
 #include <string.h>
 
-#include "curses.h"
 #include "cross.h"
 #include "string_utils.h"
 #include "support.h"
 #include "regs.h"
 #include "debug.h"
 #include "debug_inc.h"
+
+#if !PDCURSES
+#error SYSTEM CURSES INCLUDED, SHOULD BE PDCURSES
+#endif
 
 struct _LogGroup {
 	char const *front = nullptr;
