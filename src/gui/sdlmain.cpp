@@ -320,7 +320,9 @@ static void QuitSDL()
 {
 	if (sdl.initialized) {
 		SDL_CDROMQuit();
+#if !C_DEBUG		
 		SDL_Quit();
+#endif		
 	}
 }
 
