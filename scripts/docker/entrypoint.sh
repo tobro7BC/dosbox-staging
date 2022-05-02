@@ -10,16 +10,14 @@ if ! [ "$(ls -A ${RUNNER_CREDS_DIR})" ]; then
         echo "RUNNER_REG_TOKEN not set"
         exit 1
     fi
-    if [ -z "$RUNNER_NAME" ]; then 
-        echo "RUNNER_NAME not set"
-        exit 1
-    fi
+    runner_name="${RUNNER_NAME:-"runner-${RUNNER_OS}-${RUNNER_ARCH}-${HOSTNAME}"}"
+    echo "Runner name will be ${runner_name}"
 
     ./config.sh \
         --unattended \
         --url "https://github.com/${RUNNER_REPO:-"dosbox-staging/dosbox-staging"}" \
         --token "$RUNNER_REG_TOKEN" \
-        --name "$RUNNER_NAME"
+        --name "$runner_name"
     
     # Move credentials to persistent volume 
     mv .credentials .credentials_rsaparams .runner "${RUNNER_CREDS_DIR}"
