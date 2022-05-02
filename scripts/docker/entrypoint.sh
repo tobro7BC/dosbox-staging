@@ -2,10 +2,11 @@
 
 set -e
 
+# shellcheck source=/dev/null
 . /staging-scripts/common.sh
 
 # Register as a new runner if no existing credential files exist
-if ! [ "$(ls -A ${RUNNER_CREDS_DIR})" ]; then
+if ! [ "$(ls -A "${RUNNER_CREDS_DIR}")" ]; then
     if [ -z "$RUNNER_REG_TOKEN" ]; then
         echo "RUNNER_REG_TOKEN not set"
         exit 1
@@ -23,7 +24,7 @@ if ! [ "$(ls -A ${RUNNER_CREDS_DIR})" ]; then
     mv .credentials .credentials_rsaparams .runner "${RUNNER_CREDS_DIR}"
 fi
 
-if dpkg --compare-versions $(./config.sh --version) lt $(get_latest_runner_version); then
+if dpkg --compare-versions "$(./config.sh --version)" lt "$(get_latest_runner_version)"; then
     # Ensure we have the latest version of the runner
     echo "Installed runner older than latest runner, updating to latest version"
     runner_url=$(get_runner_download_url min)
@@ -37,12 +38,12 @@ else
 fi
 
 # Link credentials from persistent volume to runner root dir
-[ -f ${RUNNER_CREDS_DIR}/.credentials ] && ln -sf ${RUNNER_CREDS_DIR}/.credentials ./
-[ -f ${RUNNER_CREDS_DIR}/.credentials_rsaparams ] && ln -sf ${RUNNER_CREDS_DIR}/.credentials_rsaparams ./
-[ -f ${RUNNER_CREDS_DIR}/.runner ] && ln -sf ${RUNNER_CREDS_DIR}/.runner ./
+[ -f "${RUNNER_CREDS_DIR}/.credentials" ] && ln -sf "${RUNNER_CREDS_DIR}/.credentials" ./
+[ -f "${RUNNER_CREDS_DIR}/.credentials_rsaparams" ] && ln -sf "${RUNNER_CREDS_DIR}/.credentials_rsaparams" ./
+[ -f "${RUNNER_CREDS_DIR}/.runner" ] && ln -sf "${RUNNER_CREDS_DIR}/.runner" ./
 
 if [ -n "$1" ]; then
-    exec $@
+    exec "$@"
 else
     exec ./run.sh
 fi
