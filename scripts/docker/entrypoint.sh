@@ -43,4 +43,8 @@ fi
 [ -f ${RUNNER_CREDS_DIR}/.credentials_rsaparams ] && ln -sf ${RUNNER_CREDS_DIR}/.credentials_rsaparams ./
 [ -f ${RUNNER_CREDS_DIR}/.runner ] && ln -sf ${RUNNER_CREDS_DIR}/.runner ./
 
-exec ./run.sh
+if [ -n "$1" ]; then
+    exec $@
+else
+    exec ./run.sh
+fi
