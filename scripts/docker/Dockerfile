@@ -9,11 +9,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
         git \
         cmake \
         g++ \
-        clang \
         build-essential \
         ccache \
-        python3-setuptools \
-        meson \
+        python3 \
+        python3-pip \
         curl \
         unzip \
         jq \
@@ -26,7 +25,7 @@ ARG RUNNER_DIR=/home/${RUNNER_USER}/action-runner
 RUN useradd -m -s /bin/bash ${RUNNER_USER}
 
 # Allow runner user to run apt-get
-RUN printf "%s\n" "${RUNNER_USER} ALL=NOPASSWD: /usr/bin/apt-get, /usr/bin/aptitude" >> \
+RUN printf "%s\n" "${RUNNER_USER} ALL=NOPASSWD: /usr/bin/apt-get, /usr/bin/aptitude, /usr/bin/pip3" >> \
         /etc/sudoers.d/runnerperms \
     && chmod 0440 /etc/sudoers.d/runnerperms
 
