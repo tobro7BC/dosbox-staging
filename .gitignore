@@ -65,3 +65,6 @@ Resources
 .clangd
 .cache
 compile_commands.json
+
+# runner docker env file
+scripts/docker/.env

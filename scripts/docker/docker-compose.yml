@@ -1,0 +1,29 @@
+# Note: This compose could be made more elegant with the use
+# of swarm mode only features. Currently it is compatible
+# with docker-compose as well. 
+
+x-service: &srv
+  image: ghcr.io/dosbox-staging/self-gh-runner:latest
+  env_file:
+    ./.env
+
+version: "3.7"
+services:
+  runner-1:
+    <<: *srv
+    hostname: yournamehere-1
+    volumes:
+    - cred-1:/runner_creds
+  
+  runner-2:
+    <<: *srv
+    hostname: yournamehere-2
+    volumes:
+    - cred-2:/runner_creds
+
+# Add more to suit. 'hostname' and volume name MUST be unique 
+# for each service for registration purposes.
+
+volumes:
+  cred-1:
+  cred-2:
