@@ -16,12 +16,18 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
         curl \
         unzip \
         jq \
+        sudo \
     && apt-get clean
 
 # Create user for runner
 ARG RUNNER_USER=staging-runner
 ARG RUNNER_DIR=/home/${RUNNER_USER}/action-runner
 RUN useradd -m -s /bin/bash ${RUNNER_USER}
+
+# Allow runner user to run apt-get
+RUN printf "%s\n" "${RUNNER_USER} ALL=NOPASSWD: /usr/bin/apt-get, /usr/bin/aptitude" >> \
+        /etc/sudoers.d/runnerperms \
+    && chmod 0440 /etc/sudoers.d/runnerperms
 
 # Download full GH runner archive, note, only currently supporting Linux target OS
 ARG TARGETARCH
@@ -45,16 +51,6 @@ RUN . /staging-scripts/common.sh \
 
 # Install GH runner dependencies
 RUN ${RUNNER_DIR}/bin/installdependencies.sh \
-    && apt-get clean
-
-# Install dosbox-staging dependencies
-RUN apt-get update && apt-get install --no-install-recommends -y \
-        libasound2-dev \
-        libgtest-dev \
-        libopusfile-dev \
-        libpng-dev \
-        libsdl2-dev \
-        libsdl2-net-dev \
     && apt-get clean
 
 COPY entrypoint.sh /staging-scripts/entrypoint.sh
