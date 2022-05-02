@@ -25,12 +25,17 @@ if ! [ "$(ls -A ${RUNNER_CREDS_DIR})" ]; then
     mv .credentials .credentials_rsaparams .runner "${RUNNER_CREDS_DIR}"
 fi
 
-# Ensure we have the latest version of the runner
-runner_url=$(get_runner_download_url min)
-rc="$?"
-if [ "$rc" = "0" ]; then
-    curl -L -o ../action-runner.tar.gz "$runner_url"
-    tar -xzvf ../action-runner.tar.gz ./
+if dpkg --compare-versions $(./config.sh --version) lt $(get_latest_runner_version); then
+    # Ensure we have the latest version of the runner
+    echo "Installed runner older than latest runner, updating to latest version"
+    runner_url=$(get_runner_download_url min)
+    rc="$?"
+    if [ "$rc" = "0" ]; then
+        curl -L -o ../action-runner.tar.gz "$runner_url"
+        tar -xzvf ../action-runner.tar.gz ./
+    fi
+else
+    echo "Latest version of runner already installed"
 fi
 
 # Link credentials from persistent volume to runner root dir

@@ -2,6 +2,12 @@
 
 set -e
 
+get_latest_runner_version()
+{
+    local vers=$(curl -s https://api.github.com/repos/actions/runner/releases/latest | jq -r .tag_name)
+    printf "%s\n" ${vers#v}
+}
+
 get_runner_download_url()
 {
     local dl_type="$1"
