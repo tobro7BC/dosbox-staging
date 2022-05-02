@@ -10,7 +10,7 @@ if ! [ "$(ls -A ${RUNNER_CREDS_DIR})" ]; then
         echo "RUNNER_REG_TOKEN not set"
         exit 1
     fi
-    runner_name="${RUNNER_NAME:-"runner-${RUNNER_OS}-${RUNNER_ARCH}-${HOSTNAME}"}"
+    runner_name="${RUNNER_NAME:-"${HOSTNAME}-${RUNNER_OS}-${RUNNER_ARCH}"}"
     echo "Runner name will be ${runner_name}"
 
     ./config.sh \
