@@ -66,5 +66,6 @@ Resources
 .cache
 compile_commands.json
 
-# runner docker env file
+# runner docker files
 scripts/docker/.env
+scripts/docker/docker-compose.yml
