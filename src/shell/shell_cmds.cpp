@@ -149,7 +149,11 @@ bool DOS_Shell::execute_shell_cmd(char *name, char *arguments) {
 	SHELL_Cmd shell_cmd = {};
 	if (!lookup_shell_cmd(name, shell_cmd))
 		return false; // name isn't a shell command!
-	(this->*(shell_cmd.handler))(arguments);
+
+	// Hack to allow '-h' and '--help' in shell commands
+	std::regex re("(^| )(-h|--help)( |$)");
+	std::string tmp = std::regex_replace(arguments, re, "$1/?$3", std::regex_constants::format_first_only);
+	(this->*(shell_cmd.handler))(tmp.data());
 	return true;
 }
 
