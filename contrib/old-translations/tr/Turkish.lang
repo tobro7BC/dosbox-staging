@@ -1,277 +1,277 @@
 :CONFIG_FULLSCREEN
-DOSBox'u do§rudan tam ekranda baŸlatr. (ALT-Enter'e baslnca d”ner.)
+DOSBox'u doï¿½rudan tam ekranda baï¿½latï¿½r. (ALT-Enter'e basï¿½lï¿½nca dï¿½ner.)
 .
 :CONFIG_FULLDOUBLE
-Tam ekranda ‡ift arabellekleme kullanlr. Bu ekrann titreŸmesini azaltr ,ama sonu‡ olarak da yavaŸ DOSBox olabilir.
+Tam ekranda ï¿½ift arabellekleme kullanï¿½lï¿½r. Bu ekranï¿½n titreï¿½mesini azaltï¿½r ,ama sonuï¿½ olarak da yavaï¿½ DOSBox olabilir.
 .
 :CONFIG_FULLRESOLUTION
-Tam ekran i‡in hangi ‡”znrlk kullanlacak: original yada fixed size (”rne§in 1024x768).
-  Monit”rn do§al ‡”znrl§, aspect=true birlikte kullanld§nda en iyi sonucu verebilir.
-  E§er, siz byk ekranda k‡k ‡”znrlk kullanld§nzda, yzeyde farkl g”rnmeye ‡alŸabilir.
+Tam ekran iï¿½in hangi ï¿½ï¿½zï¿½nï¿½rlï¿½k kullanï¿½lacak: original yada fixed size (ï¿½rneï¿½in 1024x768).
+  Monitï¿½rï¿½n doï¿½al ï¿½ï¿½zï¿½nï¿½rlï¿½ï¿½ï¿½, aspect=true birlikte kullanï¿½ldï¿½ï¿½ï¿½nda en iyi sonucu verebilir.
+  Eï¿½er, siz bï¿½yï¿½k ekranda kï¿½ï¿½ï¿½k ï¿½ï¿½zï¿½nï¿½rlï¿½k kullanï¿½ldï¿½ï¿½ï¿½nï¿½zda, yï¿½zeyde farklï¿½ gï¿½rï¿½nmeye ï¿½alï¿½ï¿½abilir.
 .
 :CONFIG_WINDOWRESOLUTION
-E§er, ‡kŸ aygtnz donanm ”l‡eklendirmesini destekliyorsa pencereyi bu boyuta ”l‡eklendirir.
+Eï¿½er, ï¿½ï¿½kï¿½ï¿½ aygï¿½tï¿½nï¿½z donanï¿½m ï¿½lï¿½eklendirmesini destekliyorsa pencereyi bu boyuta ï¿½lï¿½eklendirir.
   (output=surface yapmaz.)
 .
 :CONFIG_OUTPUT
-€kŸ i‡in kullanlacak g”rnt sistemi.
+ï¿½ï¿½kï¿½ï¿½ iï¿½in kullanï¿½lacak gï¿½rï¿½ntï¿½ sistemi.
 .
 :CONFIG_AUTOLOCK
-Siz ekrana tkland§nzda, fare kendili§inden kilitlenecektir. (CTRL-F10'a basld§nda kilit kaldrlr.)
+Siz ekrana tï¿½klandï¿½ï¿½ï¿½nï¿½zda, fare kendiliï¿½inden kilitlenecektir. (CTRL-F10'a basï¿½ldï¿½ï¿½ï¿½nda kilit kaldï¿½rï¿½lï¿½r.)
 .
 :CONFIG_SENSITIVITY
-Fare duyarll§.
+Fare duyarlï¿½lï¿½ï¿½ï¿½.
 .
 :CONFIG_WAITONERROR
-DOSBox bir hata durumunda, kapanmadan ”nce bekler.
+DOSBox bir hata durumunda, kapanmadan ï¿½nce bekler.
 .
 :CONFIG_PRIORITY
-DOSBox i‡in ”ncelik dzeyleri. Virglden sonra olan ikinci giriŸ, DOSBox etkin olmad§/simge durumuna k‡ltld§ zaman i‡indir.
-  pause yalnzca ikinci giriŸ i‡in ge‡erlidir.
+DOSBox iï¿½in ï¿½ncelik dï¿½zeyleri. Virgï¿½lden sonra olan ikinci giriï¿½, DOSBox etkin olmadï¿½ï¿½ï¿½/simge durumuna kï¿½ï¿½ï¿½ltï¿½ldï¿½ï¿½ï¿½ zaman iï¿½indir.
+  pause yalnï¿½zca ikinci giriï¿½ iï¿½in geï¿½erlidir.
 .
 :CONFIG_MAPPERFILE
-TuŸlarn/Olaylarn eŸleŸmelerinin yklenece§i/kaydedilece§i dosya. Resetmapper yalnzca varsaylan de§erde ‡alŸr.
+Tuï¿½larï¿½n/Olaylarï¿½n eï¿½leï¿½melerinin yï¿½kleneceï¿½i/kaydedileceï¿½i dosya. Resetmapper yalnï¿½zca varsayï¿½lan deï¿½erde ï¿½alï¿½ï¿½ï¿½r.
 .
 :CONFIG_USESCANCODES
-symkeys kullanmn ”nler, tm iŸletim sistemlerinde ‡alŸmayabilir.
+symkeys kullanï¿½mï¿½nï¿½ ï¿½nler, tï¿½m iï¿½letim sistemlerinde ï¿½alï¿½ï¿½mayabilir.
 .
 :CONFIG_LANGUAGE
-BaŸka dil dosyas se‡er.
+Baï¿½ka dil dosyasï¿½ seï¿½er.
 .
 :CONFIG_MACHINE
-Benzetimi yaplmaya ‡alŸlan makinenin tr.
+Benzetimi yapï¿½lmaya ï¿½alï¿½ï¿½ï¿½lan makinenin tï¿½rï¿½.
 .
 :CONFIG_CAPTURES
-KaydedilmiŸ ses kayd, midi, ekran g”rntlerinin kaydedildi§i dizin.
+Kaydedilmiï¿½ ses kaydï¿½, midi, ekran gï¿½rï¿½ntï¿½lerinin kaydedildiï¿½i dizin.
 .
 :CONFIG_MEMSIZE
-DOSBox'un sahip oldu§u megabayt cinsinden toplam belle§i. 
-  Bu de§er, en iyi baz oyunlar ile sorunlar ”nlemek i‡in varsaylan olarak braklr.
-  ama birka‡ oyun yksek de§er gerektirebilmektedir.
-  Bu de§eri ykseltmek, ‡o§unlukla hz getirisi olmaz.
+DOSBox'un sahip olduï¿½u megabayt cinsinden toplam belleï¿½i. 
+  Bu deï¿½er, en iyi bazï¿½ oyunlar ile sorunlarï¿½ ï¿½nlemek iï¿½in varsayï¿½lan olarak bï¿½rakï¿½lï¿½r.
+  ama birkaï¿½ oyun yï¿½ksek deï¿½er gerektirebilmektedir.
+  Bu deï¿½eri yï¿½kseltmek, ï¿½oï¿½unlukla hï¿½z getirisi olmaz.
 .
 :CONFIG_FRAMESKIP
-DOSBox, ‡izmeden ”nce ka‡ kare atlanaca§dr.
+DOSBox, ï¿½izmeden ï¿½nce kaï¿½ kare atlanacaï¿½ï¿½dï¿½r.
 .
 :CONFIG_ASPECT
-En-boy do§rulamas yapar, e§er ‡kŸ y”nteminiz ”l‡eklendirmeyi desteklemiyorsa iŸleri yavaŸlatr.
+En-boy doï¿½rulamasï¿½ yapar, eï¿½er ï¿½ï¿½kï¿½ï¿½ yï¿½nteminiz ï¿½lï¿½eklendirmeyi desteklemiyorsa iï¿½leri yavaï¿½latï¿½r.
 .
 :CONFIG_SCALER
-DŸk ‡”znrlk kiplerini geniŸletmek/daraltmak i‡in kullanlacak ”l‡eklendirici.
-  E§er "forced" kullanlrsa, sonu‡ istenildi§i gibi olmasa da ”l‡eklendirici kullanlacaktr.
+Dï¿½ï¿½ï¿½k ï¿½ï¿½zï¿½nï¿½rlï¿½k kiplerini geniï¿½letmek/daraltmak iï¿½in kullanï¿½lacak ï¿½lï¿½eklendirici.
+  Eï¿½er "forced" kullanï¿½lï¿½rsa, sonuï¿½ istenildiï¿½i gibi olmasa da ï¿½lï¿½eklendirici kullanï¿½lacaktï¿½r.
 .
 :CONFIG_CORE
-Benzetimde kullanlacak CPU ‡ekirde§i. auto, e§er varsa ve uygunsa dynamic'e ge‡er.
+Benzetimde kullanï¿½lacak CPU ï¿½ekirdeï¿½i. auto, eï¿½er varsa ve uygunsa dynamic'e geï¿½er.
 .
 :CONFIG_CPUTYPE
-Benzetimde kullanlacak CPU tr. auto en hzl se‡imdir.
+Benzetimde kullanï¿½lacak CPU tï¿½rï¿½. auto en hï¿½zlï¿½ seï¿½imdir.
 .
 :CONFIG_CYCLES
-DOSBox'un her milisaniyede benzetimi yapaca§ komut says.
-Bu se‡ene§i ‡ok ykse§e ayarlamak seste kesilmelere ya da gecikmeye neden olabilir.
-€evrim 3 y”ntem ile yaplabilir:
+DOSBox'un her milisaniyede benzetimi yapacaï¿½ï¿½ komut sayï¿½sï¿½.
+Bu seï¿½eneï¿½i ï¿½ok yï¿½kseï¿½e ayarlamak seste kesilmelere ya da gecikmeye neden olabilir.
+ï¿½evrim 3 yï¿½ntem ile yapï¿½labilir:
   "auto"          Bir oyunun gereksinimi sezer.
-                  Bu ‡o§unlukla ‡alŸr, ama baz oyunlarda baŸarsz olsbilir.
-  "fixed #number" Sabit ‡evirim saysn belirler. Bu, ‡o§unlukla auto baŸarsz olunca gereksinim duyarsnz.
-                  (™rne§in: fixed 4000).
-  "max"           Bilgisayarn iŸleyebilece§i en ‡ok ‡evirim says kadar atar.
+                  Bu ï¿½oï¿½unlukla ï¿½alï¿½ï¿½ï¿½r, ama bazï¿½ oyunlarda baï¿½arï¿½sï¿½z olsbilir.
+  "fixed #number" Sabit ï¿½evirim sayï¿½sï¿½nï¿½ belirler. Bu, ï¿½oï¿½unlukla auto baï¿½arï¿½sï¿½z olunca gereksinim duyarsï¿½nï¿½z.
+                  (ï¿½rneï¿½in: fixed 4000).
+  "max"           Bilgisayarï¿½n iï¿½leyebileceï¿½i en ï¿½ok ï¿½evirim sayï¿½sï¿½ kadar atar.
 
 .
 :CONFIG_CYCLEUP
-TuŸ bileŸiminin azaltaca§/arttraca§ ‡evirim says.(CTRL-F11/CTRL-F12)
+Tuï¿½ bileï¿½iminin azaltacaï¿½ï¿½/arttï¿½racaï¿½ï¿½ ï¿½evirim sayï¿½sï¿½.(CTRL-F11/CTRL-F12)
 .
 :CONFIG_CYCLEDOWN
-100'den k‡k de§er ayarland§nda yzdelik olarak belirlenir.
+100'den kï¿½ï¿½ï¿½k deï¿½er ayarlandï¿½ï¿½ï¿½nda yï¿½zdelik olarak belirlenir.
 .
 :CONFIG_NOSOUND
-Sessiz kipi etkinleŸtirir, yine de ses benzetimi yaplacaktr.
+Sessiz kipi etkinleï¿½tirir, yine de ses benzetimi yapï¿½lacaktï¿½r.
 .
 :CONFIG_RATE
-KarŸtrc ”rnekleme hz, herhangi bir aygtn hzn bundan daha yksek de§ere ayarlamak muhtemelen ses kalitesini dŸrecektir.
+Karï¿½ï¿½tï¿½rï¿½cï¿½ ï¿½rnekleme hï¿½zï¿½, herhangi bir aygï¿½tï¿½n hï¿½zï¿½nï¿½ bundan daha yï¿½ksek deï¿½ere ayarlamak muhtemelen ses kalitesini dï¿½ï¿½ï¿½recektir.
 .
 :CONFIG_BLOCKSIZE
-KarŸtrcnn blok hz, daha byk blok boyutu sesin taklmasn engelleyebilir ama ses daha ‡ok gecikecektir.
+Karï¿½ï¿½tï¿½rï¿½cï¿½nï¿½n blok hï¿½zï¿½, daha bï¿½yï¿½k blok boyutu sesin takï¿½lmasï¿½nï¿½ engelleyebilir ama ses daha ï¿½ok gecikecektir.
 .
 :CONFIG_PREBUFFER
-Blok boyutu i‡inde ka‡ milisaniyede veri tutulaca§dr.
+Blok boyutu iï¿½inde kaï¿½ milisaniyede veri tutulacaï¿½ï¿½dï¿½r.
 .
 :CONFIG_MPU401
-Benzetimi yaplacak MPU-401 tr.
+Benzetimi yapï¿½lacak MPU-401 tï¿½rï¿½.
 .
 :CONFIG_MIDIDEVICE
-MPU-401'den MIDI verisi alacak olan aygt.
+MPU-401'den MIDI verisi alacak olan aygï¿½t.
 .
 :CONFIG_MIDICONFIG
-Aygt srcsnn ”zel yaplandrma se‡enekleri. Bu ‡o§unlukla aygtn kimli§ini kullanrsnz.
-  Ayrntl bilgi i‡in README/klavuza baknz.
+Aygï¿½t sï¿½rï¿½cï¿½sï¿½nï¿½n ï¿½zel yapï¿½landï¿½rma seï¿½enekleri. Bu ï¿½oï¿½unlukla aygï¿½tï¿½n kimliï¿½ini kullanï¿½rsï¿½nï¿½z.
+  Ayrï¿½ntï¿½lï¿½ bilgi iï¿½in README/klavuza bakï¿½nï¿½z.
 .
 :CONFIG_SBTYPE
-benzetimi yaplacak Soundblaster tr. gb Gameblaster'dir.
+benzetimi yapï¿½lacak Soundblaster tï¿½rï¿½. gb Gameblaster'dir.
 .
 :CONFIG_SBBASE
-Soundblaster'in giriŸ ile ‡kŸ adresi.
+Soundblaster'in giriï¿½ ile ï¿½ï¿½kï¿½ï¿½ adresi.
 .
 :CONFIG_IRQ
-Soundblaster'in IRQ numaras.
+Soundblaster'in IRQ numarasï¿½.
 .
 :CONFIG_DMA
-Soundblaster'in DMA numaras.
+Soundblaster'in DMA numarasï¿½.
 .
 :CONFIG_HDMA
-Soundblaster'in Yksek DMA adresi.
+Soundblaster'in Yï¿½ksek DMA adresi.
 .
 :CONFIG_SBMIXER
-Soundblaster karŸtrcsnn DOSBox karŸtrcsn de§iŸtirmesine izin verir.
+Soundblaster karï¿½ï¿½tï¿½rï¿½cï¿½sï¿½nï¿½n DOSBox karï¿½ï¿½tï¿½rï¿½cï¿½sï¿½nï¿½ deï¿½iï¿½tirmesine izin verir.
 .
 :CONFIG_OPLMODE
-OPL benzetimi tr. "auto" kipi, soundblaster trne g”re belirtir. Btn OPL kipleri, "cms" dŸnda Adlib uyumludur.
+OPL benzetimi tï¿½rï¿½. "auto" kipi, soundblaster tï¿½rï¿½ne gï¿½re belirtir. Bï¿½tï¿½n OPL kipleri, "cms" dï¿½ï¿½ï¿½nda Adlib uyumludur.
 .
 :CONFIG_OPLEMU
-OPL benzetimi i‡in sa§layc. compat daha iyi sa§layabilir.(oplrate'ye de baknz)
+OPL benzetimi iï¿½in saï¿½layï¿½cï¿½. compat daha iyi saï¿½layabilir.(oplrate'ye de bakï¿½nï¿½z)
 .
 :CONFIG_OPLRATE
-OPL mzik benzetiminin ”rnekleme hz. En yksek kalite i‡in 49716'y kullannz. (karŸtrc hzn uygun Ÿekilde belirtiniz)
+OPL mï¿½zik benzetiminin ï¿½rnekleme hï¿½zï¿½. En yï¿½ksek kalite iï¿½in 49716'yï¿½ kullanï¿½nï¿½z. (karï¿½ï¿½tï¿½rï¿½cï¿½ hï¿½zï¿½nï¿½ uygun ï¿½ekilde belirtiniz)
 .
 :CONFIG_GUS
-Gravis Ultrasound benzetimini etkinleŸtirir.
+Gravis Ultrasound benzetimini etkinleï¿½tirir.
 .
 :CONFIG_GUSRATE
-Ultrasound benzetiminin ”rnekleme hz.
+Ultrasound benzetiminin ï¿½rnekleme hï¿½zï¿½.
 .
 :CONFIG_GUSBASE
-Gravis Ultrasound'n giriŸ ile ‡kŸ ana adresi.
+Gravis Ultrasound'ï¿½n giriï¿½ ile ï¿½ï¿½kï¿½ï¿½ ana adresi.
 .
 :CONFIG_GUSIRQ
-Gravis Ultrasound'n IRQ numaras.
+Gravis Ultrasound'ï¿½n IRQ numarasï¿½.
 .
 :CONFIG_GUSDMA
-Gravis Ultrasound'n DMA kanal.
+Gravis Ultrasound'ï¿½n DMA kanalï¿½.
 .
 :CONFIG_ULTRADIR
-Ultrasound dizininin yolu. Bu dizin i‡ine
-GUS oynatmak i‡in gerekli yama dosyalarnn oldu§u
-MIDI dizini olmal. Timidity ile kullanlan yama
-setleri dzgn ‡alŸyor olmal.
+Ultrasound dizininin yolu. Bu dizin iï¿½ine
+GUS oynatmak iï¿½in gerekli yama dosyalarï¿½nï¿½n olduï¿½u
+MIDI dizini olmalï¿½. Timidity ile kullanï¿½lan yama
+setleri dï¿½zgï¿½n ï¿½alï¿½ï¿½ï¿½yor olmalï¿½.
 .
 :CONFIG_PCSPEAKER
-Sistem hoparl”r benzetimini etkinleŸtirir.
+Sistem hoparlï¿½rï¿½ benzetimini etkinleï¿½tirir.
 .
 :CONFIG_PCRATE
-Sistem hoparl”r ses retiminin ”rnekleme hz.
+Sistem hoparlï¿½rï¿½ ses ï¿½retiminin ï¿½rnekleme hï¿½zï¿½.
 .
 :CONFIG_TANDY
-Tandy Sound System benzetimini etkinleŸtirir. "auto" i‡in sadece makine tandy'e ayarland ise Tandysound benzetimi sunulur.
+Tandy Sound System benzetimini etkinleï¿½tirir. "auto" iï¿½in sadece makine tandy'e ayarlandï¿½ ise Tandysound benzetimi sunulur.
 .
 :CONFIG_TANDYRATE
-Tandy 3-Voice retiminin ”rnekleme hz.
+Tandy 3-Voice ï¿½retiminin ï¿½rnekleme hï¿½zï¿½.
 .
 :CONFIG_DISNEY
-Disney Sound Source benzetimini etkinleŸtirir. (Covox Voice Master ile Speech Thing uyumlu).
+Disney Sound Source benzetimini etkinleï¿½tirir. (Covox Voice Master ile Speech Thing uyumlu).
 .
 :CONFIG_JOYSTICKTYPE
-Benzetimi yaplacak joystick tr: auto (default), none,
+Benzetimi yapï¿½lacak joystick tï¿½rï¿½: auto (default), none,
 2axis (iki joystick destekler),
-4axis (bir joystick destekler, kullanlan ilk joystick),
-4axis_2 (bir joystick destekler, kullanlan ikinci joystick),
+4axis (bir joystick destekler, kullanï¿½lan ilk joystick),
+4axis_2 (bir joystick destekler, kullanï¿½lan ikinci joystick),
 fcs (Thrustmaster), ch (CH Flightstick).
-none joystick benzetimini devredŸ brakr.disables joystick emulation.
-auto ger‡ek joystick(ler)e g”re benzetim se‡er.
-(E§er ”nceden kaydettiyseniz, DOSBox'un eŸleyici dosyasn sfrlayn.)
+none joystick benzetimini devredï¿½ï¿½ï¿½ bï¿½rakï¿½r.disables joystick emulation.
+auto gerï¿½ek joystick(ler)e gï¿½re benzetim seï¿½er.
+(Eï¿½er ï¿½nceden kaydettiyseniz, DOSBox'un eï¿½leyici dosyasï¿½nï¿½ sï¿½fï¿½rlayï¿½n.)
 .
 :CONFIG_TIMED
-Eksen i‡in zaman aralklarn etkinleŸtirir. E§er joystickiniz srklenir ise (bir y”ne), bu se‡enek ile birlikte deneyin.
+Eksen iï¿½in zaman aralï¿½klarï¿½nï¿½ etkinleï¿½tirir. Eï¿½er joystickiniz sï¿½rï¿½klenir ise (bir yï¿½ne), bu seï¿½enek ile birlikte deneyin.
 .
 :CONFIG_AUTOFIRE
-TuŸa basl tuttu§unuz srece atŸ devam eder.
+Tuï¿½a basï¿½lï¿½ tuttuï¿½unuz sï¿½rece atï¿½ï¿½ devam eder.
 .
 :CONFIG_SWAP34
-3. ile 4. eksenlerinin yerini de§iŸtirir. Baz joystickler i‡in kullanŸl olabilir.
+3. ile 4. eksenlerinin yerini deï¿½iï¿½tirir. Bazï¿½ joystickler iï¿½in kullanï¿½ï¿½lï¿½ olabilir.
 .
 :CONFIG_BUTTONWRAP
-Benzetim yaplan d§me kadar d§me kaydrmay etkinleŸtirir.
+Benzetim yapï¿½lan dï¿½ï¿½me kadar dï¿½ï¿½me kaydï¿½rmayï¿½ etkinleï¿½tirir.
 .
 :CONFIG_SERIAL1
-Seri arabirime ba§l aygtlarn trn ayarlar.
+Seri arabirime baï¿½lï¿½ aygï¿½tlarï¿½n tï¿½rï¿½nï¿½ ayarlar.
 disabled, dummy, modem, nullmodem, directserial olabilir.
-Ek parametreler, parametre:de§er Ÿeklinde ayn satrda olmaldr.
-Tm trler i‡in parametre irq (iste§e ba§l).
-directserial i‡in: realport (gerekli), rxdelay (iste§e ba§l).
+Ek parametreler, parametre:deï¿½er ï¿½eklinde aynï¿½ satï¿½rda olmalï¿½dï¿½r.
+Tï¿½m tï¿½rler iï¿½in parametre irq (isteï¿½e baï¿½lï¿½).
+directserial iï¿½in: realport (gerekli), rxdelay (isteï¿½e baï¿½lï¿½).
                  (realport:COM1 realport:ttyS0).
-modem i‡in: listenport (optional).
-nullmodem i‡in: server, rxdelay, txdelay, telnet, usedtr,
-               transparent, port, inhsocket (hepsi iste§e ba§l).
-™rne§in: serial1=modem listenport:5000
+modem iï¿½in: listenport (optional).
+nullmodem iï¿½in: server, rxdelay, txdelay, telnet, usedtr,
+               transparent, port, inhsocket (hepsi isteï¿½e baï¿½lï¿½).
+ï¿½rneï¿½in: serial1=modem listenport:5000
 .
 :CONFIG_SERIAL2
-serial1'e baknz.
+serial1'e bakï¿½nï¿½z.
 .
 :CONFIG_SERIAL3
-serial1'e baknz.
+serial1'e bakï¿½nï¿½z.
 .
 :CONFIG_SERIAL4
-serial1'e baknz.
+serial1'e bakï¿½nï¿½z.
 .
 :CONFIG_XMS
-XMS deste§ini etkinleŸtirir.
+XMS desteï¿½ini etkinleï¿½tirir.
 .
 :CONFIG_EMS
-EMS deste§ini etkinleŸtirir.
+EMS desteï¿½ini etkinleï¿½tirir.
 .
 :CONFIG_UMB
-UMB deste§ini etkinleŸtirir.
+UMB desteï¿½ini etkinleï¿½tirir.
 .
 :CONFIG_KEYBOARDLAYOUT
-Klavye dzeni i‡in dil koduLanguage code of the keyboard layout (or none).
+Klavye dï¿½zeni iï¿½in dil koduLanguage code of the keyboard layout (or none).
 .
 :CONFIG_IPX
-UDP/IP benzetimi zerinde ipx'i etkinleŸtirir.
+UDP/IP benzetimi ï¿½zerinde ipx'i etkinleï¿½tirir.
 .
 :AUTOEXEC_CONFIGFILE_HELP
-Bu b”lmde olan satrlar a‡lŸta ‡alŸtrlacak.
-Siz, MOUNT satrlarn buraya yazabilirsiniz.
+Bu bï¿½lï¿½mde olan satï¿½rlar aï¿½ï¿½lï¿½ï¿½ta ï¿½alï¿½ï¿½tï¿½rï¿½lacak.
+Siz, MOUNT satï¿½rlarï¿½nï¿½ buraya yazabilirsiniz.
 
 .
 :CONFIGFILE_INTRO
-# Bu, DOSBox %s i‡in yaplandrma dosyasdr. (Ltfen DOSBox'un en son srmn kullannz.)
-# # ile baŸlayan satrlar DOSBox'un g”rmezden geldi§i a‡klama satrlardr.
-# Onlar, her se‡ene§in etkilerini (ksaca) belgelemek i‡in kullanlr.
+# Bu, DOSBox %s iï¿½in yapï¿½landï¿½rma dosyasï¿½dï¿½r. (Lï¿½tfen DOSBox'un en son sï¿½rï¿½mï¿½nï¿½ kullanï¿½nï¿½z.)
+# # ile baï¿½layan satï¿½rlar DOSBox'un gï¿½rmezden geldiï¿½i aï¿½ï¿½klama satï¿½rlarï¿½dï¿½r.
+# Onlar, her seï¿½eneï¿½in etkilerini (kï¿½saca) belgelemek iï¿½in kullanï¿½lï¿½r.
 
 .
 :CONFIG_SUGGESTED_VALUES
-Olas de§erler
+Olasï¿½ deï¿½erler
 .
 :PROGRAM_CONFIG_FILE_ERROR
-%s dosyas a‡lamad.
+%s dosyasï¿½ aï¿½ï¿½lamadï¿½.
 
 .
-:PROGRAM_CONFIG_USAGE
-Yaplandrma arac:
-Ge‡erli yaplandrmay yazdrmak i‡in -writeconf dosyaismi kullann.
-Ge‡erli dil katarlar i‡in -writelang dosyaismi kullann.
+:SHELL_CMD_CONFIG_HELP_LONG
+Yapï¿½landï¿½rma aracï¿½:
+Geï¿½erli yapï¿½landï¿½rmayï¿½ yazdï¿½rmak iï¿½in -writeconf dosyaismi kullanï¿½n.
+Geï¿½erli dil katarlarï¿½ iï¿½in -writelang dosyaismi kullanï¿½n.
 
 .
 :PROGRAM_CONFIG_SECURE_ON
-Gvenli kipe ge‡ildi.
+Gï¿½venli kipe geï¿½ildi.
 
 .
 :PROGRAM_CONFIG_SECURE_DISALLOW
-Gvenli kipte bu iŸleme izin verlimez.
+Gï¿½venli kipte bu iï¿½leme izin verlimez.
 
 .
 :PROGRAM_CONFIG_SECTION_ERROR
-%s b”lmnde yok.
+%s bï¿½lï¿½mï¿½nde yok.
 
 .
 :PROGRAM_CONFIG_PROPERTY_ERROR
-B”yle b”lm ya da ”zellik yok.
+Bï¿½yle bï¿½lï¿½m ya da ï¿½zellik yok.
 
 .
 :PROGRAM_CONFIG_NO_PROPERTY
-%s ”zelli§i, %s b”lmnde yok.
+%s ï¿½zelliï¿½i, %s bï¿½lï¿½mï¿½nde yok.
 
 .
 :PROGRAM_CONFIG_GET_SYNTAX
-Do§ru s”zdizimi: config -get "b”lm ”zelli§i"
+Doï¿½ru sï¿½zdizimi: config -get "bï¿½lï¿½m ï¿½zelliï¿½i"
 
 .
 :PROGRAM_MOUNT_CDROMS_FOUND
@@ -279,11 +279,11 @@ Bulunan CDROM'lar: %d
 
 .
 :PROGRAM_MOUNT_STATUS_2
-%c srcs %s olarak ba§land.
+%c sï¿½rï¿½cï¿½sï¿½ %s olarak baï¿½landï¿½.
 
 .
 :PROGRAM_MOUNT_STATUS_1
-imdiki ba§lanmŸ srcler:
+ï¿½imdiki baï¿½lanmï¿½ï¿½ sï¿½rï¿½cï¿½ler:
 
 .
 :PROGRAM_MOUNT_ERROR_1
@@ -291,390 +291,390 @@ Bulunan CDROM'lar: %d
 
 .
 :PROGRAM_MOUNT_ERROR_2
-%s bir dizin de§il.
+%s bir dizin deï¿½il.
 
 .
 :PROGRAM_MOUNT_ILL_TYPE
-Ge‡ersiz tr %s
+Geï¿½ersiz tï¿½r %s
 
 .
 :PROGRAM_MOUNT_ALREADY_MOUNTED
-%c srcs zaten %s ile atanmŸ.
+%c sï¿½rï¿½cï¿½sï¿½ zaten %s ile atanmï¿½ï¿½.
 
 .
 :PROGRAM_MOUNT_USAGE
-Kullanm [34;1mMOUNT Surucu-Harfi Yerel-Dizin[0m
-™rne§in: MOUNT c %s
-Bu, %s dizini, DOSBox'ta C: srcs g”revini yapar.
-Bu dizin var olmas gerekir.
+Kullanï¿½mï¿½ [34;1mMOUNT Surucu-Harfi Yerel-Dizin[0m
+ï¿½rneï¿½in: MOUNT c %s
+Bu, %s dizini, DOSBox'ta C: sï¿½rï¿½cï¿½sï¿½ gï¿½revini yapar.
+Bu dizin var olmasï¿½ gerekir.
 
 .
 :PROGRAM_MOUNT_UMOUNT_NOT_MOUNTED
-%c srcs ba§lanmamŸ.
+%c sï¿½rï¿½cï¿½sï¿½ baï¿½lanmamï¿½ï¿½.
 
 .
 :PROGRAM_MOUNT_UMOUNT_SUCCESS
-%c srcs baŸarl olarak kaldrld.
+%c sï¿½rï¿½cï¿½sï¿½ baï¿½arï¿½lï¿½ olarak kaldï¿½rï¿½ldï¿½.
 
 .
 :PROGRAM_MOUNT_UMOUNT_NO_VIRTUAL
-Sanal srcler ‡karlamaz.
+Sanal sï¿½rï¿½cï¿½ler ï¿½ï¿½karï¿½lamaz.
 
 .
 :PROGRAM_MOUNT_WARNING_WIN
-[31;1mc:\ ba§lanmas ”nerilmemektedir. Ltfen bir dahaki sefere bir (alt) dizin ba§layn.[0m
+[31;1mc:\ baï¿½lanmasï¿½ ï¿½nerilmemektedir. Lï¿½tfen bir dahaki sefere bir (alt) dizin baï¿½layï¿½n.[0m
 
 .
 :PROGRAM_MOUNT_WARNING_OTHER
-[31;1m/ ba§lanmas ”nerilmemektedir. Ltfen bir dahaki sefere (alt) dizin ba§layn.[0m
+[31;1m/ baï¿½lanmasï¿½ ï¿½nerilmemektedir. Lï¿½tfen bir dahaki sefere (alt) dizin baï¿½layï¿½n.[0m
 
 .
 :PROGRAM_MEM_CONVEN
-%10d Kb boŸ geleneksel bellek
+%10d Kb boï¿½ geleneksel bellek
 
 .
 :PROGRAM_MEM_EXTEND
-%10d Kb boŸ uzatlmŸ bellek
+%10d Kb boï¿½ uzatï¿½lmï¿½ï¿½ bellek
 
 .
 :PROGRAM_MEM_EXPAND
-%10d Kb geniŸletilmŸiŸ bellek
+%10d Kb geniï¿½letilmï¿½iï¿½ bellek
 
 .
 :PROGRAM_MEM_UPPER
-%10d Kb %d bloklarnda boŸ st bellek (en byk UMB %d Kb)
+%10d Kb %d bloklarï¿½nda boï¿½ ï¿½st bellek (en bï¿½yï¿½k UMB %d Kb)
 
 .
 :PROGRAM_LOADFIX_ALLOC
-%d kb ayrld.
+%d kb ayrï¿½ldï¿½.
 
 .
 :PROGRAM_LOADFIX_DEALLOC
-%d kb serbest brakld.
+%d kb serbest bï¿½rakï¿½ldï¿½.
 
 .
 :PROGRAM_LOADFIX_DEALLOCALL
-Kullanlan bellek serbest brakld.
+Kullanï¿½lan bellek serbest bï¿½rakï¿½ldï¿½.
 
 .
 :PROGRAM_LOADFIX_ERROR
-Bellek ayrma hatas.
+Bellek ayï¿½rma hatasï¿½.
 
 .
 :MSCDEX_SUCCESS
-MSCDEX yklendi.
+MSCDEX yï¿½klendi.
 
 .
 :MSCDEX_ERROR_MULTIPLE_CDROMS
-MSCDEX: BaŸarszlk: Birden ‡ok CDROM srclerinin src harfleri srekli
+MSCDEX: Baï¿½arï¿½sï¿½zlï¿½k: Birden ï¿½ok CDROM sï¿½rï¿½cï¿½lerinin sï¿½rï¿½cï¿½ harfleri sï¿½rekli
 olmak zorunda.
 
 .
 :MSCDEX_ERROR_NOT_SUPPORTED
-MSCDEX: BaŸarszlk: Henz desteklenmiyor.
+MSCDEX: Baï¿½arï¿½sï¿½zlï¿½k: Henï¿½z desteklenmiyor.
 
 .
 :MSCDEX_ERROR_OPEN
-MSCDEX: BaŸarszlk: Ge‡ersiz dosya ya da a‡lmas olanaksz.
+MSCDEX: Baï¿½arï¿½sï¿½zlï¿½k: Geï¿½ersiz dosya ya da aï¿½ï¿½lmasï¿½ olanaksï¿½z.
 
 .
 :MSCDEX_TOO_MANY_DRIVES
-MSCDEX: BaŸarszlk: €ok fazla CDROM srcs (en ‡ok:5). MSCDEX yklemesi
-baŸarsz.
+MSCDEX: Baï¿½arï¿½sï¿½zlï¿½k: ï¿½ok fazla CDROM sï¿½rï¿½cï¿½sï¿½ (en ï¿½ok:5). MSCDEX yï¿½klemesi
+baï¿½arï¿½sï¿½z.
 
 .
 :MSCDEX_LIMITED_SUPPORT
-MSCDEX: Alt dizin ba§land: snrl destek..
+MSCDEX: Alt dizin baï¿½landï¿½: sï¿½nï¿½rlï¿½ destek..
 
 .
 :MSCDEX_INVALID_FILEFORMAT
-MSCDEX: BaŸarszlk: Dosya iso/cue kalb de§il ya da hatalar i‡eriyor.
+MSCDEX: Baï¿½arï¿½sï¿½zlï¿½k: Dosya iso/cue kalï¿½bï¿½ deï¿½il ya da hatalar iï¿½eriyor.
 
 .
 :MSCDEX_UNKNOWN_ERROR
-MSCDEX: BaŸarszlk: Bilinmeyen hata.
+MSCDEX: Baï¿½arï¿½sï¿½zlï¿½k: Bilinmeyen hata.
 
 .
 :PROGRAM_RESCAN_SUCCESS
-Src ”nbelle§i temizlendi.
+Sï¿½rï¿½cï¿½ ï¿½nbelleï¿½i temizlendi.
 
 .
 :PROGRAM_INTRO
-[2J[32;1mDOSBox'a hoŸgeldiniz[0m, sesli ile grafikli x86 benzeticisidir.
-DOSBox sizin, bildi§iniz eski yaln DOS gibi kabuk oluŸturur.
+[2J[32;1mDOSBox'a hoï¿½geldiniz[0m, sesli ile grafikli x86 benzeticisidir.
+DOSBox sizin, bildiï¿½iniz eski yalï¿½n DOS gibi kabuk oluï¿½turur.
 
-Temel ba§lama ile ilgili bilgi i‡in [34;1mintro mount[0m yazn
-CD-ROM deste§i ile ilgili bilgi [34;1mintro cdrom[0m yazn
-™zel tuŸlar ile ilgili bilgi i‡in[34;1mintro special[0m yazn
-DOSBox ile ilgili daha ‡ok bilgi i‡in [34;1mhttp://www.dosbox.com/wiki[0m gidin
+Temel baï¿½lama ile ilgili bilgi iï¿½in [34;1mintro mount[0m yazï¿½n
+CD-ROM desteï¿½i ile ilgili bilgi [34;1mintro cdrom[0m yazï¿½n
+ï¿½zel tuï¿½lar ile ilgili bilgi iï¿½in[34;1mintro special[0m yazï¿½n
+DOSBox ile ilgili daha ï¿½ok bilgi iï¿½in [34;1mhttp://www.dosbox.com/wiki[0m gidin
 
-[31;1mHata oldu§unda DOSBox uyar vermeden durur/kapanr![0m
+[31;1mHata olduï¿½unda DOSBox uyarï¿½ vermeden durur/kapanï¿½r![0m
 
 
 
 .
 :PROGRAM_INTRO_MOUNT_START
-[32;1m˜Ÿte baŸlamanz i‡in birka‡ komut:[0m
-Kendi dosya sisteminizde bulunan dosyalar kullanmadan
-”nce, dosyalarn oldu§u dizini bir srcye atamalsnz.
+[32;1mï¿½ï¿½te baï¿½lamanï¿½z iï¿½in birkaï¿½ komut:[0m
+Kendi dosya sisteminizde bulunan dosyalarï¿½ kullanmadan
+ï¿½nce, dosyalarï¿½n olduï¿½u dizini bir sï¿½rï¿½cï¿½ye atamalï¿½sï¿½nï¿½z.
 
 
 .
 :PROGRAM_INTRO_MOUNT_WINDOWS
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [32mmount c c:\dosprogs\[37m c:\dosprogs i‡eri§i bulunan bir                    º
-º C srcs oluŸturacaktr.                                              º
-º                                                                         º
-º [32mc:\dosprogs\[37m bir ”rnektir. Bunu kendi dizininiz ile de§iŸtirin.         º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [32mmount c c:\dosprogs\[37m c:\dosprogs iï¿½eriï¿½i bulunan bir                    ï¿½
+ï¿½ C sï¿½rï¿½cï¿½sï¿½ oluï¿½turacaktï¿½r.                                              ï¿½
+ï¿½                                                                         ï¿½
+ï¿½ [32mc:\dosprogs\[37m bir ï¿½rnektir. Bunu kendi dizininiz ile deï¿½iï¿½tirin.         ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 
 .
 :PROGRAM_INTRO_MOUNT_OTHER
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [32mmount c ~/dosprogs[37m ~/dosprogs i‡eri§i bulunan bir                    º
-º C srcs oluŸturacaktr.                                           º
-º                                                                      º
-º [32m~/dosprogs[37m bir ”rnektir. Bunu kendi dizininiz ile de§iŸtirin.        º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [32mmount c ~/dosprogs[37m ~/dosprogs iï¿½eriï¿½i bulunan bir                    ï¿½
+ï¿½ C sï¿½rï¿½cï¿½sï¿½ oluï¿½turacaktï¿½r.                                           ï¿½
+ï¿½                                                                      ï¿½
+ï¿½ [32m~/dosprogs[37m bir ï¿½rnektir. Bunu kendi dizininiz ile deï¿½iï¿½tirin.        ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 
 .
 :PROGRAM_INTRO_MOUNT_END
-Ba§lanma baŸar ile tamamland§nda yeni C srcnze [34;1mc:[0m yazarak
-ulaŸabilirsiniz.
-[34;1mdir[0m yazarak i‡eri§ini g”sterebilirsiniz. [34;1mcd[0m bir dizine girmenize
-olanak verir. (dizin listesinde [33;1m[][0m ile tannan).
-[31m.exe .bat[0m ya da [31m.com[0m ile biten programlar/dosyalar ‡alŸtrabilirsiniz.
+Baï¿½lanma baï¿½arï¿½ ile tamamlandï¿½ï¿½ï¿½nda yeni C sï¿½rï¿½cï¿½nï¿½ze [34;1mc:[0m yazarak
+ulaï¿½abilirsiniz.
+[34;1mdir[0m yazarak iï¿½eriï¿½ini gï¿½sterebilirsiniz. [34;1mcd[0m bir dizine girmenize
+olanak verir. (dizin listesinde [33;1m[][0m ile tanï¿½nan).
+[31m.exe .bat[0m ya da [31m.com[0m ile biten programlarï¿½/dosyalarï¿½ ï¿½alï¿½ï¿½tï¿½rabilirsiniz.
 
 .
 :PROGRAM_INTRO_CDROM
-[2J[32;1mDOSBox'ta ger‡ek/sanal CD-ROM srcs nasl yaratlr:[0m
-DOSBox, CD-ROM benzetimini birka‡ seviyede sa§layabilir.
+[2J[32;1mDOSBox'ta gerï¿½ek/sanal CD-ROM sï¿½rï¿½cï¿½sï¿½ nasï¿½l yaratï¿½lï¿½r:[0m
+DOSBox, CD-ROM benzetimini birkaï¿½ seviyede saï¿½layabilir.
 
-[33mTemel[0m seviye tm CD-ROM srclerinde ile normal dizinlerde ‡alŸr.
-Bu MSCDEX ykler ve dosyalar yalnz okunur olarak iŸaretler.
-Bu ‡o§unlukla ‡o§u oyun i‡in yeterlidir:
+[33mTemel[0m seviye tï¿½m CD-ROM sï¿½rï¿½cï¿½lerinde ile normal dizinlerde ï¿½alï¿½ï¿½ï¿½r.
+Bu MSCDEX yï¿½kler ve dosyalarï¿½ yalnï¿½z okunur olarak iï¿½aretler.
+Bu ï¿½oï¿½unlukla ï¿½oï¿½u oyun iï¿½in yeterlidir:
 [34;1mmount d [0;31mD:\[34;1m -t cdrom[0m ya da [34;1mmount d C:\example -t cdrom[0m
-E§er bu ‡alŸmazsa DOSBox'a CD-ROM etiketini bildirebilirsiniz:
+Eï¿½er bu ï¿½alï¿½ï¿½mazsa DOSBox'a CD-ROM etiketini bildirebilirsiniz:
 [34;1mmount d C:\example -t cdrom -label CDLABEL[0m
 
-[33mSonraki[0m seviyede biraz alt seviye dest§i ekler.
-Bundan dolay yalnz CD-ROM srclerinde ‡alŸr:
+[33mSonraki[0m seviyede biraz alt seviye destï¿½i ekler.
+Bundan dolayï¿½ yalnï¿½z CD-ROM sï¿½rï¿½cï¿½lerinde ï¿½alï¿½ï¿½ï¿½r:
 [34;1mmount d [0;31mD:\[34;1m -t cdrom -usecd [33m0[0m
 
-[33mSon[0m seviyede iŸletim sisteminize ba§ldr:
-[1mWindows 2000[0m, [1mWindows XP[0m ile [1mLinux[0m i‡in:
+[33mSon[0m seviyede iï¿½letim sisteminize baï¿½lï¿½dï¿½r:
+[1mWindows 2000[0m, [1mWindows XP[0m ile [1mLinux[0m iï¿½in:
 [34;1mmount d [0;31mD:\[34;1m -t cdrom -usecd [33m0 [34m-ioctl[0m
-ASPI katman ykl [1mWindows 9x[0m i‡in:
+ASPI katmanï¿½ yï¿½klï¿½ [1mWindows 9x[0m iï¿½in:
 [34;1mmount d [0;31mD:\[34;1m -t cdrom -usecd [33m0 [34m-aspi[0m
 
-[0;31mD:\[0m'yi CD-ROM'unuzun yeri ile de§iŸtirin.
-[34;1m-usecd [33;1m0[0m'daki [33m0[0m'i kendi CD-ROM'unuzun bildirilen numaras ile
-de§iŸtirin: [34;1mmount -cd[0m
+[0;31mD:\[0m'yi CD-ROM'unuzun yeri ile deï¿½iï¿½tirin.
+[34;1m-usecd [33;1m0[0m'daki [33m0[0m'i kendi CD-ROM'unuzun bildirilen numarasï¿½ ile
+deï¿½iï¿½tirin: [34;1mmount -cd[0m
 
 
 .
 :PROGRAM_INTRO_SPECIAL
-[2J[32;1m™zel tuŸlar:[0m
-Bunlar varsaylan tuŸ takmdr.
-Onlar, [33mkeymapper[0m'da de§iŸtirilebilirler.
+[2J[32;1mï¿½zel tuï¿½lar:[0m
+Bunlar varsayï¿½lan tuï¿½ takï¿½mï¿½dï¿½r.
+Onlar, [33mkeymapper[0m'da deï¿½iï¿½tirilebilirler.
 
-[33;1mALT-ENTER[0m   : Tam ekrana ge‡er ya da ‡kar.
-[33;1mALT-PAUSE[0m   : DOSBox'u duraklatr.
-[33;1mCTRL-F1[0m     : [33mkeymapper[0m'i baŸlatr.
-[33;1mCTRL-F4[0m     : Btn srcler i‡in dizin ”nbelle§ini gnceller. 
-                              Ba§lanmŸ disk kalbn de§iŸtirir.
-[33;1mCTRL-ALT-F5[0m : Bir ekran videosu oluŸturmay baŸlatr/durdurur.
-[33;1mCTRL-F5[0m     : Ekran g”rnts kaydeder.
-[33;1mCTRL-F6[0m     : Bir ses dosyasna ses ‡kŸ kaydn baŸlatr/durdurur.
-[33;1mCTRL-ALT-F7[0m : OPL komutlar kaydn baŸlatr/durdurur.
-[33;1mCTRL-ALT-F8[0m : Saf MIDI komutlarnn kaydn baŸlatr/durdurur.
-[33;1mCTRL-F7[0m     : €er‡eve atlanmasn azaltr.
-[33;1mCTRL-F8[0m     : €er‡eve atlanmasn arttrr.
-[33;1mCTRL-F9[0m     : DOSBox'u sonlandrr.
-[33;1mCTRL-F10[0m    : Fareyi yakalar/brakr.
-[33;1mCTRL-F11[0m    : Benzetimini yavaŸlatr. (DOSBox d”nglerini azaltr).
-[33;1mCTRL-F12[0m    : Benzetimini hzlandrr.(DOSBox d”nglerini arttrr).
-[33;1mALT-F12[0m     : Hz kilidini kaldrr. (turbo d§mesi/hzl ilerletme).
+[33;1mALT-ENTER[0m   : Tam ekrana geï¿½er ya da ï¿½ï¿½kar.
+[33;1mALT-PAUSE[0m   : DOSBox'u duraklatï¿½r.
+[33;1mCTRL-F1[0m     : [33mkeymapper[0m'i baï¿½latï¿½r.
+[33;1mCTRL-F4[0m     : Bï¿½tï¿½n sï¿½rï¿½cï¿½ler iï¿½in dizin ï¿½nbelleï¿½ini gï¿½nceller. 
+                              Baï¿½lanmï¿½ï¿½ disk kalï¿½bï¿½nï¿½ deï¿½iï¿½tirir.
+[33;1mCTRL-ALT-F5[0m : Bir ekran videosu oluï¿½turmayï¿½ baï¿½latï¿½r/durdurur.
+[33;1mCTRL-F5[0m     : Ekran gï¿½rï¿½ntï¿½sï¿½ kaydeder.
+[33;1mCTRL-F6[0m     : Bir ses dosyasï¿½na ses ï¿½ï¿½kï¿½ï¿½ï¿½ kaydï¿½nï¿½ baï¿½latï¿½r/durdurur.
+[33;1mCTRL-ALT-F7[0m : OPL komutlarï¿½ kaydï¿½nï¿½ baï¿½latï¿½r/durdurur.
+[33;1mCTRL-ALT-F8[0m : Saf MIDI komutlarï¿½nï¿½n kaydï¿½nï¿½ baï¿½latï¿½r/durdurur.
+[33;1mCTRL-F7[0m     : ï¿½erï¿½eve atlanmasï¿½nï¿½ azaltï¿½r.
+[33;1mCTRL-F8[0m     : ï¿½erï¿½eve atlanmasï¿½nï¿½ arttï¿½rï¿½r.
+[33;1mCTRL-F9[0m     : DOSBox'u sonlandï¿½rï¿½r.
+[33;1mCTRL-F10[0m    : Fareyi yakalar/bï¿½rakï¿½r.
+[33;1mCTRL-F11[0m    : Benzetimini yavaï¿½latï¿½r. (DOSBox dï¿½ngï¿½lerini azaltï¿½r).
+[33;1mCTRL-F12[0m    : Benzetimini hï¿½zlandï¿½rï¿½r.(DOSBox dï¿½ngï¿½lerini arttï¿½rï¿½r).
+[33;1mALT-F12[0m     : Hï¿½z kilidini kaldï¿½rï¿½r. (turbo dï¿½ï¿½mesi/hï¿½zlï¿½ ilerletme).
 
 .
 :PROGRAM_BOOT_NOT_EXIST
-A‡lŸ diski bulunmuyor. Hata.
+Aï¿½ï¿½lï¿½ï¿½ diski bulunmuyor. Hata.
 
 .
 :PROGRAM_BOOT_NOT_OPEN
-A‡lŸ diski dosyas a‡lmamyor. Hata.
+Aï¿½ï¿½lï¿½ï¿½ diski dosyasï¿½ aï¿½ï¿½lmamï¿½yor. Hata.
 
 .
 :PROGRAM_BOOT_WRITE_PROTECTED
-Kalp dosyas yalnz okunur. Sorunlar oluŸturabilir.
+Kalï¿½p dosyasï¿½ yalnï¿½z okunur. Sorunlar oluï¿½turabilir.
 
 .
 :PROGRAM_BOOT_PRINT_ERROR
-Bu komut DOSBox'u bir disket ya da sabit disk kalbndan baŸlatr.
+Bu komut DOSBox'u bir disket ya da sabit disk kalï¿½bï¿½ndan baï¿½latï¿½r.
 
-Bu komut i‡in, Ctrl-F4'e basarak yer de§iŸtirebilen disket srcs
-serisi belirtebilir, ve and -l baŸlatlacak ba§l srcy belirtebilir.
-belirtebilir. E§er src harfi belirtilmemiŸse, varsaylan olarak A
-srcsnden baŸlatlabilir. BaŸlatlabilir src harfleri yalnz A, C
-ile D'dir. Sabit srcden baŸlatmak i‡in (C ya da D), kalbn ”nceden
-[34;1mIMGMOUNT[0m komutu ile ba§lanmaldr.
+Bu komut iï¿½in, Ctrl-F4'e basarak yer deï¿½iï¿½tirebilen disket sï¿½rï¿½cï¿½sï¿½
+serisi belirtebilir, ve and -l baï¿½latï¿½lacak baï¿½lï¿½ sï¿½rï¿½cï¿½yï¿½ belirtebilir.
+belirtebilir. Eï¿½er sï¿½rï¿½cï¿½ harfi belirtilmemiï¿½se, varsayï¿½lan olarak A
+sï¿½rï¿½cï¿½sï¿½nden baï¿½latï¿½labilir. Baï¿½latï¿½labilir sï¿½rï¿½cï¿½ harfleri yalnï¿½z A, C
+ile D'dir. Sabit sï¿½rï¿½cï¿½den baï¿½latmak iï¿½in (C ya da D), kalï¿½bï¿½n ï¿½nceden
+[34;1mIMGMOUNT[0m komutu ile baï¿½lanmalï¿½dï¿½r.
 
-Bu komutun s”zdizimi:
+Bu komutun sï¿½zdizimi:
 
-[34;1mBOOT [diskimg1.img diskimg2.img] [-l src_harfi][0m
+[34;1mBOOT [diskimg1.img diskimg2.img] [-l sï¿½rï¿½cï¿½_harfi][0m
 
 .
 :PROGRAM_BOOT_UNABLE
-%c srcsnn baŸlatlmas olanaksz
+%c sï¿½rï¿½cï¿½sï¿½nï¿½n baï¿½latï¿½lmasï¿½ olanaksï¿½z
 .
 :PROGRAM_BOOT_IMAGE_OPEN
-Kalp dosyas a‡lyor: %s
+Kalï¿½p dosyasï¿½ aï¿½ï¿½lï¿½yor: %s
 
 .
 :PROGRAM_BOOT_IMAGE_NOT_OPEN
-%s a‡lamyor.
+%s aï¿½ï¿½lamï¿½yor.
 .
 :PROGRAM_BOOT_BOOT
-%c srcsnden bŸlatlyor...
+%c sï¿½rï¿½cï¿½sï¿½nden bï¿½latï¿½lï¿½yor...
 
 .
 :PROGRAM_BOOT_CART_WO_PCJR
-PCjr kartuŸu bulundu, ama makine PCjr de§il.
+PCjr kartuï¿½u bulundu, ama makine PCjr deï¿½il.
 .
 :PROGRAM_BOOT_CART_LIST_CMDS
-Hazr PCjr kartuŸu commandolar:%s
+Hazï¿½r PCjr kartuï¿½u commandolarï¿½:%s
 .
 :PROGRAM_BOOT_CART_NO_CMDS
-PCjr kartuŸu commando bulunamad.
+PCjr kartuï¿½u commando bulunamadï¿½.
 .
 :PROGRAM_IMGMOUNT_SPECIFY_DRIVE
-Kalp dosyasnn ba§lanaca§n srcnn src harfi belirlenmeli.
+Kalï¿½p dosyasï¿½nï¿½n baï¿½lanacaï¿½ï¿½n sï¿½rï¿½cï¿½nï¿½n sï¿½rï¿½cï¿½ harfi belirlenmeli.
 
 .
 :PROGRAM_IMGMOUNT_SPECIFY2
-G”rnt dosyasnn ba§lanaca§ src numaras (0 ya da 3) belirlenmeli.
+Gï¿½rï¿½ntï¿½ dosyasï¿½nï¿½n baï¿½lanacaï¿½ï¿½ sï¿½rï¿½cï¿½ numarasï¿½ (0 ya da 3) belirlenmeli.
 (0,1=fda,fdb;2,3=hda,hdb)
 
 .
 :PROGRAM_IMGMOUNT_SPECIFY_GEOMETRY
-[33mCD-ROM[0m kalplar i‡in:   [34;1mIMGMOUNT src_harfi kalbn_yolu -t iso[0m
+[33mCD-ROM[0m kalï¿½plarï¿½ iï¿½in:   [34;1mIMGMOUNT sï¿½rï¿½cï¿½_harfi kalï¿½bï¿½n_yolu -t iso[0m
 
-[33mSabit disk[0m kalplar i‡in: Sabit diskler i‡in src geometrisini
+[33mSabit disk[0m kalï¿½plarï¿½ iï¿½in: Sabit diskler iï¿½in sï¿½rï¿½cï¿½ geometrisini
 belirtmelisin:
-sekt”r_baŸna_bayt, silindir_baŸna_sekt”r, silindir_baŸna_kafa,
-silindir_says.
-[34;1mIMGMOUNT src-harfi kalbn_yolu -size bps,spc,hpc,cyl[0m
+sektï¿½r_baï¿½ï¿½na_bayt, silindir_baï¿½ï¿½na_sektï¿½r, silindir_baï¿½ï¿½na_kafa,
+silindir_sayï¿½sï¿½.
+[34;1mIMGMOUNT sï¿½rï¿½cï¿½-harfi kalï¿½bï¿½n_yolu -size bps,spc,hpc,cyl[0m
 
 .
 :PROGRAM_IMGMOUNT_INVALID_IMAGE
-G”rnt dosyas yklenemedi.
-Yolun do§ru ve kalbn eriŸilebilir olup olmad§na kontrol edin.
+Gï¿½rï¿½ntï¿½ dosyasï¿½ yï¿½klenemedi.
+Yolun doï¿½ru ve kalï¿½bï¿½n eriï¿½ilebilir olup olmadï¿½ï¿½ï¿½na kontrol edin.
 
 .
 :PROGRAM_IMGMOUNT_INVALID_GEOMETRY
-Kalbn src geometrisi ‡kartlamad.
+Kalï¿½bï¿½n sï¿½rï¿½cï¿½ geometrisi ï¿½ï¿½kartï¿½lamadï¿½.
 -size bps,spc,hpc,cyl parametrelerini kullanarak geometriyi belirtin.
 
 .
 :PROGRAM_IMGMOUNT_TYPE_UNSUPPORTED
-"%s" tr desteklenmiyor. "hdd" ya da "floppy" ya da "iso" belirtin.
+"%s" tï¿½rï¿½ desteklenmiyor. "hdd" ya da "floppy" ya da "iso" belirtin.
 
 .
 :PROGRAM_IMGMOUNT_FORMAT_UNSUPPORTED
-"%s" tr desteklenmiyor. "fat" ya da "iso" ya da "none" belirtin.
+"%s" tï¿½rï¿½ desteklenmiyor. "fat" ya da "iso" ya da "none" belirtin.
 
 .
 :PROGRAM_IMGMOUNT_SPECIFY_FILE
-Kalp dosyasn belirtmelisiniz.
+Kalï¿½p dosyasï¿½nï¿½ belirtmelisiniz.
 
 .
 :PROGRAM_IMGMOUNT_FILE_NOT_FOUND
-Kalp dosyas bulunamad.
+Kalï¿½p dosyasï¿½ bulunamadï¿½.
 
 .
 :PROGRAM_IMGMOUNT_MOUNT
-Dizinleri ba§lamak i‡in [34;1mMOUNT[0m komutu kullann, [34;1mIMGMOUNT[0m komutunu de§il.
+Dizinleri baï¿½lamak iï¿½in [34;1mMOUNT[0m komutu kullanï¿½n, [34;1mIMGMOUNT[0m komutunu deï¿½il.
 
 .
 :PROGRAM_IMGMOUNT_ALREADY_MOUNTED
-Bu harfe zaten src ba§lanmŸ.
+Bu harfe zaten sï¿½rï¿½cï¿½ baï¿½lanmï¿½ï¿½.
 
 .
 :PROGRAM_IMGMOUNT_CANT_CREATE
-Dosyadan src oluŸturulamyor.
+Dosyadan sï¿½rï¿½cï¿½ oluï¿½turulamï¿½yor.
 
 .
 :PROGRAM_IMGMOUNT_MOUNT_NUMBER
-Src numaras %d, %s olarak oluŸturuldu.
+Sï¿½rï¿½cï¿½ numarasï¿½ %d, %s olarak oluï¿½turuldu.
 
 .
 :PROGRAM_IMGMOUNT_NON_LOCAL_DRIVE
-Kalp dosyas yerel diskte ya da sunucuda olmal.
+Kalï¿½p dosyasï¿½ yerel diskte ya da sunucuda olmalï¿½.
 
 .
 :PROGRAM_IMGMOUNT_MULTIPLE_NON_CUEISO_FILES
-Birden ‡ok dosya kullanm yalnzca cue/iso kalplarnda desteklenir.
+Birden ï¿½ok dosya kullanï¿½mï¿½ yalnï¿½zca cue/iso kalï¿½plarï¿½nda desteklenir.
 
 .
 :PROGRAM_KEYB_INFO
-%i kod sayfas yklendi.
+%i kod sayfasï¿½ yï¿½klendi.
 
 .
 :PROGRAM_KEYB_INFO_LAYOUT
-%i kod sayfas %s dzeni i‡in yklendi.
+%i kod sayfasï¿½ %s dï¿½zeni iï¿½in yï¿½klendi.
 
 .
 :PROGRAM_KEYB_SHOWHELP
-[32;1mKEYB[0m [klavye dzeni ID[ kod sayfas numaras[ kod sayfas dosyas ]]]
+[32;1mKEYB[0m [klavye dï¿½zeni ID[ kod sayfasï¿½ numarasï¿½[ kod sayfasï¿½ dosyasï¿½ ]]]
 
 Some examples:
-  [32;1mKEYB[0m: Ge‡erli yklenmiŸ kod sayfasn g”rntler.
-  [32;1mKEYB[0m sp: ˜spanyolca (SP) dzeni ykler, uygun bir kod sayfas kullanr.
-  [32;1mKEYB[0m sp 850: ˜spanyolca (SP) dzeni ykler, 850 kod sayfasn kullanr.
-  [32;1mKEYB[0m sp 850 mycp.cpi: Yukardaki ile ayn, ama mycp.cpi dosyasn kullanr.
+  [32;1mKEYB[0m: Geï¿½erli yï¿½klenmiï¿½ kod sayfasï¿½nï¿½ gï¿½rï¿½ntï¿½ler.
+  [32;1mKEYB[0m sp: ï¿½spanyolca (SP) dï¿½zeni yï¿½kler, uygun bir kod sayfasï¿½ kullanï¿½r.
+  [32;1mKEYB[0m sp 850: ï¿½spanyolca (SP) dï¿½zeni yï¿½kler, 850 kod sayfasï¿½nï¿½ kullanï¿½r.
+  [32;1mKEYB[0m sp 850 mycp.cpi: Yukarï¿½daki ile aynï¿½, ama mycp.cpi dosyasï¿½nï¿½ kullanï¿½r.
 
 .
 :PROGRAM_KEYB_NOERROR
-%i kod sayfas i‡in %s klavye dzeni yklendi.
+%i kod sayfasï¿½ iï¿½in %s klavye dï¿½zeni yï¿½klendi.
 
 .
 :PROGRAM_KEYB_FILENOTFOUND
-%s klavye dosyas bulunamad.
+%s klavye dosyasï¿½ bulunamadï¿½.
 
 
 .
 :PROGRAM_KEYB_INVALIDFILE
-%s klavye dosyas ge‡ersiz.
+%s klavye dosyasï¿½ geï¿½ersiz.
 
 .
 :PROGRAM_KEYB_LAYOUTNOTFOUND
-%s'de %i kod sayfas i‡in dzen yok.
+%s'de %i kod sayfasï¿½ iï¿½in dï¿½zen yok.
 
 .
 :PROGRAM_KEYB_INVCPFILE
-%s dzeni i‡in kod sayfas dosyas yok ya da ge‡ersiz.
+%s dï¿½zeni iï¿½in kod sayfasï¿½ dosyasï¿½ yok ya da geï¿½ersiz.
 
 
 .
 :SHELL_ILLEGAL_PATH
-Ge‡ersiz yol.
+Geï¿½ersiz yol.
 
 .
 :SHELL_CMD_HELP
-E§er, siz desteklenen btn komutlarn listesini istiyorsanz [33;1mhelp /all[0m yazn.
-€ok sk kullanlan komutlarn ksa bir listesi:
+Eï¿½er, siz desteklenen bï¿½tï¿½n komutlarï¿½n listesini istiyorsanï¿½z [33;1mhelp /all[0m yazï¿½n.
+ï¿½ok sï¿½k kullanï¿½lan komutlarï¿½n kï¿½sa bir listesi:
 
 .
 :SHELL_CMD_ECHO_ON
-ECHO a‡k.
+ECHO aï¿½ï¿½k.
 
 .
 :SHELL_CMD_ECHO_OFF
-ECHO kapal.
+ECHO kapalï¿½.
 
 .
 :SHELL_ILLEGAL_SWITCH
-Ge‡ersiz de§iŸtirme: %s.
+Geï¿½ersiz deï¿½iï¿½tirme: %s.
 
 .
 :SHELL_MISSING_PARAMETER
@@ -682,44 +682,44 @@ Gerekli parametre eksik.
 
 .
 :SHELL_CMD_CHDIR_ERROR
-Ge‡ilmesi olanaksz: %s.
+Geï¿½ilmesi olanaksï¿½z: %s.
 
 .
 :SHELL_CMD_CHDIR_HINT
-BaŸka srcye ge‡mek i‡in [31m%c:[0m yazn.
+Baï¿½ka sï¿½rï¿½cï¿½ye geï¿½mek iï¿½in [31m%c:[0m yazï¿½n.
 
 .
 :SHELL_CMD_CHDIR_HINT_2
-dizinismi 8 karakterden daha uzun ya da boŸluk i‡eriyor.
+dizinismi 8 karakterden daha uzun ya da boï¿½luk iï¿½eriyor.
 [31mcd %s[0m deneyin.
 
 .
 :SHELL_CMD_CHDIR_HINT_3
-Siz yine Z: srcsndesiniz, [31mC:[0m ile ba§lanmŸ srcye ge‡iniz.
+Siz yine Z: sï¿½rï¿½cï¿½sï¿½ndesiniz, [31mC:[0m ile baï¿½lanmï¿½ï¿½ sï¿½rï¿½cï¿½ye geï¿½iniz.
 
 .
 :SHELL_CMD_MKDIR_ERROR
-Yaplmas olanaksz: %s.
+Yapï¿½lmasï¿½ olanaksï¿½z: %s.
 
 .
 :SHELL_CMD_RMDIR_ERROR
-Kaldrlmas olanaksz: %s.
+Kaldï¿½rï¿½lmasï¿½ olanaksï¿½z: %s.
 
 .
 :SHELL_CMD_DEL_ERROR
-Silinmesi olanaksz: %s.
+Silinmesi olanaksï¿½z: %s.
 
 .
 :SHELL_SYNTAXERROR
-Komut s”zdizimi yanlŸ.
+Komut sï¿½zdizimi yanlï¿½ï¿½.
 
 .
 :SHELL_CMD_SET_NOT_SET
-%s ortam de§iŸkeni tanmlanmamŸ.
+%s ortam deï¿½iï¿½keni tanï¿½mlanmamï¿½ï¿½.
 
 .
 :SHELL_CMD_SET_OUT_OF_SPACE
-Ortamda yeterli kalan boŸluk yok.
+Ortamda yeterli kalan boï¿½luk yok.
 
 .
 :SHELL_CMD_IF_EXIST_MISSING_FILENAME
@@ -727,27 +727,27 @@ IF EXIST: Eksik dosya ismi.
 
 .
 :SHELL_CMD_IF_ERRORLEVEL_MISSING_NUMBER
-IF ERRORLEVEL: Eksik say.
+IF ERRORLEVEL: Eksik sayï¿½.
 
 .
 :SHELL_CMD_IF_ERRORLEVEL_INVALID_NUMBER
-IF ERRORLEVEL: Ge‡ersiz say.
+IF ERRORLEVEL: Geï¿½ersiz sayï¿½.
 
 .
 :SHELL_CMD_GOTO_MISSING_LABEL
-GOTO komutuna etiket sa§lanmamŸ.
+GOTO komutuna etiket saï¿½lanmamï¿½ï¿½.
 
 .
 :SHELL_CMD_GOTO_LABEL_NOT_FOUND
-GOTO: %s etiketi bulunamad.
+GOTO: %s etiketi bulunamadï¿½.
 
 .
 :SHELL_CMD_FILE_NOT_FOUND
-%s dosyas bulunamad.
+%s dosyasï¿½ bulunamadï¿½.
 
 .
 :SHELL_CMD_FILE_EXISTS
-%s dosyas zaten var.
+%s dosyasï¿½ zaten var.
 
 .
 :SHELL_CMD_DIR_INTRO
@@ -759,122 +759,122 @@ GOTO: %s etiketi bulunamad.
 
 .
 :SHELL_CMD_DIR_BYTES_FREE
-%5d Dizin(ler) %17s bayt boŸ.
+%5d Dizin(ler) %17s bayt boï¿½.
 
 .
 :SHELL_EXECUTE_DRIVE_NOT_FOUND
-%c srcs yok!
-BaŸta [31mmount[0m kullanmalsnz. Daha ‡ok bilgi i‡in [1;33mintro[0m ya da [1;33mintro mount[0m yazn.
+%c sï¿½rï¿½cï¿½sï¿½ yok!
+Baï¿½ta [31mmount[0m kullanmalï¿½sï¿½nï¿½z. Daha ï¿½ok bilgi iï¿½in [1;33mintro[0m ya da [1;33mintro mount[0m yazï¿½n.
 
 .
 :SHELL_EXECUTE_ILLEGAL_COMMAND
-Ge‡ersiz komut: %s.
+Geï¿½ersiz komut: %s.
 
 .
 :SHELL_CMD_PAUSE
-Devam etmek i‡in bir tuŸa basn.
+Devam etmek iï¿½in bir tuï¿½a basï¿½n.
 
 .
 :SHELL_CMD_PAUSE_HELP
-Devam etmek i‡in bir tuŸa baslmasn bekler.
+Devam etmek iï¿½in bir tuï¿½a basï¿½lmasï¿½nï¿½ bekler.
 
 .
 :SHELL_CMD_COPY_FAILURE
-Kopyalama baŸarsz: %s.
+Kopyalama baï¿½arï¿½sï¿½z: %s.
 
 .
 :SHELL_CMD_COPY_SUCCESS
-   %d dosya(lar) kopyaland.
+   %d dosya(lar) kopyalandï¿½.
 
 .
 :SHELL_CMD_SUBST_NO_REMOVE
-Src kaldrma desteklenmiyor. Hi‡ bir Ÿey yaplmad.
+Sï¿½rï¿½cï¿½ kaldï¿½rma desteklenmiyor. Hiï¿½ bir ï¿½ey yapï¿½lmadï¿½.
 
 .
 :SHELL_CMD_SUBST_FAILURE
-SUBST baŸarsz. Ya komut satrnda hata yaptnz ya da hedef src zaten
-kullanlyor.
-SUBST'n kullanm yalnzca yerel srclerde olanakldr.
+SUBST baï¿½arï¿½sï¿½z. Ya komut satï¿½rï¿½nda hata yaptï¿½nï¿½z ya da hedef sï¿½rï¿½cï¿½ zaten
+kullanï¿½lï¿½yor.
+SUBST'ï¿½n kullanï¿½mï¿½ yalnï¿½zca yerel sï¿½rï¿½cï¿½lerde olanaklï¿½dï¿½r.
 .
 :SHELL_STARTUP_BEGIN
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [32mDOSBox v%-s'e hoŸgeldiniz.[37m                                        º
-º                                                                    º
-º Yeni kullanclar i‡in ksa bir giriŸ i‡in [33mINTRO[37m yazn.            º
-º Desteklenen arayz komutlar i‡in [33mHELP[37m yazn.                      º
-º                                                                    º
-º CPU hzn ayarlamak i‡in, [31mctrl-F11[37m'i ile [31mctrl-F12[37m'yi kullann.    º
-º TuŸ eŸleŸtiricisini a‡mak i‡in [31mctrl-F1[37m.                            º
-º Daha ‡ok bilgi i‡in DOSBox dizinindeki [36mREADME[37m dosyasn okuyun.    º
-º                                                                    º
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [32mDOSBox v%-s'e hoï¿½geldiniz.[37m                                        ï¿½
+ï¿½                                                                    ï¿½
+ï¿½ Yeni kullanï¿½cï¿½lar iï¿½in kï¿½sa bir giriï¿½ iï¿½in [33mINTRO[37m yazï¿½n.            ï¿½
+ï¿½ Desteklenen arayï¿½z komutlarï¿½ iï¿½in [33mHELP[37m yazï¿½n.                      ï¿½
+ï¿½                                                                    ï¿½
+ï¿½ CPU hï¿½zï¿½nï¿½ ayarlamak iï¿½in, [31mctrl-F11[37m'i ile [31mctrl-F12[37m'yi kullanï¿½n.    ï¿½
+ï¿½ Tuï¿½ eï¿½leï¿½tiricisini aï¿½mak iï¿½in [31mctrl-F1[37m.                            ï¿½
+ï¿½ Daha ï¿½ok bilgi iï¿½in DOSBox dizinindeki [36mREADME[37m dosyasï¿½nï¿½ okuyun.    ï¿½
+ï¿½                                                                    ï¿½
 
 .
 :SHELL_STARTUP_CGA
-º DOSBox, kompozit CGA kipini destekler.                             º
-º Bu kipte renkleri de§iŸtirmek i‡in [31m(alt-)F11[37m'i kullannz.         º
-º                                                                    º
+ï¿½ DOSBox, kompozit CGA kipini destekler.                             ï¿½
+ï¿½ Bu kipte renkleri deï¿½iï¿½tirmek iï¿½in [31m(alt-)F11[37m'i kullanï¿½nï¿½z.         ï¿½
+ï¿½                                                                    ï¿½
 
 .
 :SHELL_STARTUP_HERC
-º Beyaz, kehribar ile yeŸil tek renk d”ngs i‡in [31mF11[37m'i kullannz.  º
-º                                                                    º
+ï¿½ Beyaz, kehribar ile yeï¿½il tek renk dï¿½ngï¿½sï¿½ iï¿½in [31mF11[37m'i kullanï¿½nï¿½z.  ï¿½
+ï¿½                                                                    ï¿½
 
 .
 :SHELL_STARTUP_DEBUG
-º Hata ayklaycy a‡mak i‡in [31malt-Pause[37m'ye basn ya da program     º 
-º [33mDEBUG[37m ile a‡n.                                                    º
-º                                                                    º
+ï¿½ Hata ayï¿½klayï¿½cï¿½yï¿½ aï¿½mak iï¿½in [31malt-Pause[37m'ye basï¿½n ya da programï¿½     ï¿½ 
+ï¿½ [33mDEBUG[37m ile aï¿½ï¿½n.                                                    ï¿½
+ï¿½                                                                    ï¿½
 
 .
 :SHELL_STARTUP_END
-º [32m˜Y˜ E¦LENCELER![37m                                                    º
-º [32mDOSBox Takm [33mhttp://www.dosbox.com[37m                                º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+ï¿½ [32mï¿½Yï¿½ Eï¿½LENCELER![37m                                                    ï¿½
+ï¿½ [32mDOSBox Takï¿½mï¿½ [33mhttp://www.dosbox.com[37m                                ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 
 .
 :SHELL_CMD_CHDIR_HELP
-Ge‡erli dizini g”rntler/de§iŸtirir.
+Geï¿½erli dizini gï¿½rï¿½ntï¿½ler/deï¿½iï¿½tirir.
 
 .
 :SHELL_CMD_CHDIR_HELP_LONG
-CHDIR [src:][yol]
+CHDIR [sï¿½rï¿½cï¿½:][yol]
 CHDIR [..]
-CD [src:][yol]
+CD [sï¿½rï¿½cï¿½:][yol]
 CD [..]
 
-  ..   šst dizine ge‡mek istedi§inizi belirtir.
+  ..   ï¿½st dizine geï¿½mek istediï¿½inizi belirtir.
 
-Belirtilen srcde ge‡erli dizini g”rntlemek i‡in CD src: yazn.
-Ge‡erli srcy ile dizini g”rntlemek i‡in parametresiz CD yazn.
+Belirtilen sï¿½rï¿½cï¿½de geï¿½erli dizini gï¿½rï¿½ntï¿½lemek iï¿½in CD sï¿½rï¿½cï¿½: yazï¿½n.
+Geï¿½erli sï¿½rï¿½cï¿½yï¿½ ile dizini gï¿½rï¿½ntï¿½lemek iï¿½in parametresiz CD yazï¿½n.
 
 .
 :SHELL_CMD_CLS_HELP
-Ekran temizler.
+Ekranï¿½ temizler.
 
 .
 :SHELL_CMD_DIR_HELP
-Dizini g”sterir.
+Dizini gï¿½sterir.
 
 .
 :SHELL_CMD_ECHO_HELP
-˜letileri g”sterir ve komut tekrarlanmasn etkinleŸtirir/devredŸ brakr.
+ï¿½letileri gï¿½sterir ve komut tekrarlanmasï¿½nï¿½ etkinleï¿½tirir/devredï¿½ï¿½ï¿½ bï¿½rakï¿½r.
 
 .
 :SHELL_CMD_EXIT_HELP
-Kabuktan ‡kar.
+Kabuktan ï¿½ï¿½kar.
 
 .
 :SHELL_CMD_HELP_HELP
-Yardm g”rntler.
+Yardï¿½mï¿½ gï¿½rï¿½ntï¿½ler.
 
 .
 :SHELL_CMD_MKDIR_HELP
-Dizin oluŸturur.
+Dizin oluï¿½turur.
 
 .
 :SHELL_CMD_MKDIR_HELP_LONG
-MKDIR [src:][yol]
-MD [src:][yol]
+MKDIR [sï¿½rï¿½cï¿½:][yol]
+MD [sï¿½rï¿½cï¿½:][yol]
 
 .
 :SHELL_CMD_RMDIR_HELP
@@ -882,102 +882,102 @@ Dizini siler.
 
 .
 :SHELL_CMD_RMDIR_HELP_LONG
-RMDIR [src:][yol]
-RD [src:][yol]
+RMDIR [sï¿½rï¿½cï¿½:][yol]
+RD [sï¿½rï¿½cï¿½:][yol]
 
 .
 :SHELL_CMD_SET_HELP
-Ortam de§iŸkenlerini ayarlar.
+Ortam deï¿½iï¿½kenlerini ayarlar.
 
 .
 :SHELL_CMD_IF_HELP
-Toplu iŸ programlarnda koŸullu iŸlemler ger‡ekleŸtirir.
+Toplu iï¿½ programlarï¿½nda koï¿½ullu iï¿½lemler gerï¿½ekleï¿½tirir.
 
 .
 :SHELL_CMD_GOTO_HELP
-Toplu iŸ beti§inde etiketli satra atlar.
+Toplu iï¿½ betiï¿½inde etiketli satï¿½ra atlar.
 
 .
 :SHELL_CMD_SHIFT_HELP
-Toplu iŸ beti§inde komut satr parametrelerini sola kaydrr.
+Toplu iï¿½ betiï¿½inde komut satï¿½rï¿½ parametrelerini sola kaydï¿½rï¿½r.
 
 .
 :SHELL_CMD_TYPE_HELP
-Bir yaz dosyasnn i‡eri§ini g”rntler.
+Bir yazï¿½ dosyasï¿½nï¿½n iï¿½eriï¿½ini gï¿½rï¿½ntï¿½ler.
 
 .
 :SHELL_CMD_TYPE_HELP_LONG
-TYPE [src:][yol][dosya_ismi]
+TYPE [sï¿½rï¿½cï¿½:][yol][dosya_ismi]
 
 .
 :SHELL_CMD_REM_HELP
-Toplu iŸ dosaysna a‡klama ekler.
+Toplu iï¿½ dosaysï¿½na aï¿½ï¿½klama ekler.
 
 .
 :SHELL_CMD_REM_HELP_LONG
-REM [a‡klama]
+REM [aï¿½ï¿½klama]
 
 .
 :SHELL_CMD_NO_WILD
-Bu komutun yaln bi‡imidir, joker karakterlere izin verilmez!
+Bu komutun yalï¿½n biï¿½imidir, joker karakterlere izin verilmez!
 
 .
 :SHELL_CMD_RENAME_HELP
-Bir ya da daha ‡ok dosyann isimlerini de§iŸtirir.
+Bir ya da daha ï¿½ok dosyanï¿½n isimlerini deï¿½iï¿½tirir.
 
 .
 :SHELL_CMD_RENAME_HELP_LONG
-RENAME [src:][yol]dosya_ismi_1 dosya_ismi_2.
-REN [src:][yol]dosya_ismi_1 dosya_ismi_2.
+RENAME [sï¿½rï¿½cï¿½:][yol]dosya_ismi_1 dosya_ismi_2.
+REN [sï¿½rï¿½cï¿½:][yol]dosya_ismi_1 dosya_ismi_2.
 
-Hedef dosya i‡in yeni bir src ya da yol belirtmeyece§inizi unutmayn.
+Hedef dosya iï¿½in yeni bir sï¿½rï¿½cï¿½ ya da yol belirtmeyeceï¿½inizi unutmayï¿½n.
 
 .
 :SHELL_CMD_DELETE_HELP
-Bir ya da daha ‡ok dosyay siler.
+Bir ya da daha ï¿½ok dosyayï¿½ siler.
 
 .
 :SHELL_CMD_COPY_HELP
-Dosyalar kopyalar.
+Dosyalarï¿½ kopyalar.
 
 .
 :SHELL_CMD_CALL_HELP
-BaŸka toplu iŸ dosyasnda bir toplu iŸ dosyasn baŸlatr.
+Baï¿½ka toplu iï¿½ dosyasï¿½nda bir toplu iï¿½ dosyasï¿½nï¿½ baï¿½latï¿½r.
 
 .
 :SHELL_CMD_SUBST_HELP
-Bir srcye bir i‡ dizin atar.
+Bir sï¿½rï¿½cï¿½ye bir iï¿½ dizin atar.
 
 .
 :SHELL_CMD_LOADHIGH_HELP
-Bri program st belle§e ykler (xms=true, umb=true gereklidir).
+Bri programï¿½ ï¿½st belleï¿½e yï¿½kler (xms=true, umb=true gereklidir).
 
 .
 :SHELL_CMD_CHOICE_HELP
-Bir tuŸa baslmasn bekler ve ERRORLEVEL'i ayarlar.
+Bir tuï¿½a basï¿½lmasï¿½nï¿½ bekler ve ERRORLEVEL'i ayarlar.
 
 .
 :SHELL_CMD_CHOICE_HELP_LONG
-CHOICE [/C:se‡imler] [/N] [/S] yaz
-  /C[:]se‡imler  -  Uygun tuŸlar belirtir. Varsaylan : yn.
-  /N  -  ˜stemcinin sonunda se‡imler g”rntlenmez.
-  /S  -  Se‡imleri se‡erken harf duyarll§n etkinleŸtirir.
-  text  -  ˜stemci olarak g”rntlenecek yaz.
+CHOICE [/C:seï¿½imler] [/N] [/S] yazï¿½
+  /C[:]seï¿½imler  -  Uygun tuï¿½larï¿½ belirtir. Varsayï¿½lan : yn.
+  /N  -  ï¿½stemcinin sonunda seï¿½imler gï¿½rï¿½ntï¿½lenmez.
+  /S  -  Seï¿½imleri seï¿½erken harf duyarlï¿½lï¿½ï¿½ï¿½nï¿½ etkinleï¿½tirir.
+  text  -  ï¿½stemci olarak gï¿½rï¿½ntï¿½lenecek yazï¿½.
 
 .
 :SHELL_CMD_ATTRIB_HELP
-BirŸey yapmaz. Uyumluluk i‡in sa§lanmŸtr.
+Birï¿½ey yapmaz. Uyumluluk iï¿½in saï¿½lanmï¿½ï¿½tï¿½r.
 
 .
 :SHELL_CMD_PATH_HELP
-Uyumluluk i‡in sa§lanmŸtr.
+Uyumluluk iï¿½in saï¿½lanmï¿½ï¿½tï¿½r.
 
 .
 :SHELL_CMD_VER_HELP
-Bildirilen DOS srmn g”rntler ve de§iŸtirir.
+Bildirilen DOS sï¿½rï¿½mï¿½nï¿½ gï¿½rï¿½ntï¿½ler ve deï¿½iï¿½tirir.
 
 .
 :SHELL_CMD_VER_VER
-DOSBox srm %s. Bildirilen DOS srm %d.%02d.
+DOSBox sï¿½rï¿½mï¿½ %s. Bildirilen DOS sï¿½rï¿½mï¿½ %d.%02d.
 
 .

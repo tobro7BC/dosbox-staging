@@ -1,129 +1,129 @@
 <30.8.2007> S pouzitim prekladu od pitel.borec.cz upgradoval martin.sova@atlas.cz pro DOSBox O.7x
 
 :SDL_CONFIGFILE_HELP
-fullscreen -- Spouštìt DOSBox pøímo pøes celou obrazovku.
-fulldouble -- Pouívat dvojité bufferování na celé obrazovce.
-fullfixed -- Nemìnit velikost obrazu kdy je pøes celou obrazovku.
-fullresolution -- Jeké rozlišení pouít pøes celou obrazovku, pouití spoleènì s fullfixed.
-output -- Co pouít jako vıstup: surface, overlay, opengl, openglnb nebo ddraw.
-hwscale -- Extra roztaení okna pokud vıstupní zaøízení podporuje hardwarové roztaení.
-autolock -- Automaticky uzamknout myš, kdy se klikne na obrazovku.
-sensitiviy -- Citlivost myši.
-waitonerror -- Poèkat pøed zavøením konzole pokud má DOSBox chybu.
-priority -- Úrovnì priority pro DOSBox: lower, normal, higher nebo highest.
-            Druhé zadání za èárkou se pouije kdy DOSBox nemá focus/je minimalizován.
-mapperfile -- Soubor pouitı pro otevírání/ukládání událostí/mapování kláves.
-usescancodes -- zakazuje pouívání diakritickıch znakù (pro neanglické klávesnice)
-                nefunguje se všemi operaèními systémy!
+fullscreen -- Spouï¿½tï¿½t DOSBox pï¿½ï¿½mo pï¿½es celou obrazovku.
+fulldouble -- Pouï¿½ï¿½vat dvojitï¿½ bufferovï¿½nï¿½ na celï¿½ obrazovce.
+fullfixed -- Nemï¿½nit velikost obrazu kdyï¿½ je pï¿½es celou obrazovku.
+fullresolution -- Jekï¿½ rozliï¿½enï¿½ pouï¿½ï¿½t pï¿½es celou obrazovku, pouï¿½itï¿½ spoleï¿½nï¿½ s fullfixed.
+output -- Co pouï¿½ï¿½t jako vï¿½stup: surface, overlay, opengl, openglnb nebo ddraw.
+hwscale -- Extra roztaï¿½enï¿½ okna pokud vï¿½stupnï¿½ zaï¿½ï¿½zenï¿½ podporuje hardwarovï¿½ roztaï¿½enï¿½.
+autolock -- Automaticky uzamknout myï¿½, kdyï¿½ se klikne na obrazovku.
+sensitiviy -- Citlivost myï¿½i.
+waitonerror -- Poï¿½kat pï¿½ed zavï¿½enï¿½m konzole pokud mï¿½ DOSBox chybu.
+priority -- ï¿½rovnï¿½ priority pro DOSBox: lower, normal, higher nebo highest.
+            Druhï¿½ zadï¿½nï¿½ za ï¿½ï¿½rkou se pouï¿½ije kdyï¿½ DOSBox nemï¿½ focus/je minimalizovï¿½n.
+mapperfile -- Soubor pouï¿½itï¿½ pro otevï¿½rï¿½nï¿½/uklï¿½dï¿½nï¿½ udï¿½lostï¿½/mapovï¿½nï¿½ klï¿½ves.
+usescancodes -- zakazuje pouï¿½ï¿½vï¿½nï¿½ diakritickï¿½ch znakï¿½ (pro neanglickï¿½ klï¿½vesnice)
+                nefunguje se vï¿½emi operaï¿½nï¿½mi systï¿½my!
 .
 :DOSBOX_CONFIGFILE_HELP
-language -- Vybere jinı jazykovı soubor.
-memsize -- Mnoství pamìti, které má DOSBox v megabytech.
+language -- Vybere jinï¿½ jazykovï¿½ soubor.
+memsize -- Mnoï¿½stvï¿½ pamï¿½ti, kterï¿½ mï¿½ DOSBox v megabytech.
 machine -- Typ stroje pro emulaci: hercules, cga, tandy nebo vga.
-captures -- Adresáø, kam se zapisují vìci jako wavy, midi a screenshoty.
+captures -- Adresï¿½ï¿½, kam se zapisujï¿½ vï¿½ci jako wavy, midi a screenshoty.
 .
 :RENDER_CONFIGFILE_HELP
-frameskip -- Kolik snímkù DOSBox pøeskoèí, ne jeden vykreslí.
-aspect -- Dìlat korekci pomìru.
-scaler -- Roztahovaè pouitı pro zvìtšení/rozšíøení nízkého rozlišení.
-          Podporovány jsou none, normal2x, advmame2x, advmame3x, advinterp2x, interp2x nebo tv2x.
+frameskip -- Kolik snï¿½mkï¿½ DOSBox pï¿½eskoï¿½ï¿½, neï¿½ jeden vykreslï¿½.
+aspect -- Dï¿½lat korekci pomï¿½ru.
+scaler -- Roztahovaï¿½ pouï¿½itï¿½ pro zvï¿½tï¿½enï¿½/rozï¿½ï¿½ï¿½enï¿½ nï¿½zkï¿½ho rozliï¿½enï¿½.
+          Podporovï¿½ny jsou none, normal2x, advmame2x, advmame3x, advinterp2x, interp2x nebo tv2x.
 .
 :CPU_CONFIGFILE_HELP
-core -- Jádro CPU pouité pøi emulaci: simple, normal, full, dynamic.
-cycles -- Mnoství instrukcí které se DOSBox snaí emulovat kadou milisekundu.
-          Nastavit tohle vıš ne zvládne váš stroj je špatné!
-cycleup/cycledown -- Mnoství cyklù, které se pøidá/ubere pøi kombinaci kláves Ctrl-F11/Ctrl-F12.
-                      Pokud je menší ne 100, èíselnı údaj se interpretuje jako procenta.
+core -- Jï¿½dro CPU pouï¿½itï¿½ pï¿½i emulaci: simple, normal, full, dynamic.
+cycles -- Mnoï¿½stvï¿½ instrukcï¿½ kterï¿½ se DOSBox snaï¿½ï¿½ emulovat kaï¿½dou milisekundu.
+          Nastavit tohle vï¿½ï¿½ neï¿½ zvlï¿½dne vï¿½ stroj je ï¿½patnï¿½!
+cycleup/cycledown -- Mnoï¿½stvï¿½ cyklï¿½, kterï¿½ se pï¿½idï¿½/ubere pï¿½i kombinaci klï¿½ves Ctrl-F11/Ctrl-F12.
+                      Pokud je menï¿½ï¿½ neï¿½ 100, ï¿½ï¿½selnï¿½ ï¿½daj se interpretuje jako procenta.
 .
 :MIXER_CONFIGFILE_HELP
-nosound -- Povolit tichı mód, zvuk byde ale stále emulován.
-rate -- Vzorkovací frekvence mixéru, nastavení jakéhokoliv zaøízení vıš ne tohle
-        pravdìpodobnì zpùsobí sníení kvality jeho zvuku.
-blocksize -- Velikost bloku mixéru, vìtší bloky mouhou pomoct koktání zvuku
-             ale zvuk bude také zpodìnìjší.
+nosound -- Povolit tichï¿½ mï¿½d, zvuk byde ale stï¿½le emulovï¿½n.
+rate -- Vzorkovacï¿½ frekvence mixï¿½ru, nastavenï¿½ jakï¿½hokoliv zaï¿½ï¿½zenï¿½ vï¿½ï¿½ neï¿½ tohle
+        pravdï¿½podobnï¿½ zpï¿½sobï¿½ snï¿½enï¿½ kvality jeho zvuku.
+blocksize -- Velikost bloku mixï¿½ru, vï¿½tï¿½ï¿½ bloky mouhou pomoct koktï¿½nï¿½ zvuku
+             ale zvuk bude takï¿½ zpoï¿½dï¿½nï¿½jï¿½ï¿½.
 prebuffer -- Kolik milisekund dat nechat na vrcholu blocksize.
 .
 :MIDI_CONFIGFILE_HELP
 mpu401      -- Povolit MPU-401 Emulaci.
-intelligent -- Operovat v Inteligentním módu.
-device      -- Zaøízení které bude dostávat MIDI data z MPU-401.
-               Mùe to bıt default, alsa, oss, win32, coreaudio nebo none.
-config      -- Speciální volby konfigurace pro zaøízení.
+intelligent -- Operovat v Inteligentnï¿½m mï¿½du.
+device      -- Zaï¿½ï¿½zenï¿½ kterï¿½ bude dostï¿½vat MIDI data z MPU-401.
+               Mï¿½ï¿½e to bï¿½t default, alsa, oss, win32, coreaudio nebo none.
+config      -- Speciï¿½lnï¿½ volby konfigurace pro zaï¿½ï¿½zenï¿½.
 .
 :SBLASTER_CONFIGFILE_HELP
-type -- Jakı typ sblasteru emulovat: none, sb1, sb2, sbpro1, sbpro2 nebo sb16.
-base, irq, dma, hdma -- IO/IRQ/DMA/Vysoká DMA adresa soundblasteru.
-mixer -- Povolit soundblaster mixéru mìnit DOSBox mixér.
+type -- Jakï¿½ typ sblasteru emulovat: none, sb1, sb2, sbpro1, sbpro2 nebo sb16.
+base, irq, dma, hdma -- IO/IRQ/DMA/Vysokï¿½ DMA adresa soundblasteru.
+mixer -- Povolit soundblaster mixï¿½ru mï¿½nit DOSBox mixï¿½r.
 oplmode -- Typ OPL emulace: auto, cms, opl2, dualopl2 nebo opl3.
-           Pøi auto se mód urèuje podle typu soundblasteru.
-oplrate -- Vzorkovací frekvence OPL hudební emulace.
+           Pï¿½i auto se mï¿½d urï¿½uje podle typu soundblasteru.
+oplrate -- Vzorkovacï¿½ frekvence OPL hudebnï¿½ emulace.
 .
 :GUS_CONFIGFILE_HELP
 gus -- Povolit emulaci Gravis Ultrasound.
 base, irq1, irq2, dma1, dma2 -- IO/IRQ/DMA adresy
-           Gravis Ultrasound. (Stejné IRQ a DMA jsou v poøádku.)
-rate -- Vzorkovací frekvence Ultrasound emulace.
-ultradir -- Cesta do Ultrasound adresáøe. V tomto adresáøi
-            by mìl bıt MIDI adresáø kterı obsahuje
-            záplatové soubory pro GUS pøehrávání. Sady záplat pouité
-            s Timidity by mìly dobøe fungovat.
+           Gravis Ultrasound. (Stejnï¿½ IRQ a DMA jsou v poï¿½ï¿½dku.)
+rate -- Vzorkovacï¿½ frekvence Ultrasound emulace.
+ultradir -- Cesta do Ultrasound adresï¿½ï¿½e. V tomto adresï¿½ï¿½i
+            by mï¿½l bï¿½t MIDI adresï¿½ï¿½ kterï¿½ obsahuje
+            zï¿½platovï¿½ soubory pro GUS pï¿½ehrï¿½vï¿½nï¿½. Sady zï¿½plat pouï¿½itï¿½
+            s Timidity by mï¿½ly dobï¿½e fungovat.
 .
 :SPEAKER_CONFIGFILE_HELP
 pcspeaker -- Povolit PC-Speaker emulation.
-pcrate -- Vzorkovací frekvence zvuku generovaného PC-Speakerem.
-tandyrate -- Vzorokovací frkevence zvuku generovaného 3-Hlasım Tandy.
-             Tandysound emulace je pøítomna kdy je stroj nastaven na tandy.
+pcrate -- Vzorkovacï¿½ frekvence zvuku generovanï¿½ho PC-Speakerem.
+tandyrate -- Vzorokovacï¿½ frkevence zvuku generovanï¿½ho 3-Hlasï¿½m Tandy.
+             Tandysound emulace je pï¿½ï¿½tomna kdyï¿½ je stroj nastaven na tandy.
 disney -- Povolit Disney Sound Source emulaci.
 .
 :JOYSTICK_CONFIGFILE_HELP
-joysticktype -- Typ emulovaného joystiku: auto (podle pøipojeného zaøízení), none (ádnı),
-                2axis (do 2 joystikù), 4axis, fcs (Thrustmaster), ch (CH Flightstick)
-timed -- èasování intrvalù k zapínání osy (vıchozí je "false")
+joysticktype -- Typ emulovanï¿½ho joystiku: auto (podle pï¿½ipojenï¿½ho zaï¿½ï¿½zenï¿½), none (ï¿½ï¿½dnï¿½),
+                2axis (do 2 joystikï¿½), 4axis, fcs (Thrustmaster), ch (CH Flightstick)
+timed -- ï¿½asovï¿½nï¿½ intrvalï¿½ k zapï¿½nï¿½nï¿½ osy (vï¿½chozï¿½ je "false")
 autofire -- Autofire zapnout?
-swap34 -- prohodit tøetí a ètvrtou osu: pro nìkteré joystiky nutné
-buttonwrap -- povolit wrapping tlaèítek na èísla emulovanıch tlaèítek
+swap34 -- prohodit tï¿½etï¿½ a ï¿½tvrtou osu: pro nï¿½kterï¿½ joystiky nutnï¿½
+buttonwrap -- povolit wrapping tlaï¿½ï¿½tek na ï¿½ï¿½sla emulovanï¿½ch tlaï¿½ï¿½tek
 .
 :SERIAL_CONFIGFILE_HELP
-serial1-4 -- specifikovat zaøízení pøipojená na portech COM:
+serial1-4 -- specifikovat zaï¿½ï¿½zenï¿½ pï¿½ipojenï¿½ na portech COM:
              disabled, dummy, modem, nullmodem, directserial
-             Dodateèné parametry se zadávejí ve formátu "parametr:hodnota" na stejnı øádek.
-             Parametr pro všechna zaøízení: irq
-               pro "directserial": realport (vyaduje-li), rxdelay (volitelnı)
-               pro "modem": listenport (volitelnı)
+             Dodateï¿½nï¿½ parametry se zadï¿½vejï¿½ ve formï¿½tu "parametr:hodnota" na stejnï¿½ ï¿½ï¿½dek.
+             Parametr pro vï¿½echna zaï¿½ï¿½zenï¿½: irq
+               pro "directserial": realport (vyï¿½aduje-li), rxdelay (volitelnï¿½)
+               pro "modem": listenport (volitelnï¿½)
                pro "nullmodem": server, rxdelay, txdelay, telnet, usedtr,
-                                transparent, port, inhsocket (všechny volitelné)
-             Pøíklad: serial1=modem listenport:5000
+                                transparent, port, inhsocket (vï¿½echny volitelnï¿½)
+             Pï¿½ï¿½klad: serial1=modem listenport:5000
 .
 :DOS_CONFIGFILE_HELP
 xms -- Povolit XMS podporu.
 ems -- Povolit EMS podporu.
 umb -- povolit UMB podporu.
-keyboardlayout -- zadat zkratku øeèi pro zmìnu klávesnice (nebo "none")
+keyboardlayout -- zadat zkratku ï¿½eï¿½i pro zmï¿½nu klï¿½vesnice (nebo "none")
 .
 :MODEM_CONFIGFILE_HELP
-modem -- Povolit emulaci virtuálního modemu.
-comport -- COM Port ke kterému je modem pøipojen.
-listenport -- TCP Port kde modem naslouchá pøíchozím spojením.
+modem -- Povolit emulaci virtuï¿½lnï¿½ho modemu.
+comport -- COM Port ke kterï¿½mu je modem pï¿½ipojen.
+listenport -- TCP Port kde modem naslouchï¿½ pï¿½ï¿½chozï¿½m spojenï¿½m.
 .
 :DIRECTSERIAL_CONFIGFILE_HELP
-directserial -- Povolit podporu sériového pøesmìrování.
-comport -- COM Port uvnitø DOSBoxu.
+directserial -- Povolit podporu sï¿½riovï¿½ho pï¿½esmï¿½rovï¿½nï¿½.
+comport -- COM Port uvnitï¿½ DOSBoxu.
 realport -- COM Port na Hostovi.
-defaultbps -- Základní BPS.
-parity -- Parita paketù. Mùe bıt N, E nebo O.
-bytesize -- Velikost kadého paketu. Mùe bıt 5 nebo 8.
-stopbit -- Poèet stopbitù. Mùe bıt 1 nebo 2.
+defaultbps -- Zï¿½kladnï¿½ BPS.
+parity -- Parita paketï¿½. Mï¿½ï¿½e bï¿½t N, E nebo O.
+bytesize -- Velikost kaï¿½dï¿½ho paketu. Mï¿½ï¿½e bï¿½t 5 nebo 8.
+stopbit -- Poï¿½et stopbitï¿½. Mï¿½ï¿½e bï¿½t 1 nebo 2.
 .
 :IPX_CONFIGFILE_HELP
-ipx -- Povolit ipx pøes UDP/IP emulaci.
+ipx -- Povolit ipx pï¿½es UDP/IP emulaci.
 .
 :AUTOEXEC_CONFIGFILE_HELP
-Øádky v této sekci se spustí pøi startu.
+ï¿½ï¿½dky v tï¿½to sekci se spustï¿½ pï¿½i startu.
 .
 :PROGRAM_CONFIG_FILE_ERROR
-Nelze otevøít soubor %s
+Nelze otevï¿½ï¿½t soubor %s
 .
-:PROGRAM_CONFIG_USAGE
+:SHELL_CMD_CONFIG_HELP_LONG
 Nastroj Config
 
 CONFIG -writeconf [jednotka:][cesta]jmeno_souboru
@@ -150,10 +150,10 @@ Promenna %s v oddilu %s nenalezena
 Spravna syntaxe: CONFIG -get oddil promenna
 .
 :DISNEY_CONFIGFILE_HELP
-Zatím není co nastavit!
+Zatï¿½m nenï¿½ co nastavit!
 .
 :BIOS_CONFIGFILE_HELP
-Zatím není co nastavit!
+Zatï¿½m nenï¿½ co nastavit!
 .
 :PROGRAM_MOUNT_CDROMS_FOUND
 CDROMky nalezeny: %d
@@ -280,20 +280,20 @@ jako virtualni disk:
 
 .
 :PROGRAM_INTRO_MOUNT_WINDOWS
-[46;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [36mMOUNT C D:\DOS[37m vytvori pro DOSBox virtualni disk C,               º
-º jehoz obsahem bude adresar C:\DOS                                 º
-º                                                                   º
-º D:\DOS je jen priklad, nahradte ho vlastnim adresarem.[37m            º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+[46;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [36mMOUNT C D:\DOS[37m vytvori pro DOSBox virtualni disk C,               ï¿½
+ï¿½ jehoz obsahem bude adresar C:\DOS                                 ï¿½
+ï¿½                                                                   ï¿½
+ï¿½ D:\DOS je jen priklad, nahradte ho vlastnim adresarem.[37m            ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 .
 :PROGRAM_INTRO_MOUNT_OTHER
-[46;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [36mMOUNT C ~/DOS[37m vytvori pro DOSBox virtualni disk C,            º
-º jehoz obsahem bude adresar ~/DOS                               º
-º                                                                   º
-º ~/DOS je jen priklad, nahradte ho vlastnim adresarem.[37m        º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+[46;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [36mMOUNT C ~/DOS[37m vytvori pro DOSBox virtualni disk C,            ï¿½
+ï¿½ jehoz obsahem bude adresar ~/DOS                               ï¿½
+ï¿½                                                                   ï¿½
+ï¿½ ~/DOS je jen priklad, nahradte ho vlastnim adresarem.[37m        ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 .
 :PROGRAM_INTRO_MOUNT_END
 
@@ -568,30 +568,30 @@ pouzivana.
 SUBST lze pouzit jen u Mistnich jednotek.
 .
 :SHELL_STARTUP_BEGIN
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [33mVitejte v DOSBoxu[37m                                                   º
-º                                                                     º
-º Prikazem [36mHELP[37m zobrazite seznam platnych prikazu.                    º
-º Prikazem [36mINTRO[37m zobrazite kratky uvod do programu.                   º
-º                                                                     º
-º Rychlost se zvysuje pomoci [36;1mCtrl-F8[37m a [36;1mCtrl-F12[37m.                      º
-º Pro zobrazeni mapy klaves stisknete [36;1mCtrl-F1[37m.                        º
-º Navod naleznete v souboru [36;1mREADME[37m v adresari DOSBox.                 º
-º                                                                     º
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [33mVitejte v DOSBoxu[37m                                                   ï¿½
+ï¿½                                                                     ï¿½
+ï¿½ Prikazem [36mHELP[37m zobrazite seznam platnych prikazu.                    ï¿½
+ï¿½ Prikazem [36mINTRO[37m zobrazite kratky uvod do programu.                   ï¿½
+ï¿½                                                                     ï¿½
+ï¿½ Rychlost se zvysuje pomoci [36;1mCtrl-F8[37m a [36;1mCtrl-F12[37m.                      ï¿½
+ï¿½ Pro zobrazeni mapy klaves stisknete [36;1mCtrl-F1[37m.                        ï¿½
+ï¿½ Navod naleznete v souboru [36;1mREADME[37m v adresari DOSBox.                 ï¿½
+ï¿½                                                                     ï¿½
 .
 :SHELL_STARTUP_CGA
-º DOSBox podporuje Composite-CGA-Modus.                         º
-º Benutzen Sie [36;1mAlt-F11[37m, um in diesem Modus die Farben zu wechseln.    º
-º                                                                     º
+ï¿½ DOSBox podporuje Composite-CGA-Modus.                         ï¿½
+ï¿½ Benutzen Sie [36;1mAlt-F11[37m, um in diesem Modus die Farben zu wechseln.    ï¿½
+ï¿½                                                                     ï¿½
 .
 :SHELL_STARTUP_DEBUG
-º Um den Debugger zu laden, drcken Sie entweder [36;1mAlt-Pause[37m oder       º
-º starten Sie die EXE mit [36mDEBUG[37m.                                      º
-º                                                                     º
+ï¿½ Um den Debugger zu laden, drï¿½cken Sie entweder [36;1mAlt-Pause[37m oder       ï¿½
+ï¿½ starten Sie die EXE mit [36mDEBUG[37m.                                      ï¿½
+ï¿½                                                                     ï¿½
 .
 :SHELL_STARTUP_END
-º Prijemnou zabavu preje DOSBox-Team!                                 º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+ï¿½ Prijemnou zabavu preje DOSBox-Team!                                 ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 .
 :SHELL_CMD_CHDIR_HELP
 Zmeni adresar.
@@ -602,7 +602,7 @@ CHDIR[..]
 CD [disk:][cesta]
 CD[..]
 
- ..   Symbol pro prechod do nadrizeneho adresare.
+ ..   Symbol pro prechod do ï¿½nadrizeneho adresare.
 
 CD disk:   Zobrazi aktualni adresar na nactenem disku.
 CD         Zobrazi aktualni disk a adresar.
@@ -644,7 +644,7 @@ RMDIR [disk:]cesta
 RD    [disk:]cesta
 .
 :SHELL_CMD_SET_HELP
-Mìní promìnné prostøedí nebo je zobrazí.
+Mï¿½nï¿½ promï¿½nnï¿½ prostï¿½edï¿½ nebo je zobrazï¿½.
 .
 :SHELL_CMD_IF_HELP
 Zpracovava podminene procesy v davkovych souborech.

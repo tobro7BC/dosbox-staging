@@ -1,61 +1,61 @@
-:Translated by Alexander Nicolaysen Sørnes <alex@thehandofagony.com>
-:Oversatt av Alexander Nicolaysen Sørnes <alex@thehandofagony.com>
+:Translated by Alexander Nicolaysen Sï¿½rnes <alex@thehandofagony.com>
+:Oversatt av Alexander Nicolaysen Sï¿½rnes <alex@thehandofagony.com>
 :
 :DIRECTSERIAL_CONFIGFILE_HELP
-directserial -- Aktiver seriell passeringsstøtte.
+directserial -- Aktiver seriell passeringsstï¿½tte.
 comport -- COM-port inne i DOSBox.
-realport -- COM-port på maskinen.
+realport -- COM-port pï¿½ maskinen.
 defaultbps -- Standardhastighet (BPS).
-parity -- Pariteten til pakkene. Dette kan være N, E eller O.
-bytesize -- Størrelse på hver pakke. Dette kan være 5 eller 8.
-stopbit -- Antall stoppbiter. Dette kan være 1 eller 2.
+parity -- Pariteten til pakkene. Dette kan vï¿½re N, E eller O.
+bytesize -- Stï¿½rrelse pï¿½ hver pakke. Dette kan vï¿½re 5 eller 8.
+stopbit -- Antall stoppbiter. Dette kan vï¿½re 1 eller 2.
 .
 :IPX_CONFIGFILE_HELP
-ipx -- Slå på IPX over UDP/IP-emulering.
+ipx -- Slï¿½ pï¿½ IPX over UDP/IP-emulering.
 .
 :SDL_CONFIGFILE_HELP
 fullscreen -- Start DOSBox direkte i fullskjerm.
 fulldouble -- Bruk dobbel bufring i fullskjerm.
-fullfixed -- Ikke endre skjermoppløsningen i fullskjermmodues.
-fullwidth/height -- Hvilken oppløsning som skal brukes i fullskjermmodues, bruk sammen med "fullfixed".
+fullfixed -- Ikke endre skjermopplï¿½sningen i fullskjermmodues.
+fullwidth/height -- Hvilken opplï¿½sning som skal brukes i fullskjermmodues, bruk sammen med "fullfixed".
 output -- Hva som skal brukes for utdata: "surface", "overlay", "opengl", eller "openglnb".
-hwscale -- Ekstra skalering av vinduet hvis utdata-enheten støtter maskinvareskalering.
-autolock -- Musen vil automatisk låses hvis du klikker på skjermen.
+hwscale -- Ekstra skalering av vinduet hvis utdata-enheten stï¿½tter maskinvareskalering.
+autolock -- Musen vil automatisk lï¿½ses hvis du klikker pï¿½ skjermen.
 sensitiviy -- Mussensitivitet.
-waitonerror -- Vent før konsollet renses hvis det oppstår en feil i DOSBox.
+waitonerror -- Vent fï¿½r konsollet renses hvis det oppstï¿½r en feil i DOSBox.
 .
 :DOSBOX_CONFIGFILE_HELP
-language -- Velg en annen språkfil.
+language -- Velg en annen sprï¿½kfil.
 memsize -- Mengden minne DOSBox har i megabyte.
 machine -- Maskintypen som skal emuleres: "auto", "hercules", "cga", "tandy" eller "vga".
-           Prøv en spesifik type hvis spillet ditt har problemer med "auto".
+           Prï¿½v en spesifik type hvis spillet ditt har problemer med "auto".
 .
 :RENDER_CONFIGFILE_HELP
-frameskip -- Hvor mange bilder DOSBox hopper over før det tegner et.
+frameskip -- Hvor mange bilder DOSBox hopper over fï¿½r det tegner et.
 snapdir -- Mappen hvor skjermdumper lagres.
 aspect -- Foreta aspektkorreksjon.
-scaler -- Skalering bruk til å forstørre/forbedre lave skjermmodi.
-          Støttede valg er "none", "normal2x" og "advance2x".
+scaler -- Skalering bruk til ï¿½ forstï¿½rre/forbedre lave skjermmodi.
+          Stï¿½ttede valg er "none", "normal2x" og "advance2x".
 .
 :CPU_CONFIGFILE_HELP
 core -- Prosessorkjerne brukt i emulering: "normal", "full" eller "dynamic".
-cycles -- Mengde instruksjoner DOSBox prøver å emulere hvert millisekund.
-          Å sette dette høyere enn maskinen din kan takle er fælt!
-cycleup   -- Antall instruksjoner å øke/senke med "keycombo".
-cycledown    Å sette den lavere enn 100 vil bli en prosentandel.
+cycles -- Mengde instruksjoner DOSBox prï¿½ver ï¿½ emulere hvert millisekund.
+          ï¿½ sette dette hï¿½yere enn maskinen din kan takle er fï¿½lt!
+cycleup   -- Antall instruksjoner ï¿½ ï¿½ke/senke med "keycombo".
+cycledown    ï¿½ sette den lavere enn 100 vil bli en prosentandel.
 .
 :MIXER_CONFIGFILE_HELP
 nosound -- Aktiver stille modus, dog lyden blir fortsatt emulert.
-rate -- Samplingsrate for mikser. Å sette en enhet høyere enn dette vil
+rate -- Samplingsrate for mikser. ï¿½ sette en enhet hï¿½yere enn dette vil
         sansynligvis redusere lydkvaliteten dens.
-blocksize -- Blokkstørrelse for mikser. Større blokker kan kanskje
-             hjelpe stutrende lyd, men den vil også bli tregere.
-wavedir -- Mappe hvor lagret lyd oppbevares når du bruker
+blocksize -- Blokkstï¿½rrelse for mikser. Stï¿½rre blokker kan kanskje
+             hjelpe stutrende lyd, men den vil ogsï¿½ bli tregere.
+wavedir -- Mappe hvor lagret lyd oppbevares nï¿½r du bruker
            tastekombinasjonen for lydopptak. Se filen "README".
 .
 :MIDI_CONFIGFILE_HELP
 mpu401 -- Aktiver emulering av MPU-401.
-device -- Enhet som skal motta MIDI-data fra MPU-401. Dette kan være "default",
+device -- Enhet som skal motta MIDI-data fra MPU-401. Dette kan vï¿½re "default",
           "alsa", "oss", "win32", "coreaudio" eller "none".
 config -- Spesielle konfigureringsmuligheter for enheten.
 .
@@ -66,7 +66,7 @@ sbrate -- Samplingsrate for SoundBlaster-emuleringen.
 adlib -- Aktiver emulering av AdLib.
 adlibrate -- Samplingsrate for AdLib-emulering.
 cms -- Aktiver emulering av Creative Music System/GameBlaster.
-       Å aktivere både Adlib og CMS kan skape konflikter.
+       ï¿½ aktivere bï¿½de Adlib og CMS kan skape konflikter.
 cmsrate -- Samplingsrate for CMS-emulering.
 .
 :GUS_CONFIGFILE_HELP
@@ -74,10 +74,10 @@ gus -- Aktiver emulering av Gravis UltraSound.
 base,irq1,irq2,dma1,dma2 -- IO/IRQ/DMA-adressen til
            Gravis UltraSound. (Lik IRQ og DMA er OK.)
 rate -- Samplingsrate for UltraSound-emulering.
-ultradir -- Sti til UltraSound-mappen. I denne mappen bør det
-            være en MIDI-mappe som inneholder oppdateringsfilene
+ultradir -- Sti til UltraSound-mappen. I denne mappen bï¿½r det
+            vï¿½re en MIDI-mappe som inneholder oppdateringsfilene
 	    for GUS-avspilling. Oppdateringssett bruk med
-	    Timidity bør virke fint.
+	    Timidity bï¿½r virke fint.
 .
 :SPEAKER_CONFIGFILE_HELP
 pcspeaker -- Aktiver emulering av PC-Speaker.
@@ -87,36 +87,36 @@ tandyrate -- Samplingsrate for Tandy 3-Voice-lydgenereringen.
 disney -- Aktiver emulering av Dysney Sound Source.
 .
 :DOS_CONFIGFILE_HELP
-xms -- Aktiver XMS-støtte.
-ems -- Aktiver EMS-støtte.
+xms -- Aktiver XMS-stï¿½tte.
+ems -- Aktiver EMS-stï¿½tte.
 .
 :MODEM_CONFIGFILE_HELP
 modem -- Aktiver emulering av virtuelt modem.
 comport -- COM-porten modemet er koblet til.
-listenport -- TCP-porten modemet lytter på for inkommende forbindelser.
+listenport -- TCP-porten modemet lytter pï¿½ for inkommende forbindelser.
 .
 :AUTOEXEC_CONFIGFILE_HELP
-Linjer i dette området vil bli kjørt ved oppstart.
+Linjer i dette omrï¿½det vil bli kjï¿½rt ved oppstart.
 .
 :PROGRAM_CONFIG_FILE_ERROR
-Kan ikke åpne filen %s.
+Kan ikke ï¿½pne filen %s.
 .
-:PROGRAM_CONFIG_USAGE
+:SHELL_CMD_CONFIG_HELP_LONG
 Konfigureringsverktoey:
-Bruk "-writeconf FILNAVN" for † skrive gjeldende konfigurasjon.
-Bruk "-writelang FILNAVN" for † skrive gjeldende spr†kstrenger.
+Bruk "-writeconf FILNAVN" for ï¿½ skrive gjeldende konfigurasjon.
+Bruk "-writelang FILNAVN" for ï¿½ skrive gjeldende sprï¿½kstrenger.
 .
 :DISNEY_CONFIGFILE_HELP
-Ingenting å forandre på ennå.
+Ingenting ï¿½ forandre pï¿½ ennï¿½.
 .
 :BIOS_CONFIGFILE_HELP
-Ingenting å forandre på ennå.
+Ingenting ï¿½ forandre pï¿½ ennï¿½.
 .
 :PROGRAM_MOUNT_STATUS_2
 Stasjon %c er montert som %s.
 .
 :PROGRAM_MOUNT_STATUS_1
-N†v‘rende monterte stasjoner er:
+Nï¿½vï¿½rende monterte stasjoner er:
 .
 :PROGRAM_MOUNT_ERROR_1
 Katalogen %s eksisterer ikke.
@@ -159,10 +159,10 @@ Minneallokeringsfeil.
 MSCDEX installert.
 .
 :MSCDEX_ERROR_MULTIPLE_CDROMS
-MSCDEX: Feil: Stasjonsbokstaver for flere CD-ROM-stasjoner m† v‘re etter hverandre.
+MSCDEX: Feil: Stasjonsbokstaver for flere CD-ROM-stasjoner mï¿½ vï¿½re etter hverandre.
 .
 :MSCDEX_ERROR_NOT_SUPPORTED
-MSCDEX: Feil: Ikke stoettet enn†.
+MSCDEX: Feil: Ikke stoettet ennï¿½.
 .
 :MSCDEX_ERROR_PATH
 MSCDEX: Feil: Banen er ikke gyldig.
@@ -183,20 +183,20 @@ Stasjonshurtigminne renset.
 [2J[32;1mVelkommen til DOSBox[0m, en x86-emulator med lyd og grafikk.
 DOSBox lager et skall for deg som ser ut som gamle, enkle DOS.
 
-Her er noen kommandoer for † sette deg igang:
-Foer du kan bruke filene p† ditt eget filsystem,
-m† du montere mappen som inneholder filene.
+Her er noen kommandoer for ï¿½ sette deg igang:
+Foer du kan bruke filene pï¿½ ditt eget filsystem,
+mï¿½ du montere mappen som inneholder filene.
 For Windows:
 [33mmount c c:\dosprog[0m vil opprette stasjon C: i DOSBox med c:\dosprog som innhold.
 
 For andre plattformer:
 [33mmount c /home/user/dosprog[0m vil gjoere det samme.
 
-N†r monteringen er ferdig kan du skrive [33mc:[0m for † g† til din ferskt monterte 
-C-stasjon.  skrive [33mdir[0m der vil vise innholdet i katalogen. [33mcd[0m vil tillate deg †g† inn i en katalog (gjenkjent med <DIR> i en kataloglisting).
+Nï¿½r monteringen er ferdig kan du skrive [33mc:[0m for ï¿½ gï¿½ til din ferskt monterte 
+C-stasjon. ï¿½ skrive [33mdir[0m der vil vise innholdet i katalogen. [33mcd[0m vil tillate deg ï¿½gï¿½ inn i en katalog (gjenkjent med <DIR> i en kataloglisting).
 Du kan kjoere programmer/filer som ender med [31m.exe[0m,[31m .bat[0m og [31m.com[0m.
 
-[43;30mDOSBox vil avslutte uten en advarsel hvis det oppst†r en feil![0m
+[43;30mDOSBox vil avslutte uten en advarsel hvis det oppstï¿½r en feil![0m
 .
 :SHELL_ILLEGAL_PATH
 Ugyldig bane.
@@ -205,7 +205,7 @@ Ugyldig bane.
 Stoettede kommandoer er:
 .
 :SHELL_CMD_ECHO_ON
-ECHO er p†.
+ECHO er pï¿½.
 .
 :SHELL_CMD_ECHO_OFF
 ECHO er av.
@@ -271,10 +271,10 @@ Stasjon %c finnes ikke.
 Ugyldig kommando: %s.
 .
 :SHELL_CMD_PAUSE
-Trykk en tast for † fortsette.
+Trykk en tast for ï¿½ fortsette.
 .
 :SHELL_CMD_PAUSE_HELP
-Venter p† et tastetrykk for † fortsette.
+Venter pï¿½ et tastetrykk for ï¿½ fortsette.
 .
 :SHELL_CMD_COPY_FAILURE
 Kopieringsfeil: %s.
@@ -286,19 +286,19 @@ Kopieringsfeil: %s.
 Fjerning av stasjon stoettes ikke. Ingenting blir gjort.
 .
 :SHELL_STARTUP
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [32mDOSBox-skall versjon 0.63[37m                                          º
-º DOSBox kjoerer spill for MS-DOS.                                   º
-º For skallkommandoer, skriv [1;33mHELP[37m                                    º
-º For en kort introduksjon, skriv [33mINTRO[37m                              º
-º                                                                    º
-º Hvis du oensker stoerre fart, proev [31mctrl-F8[37m og [31mctrl-F12[37m.           º
-º Trykk [31mctrl-F1[37m for † aktivere tastaturkartleggeren.                 º
-º Les filen [36mREADME[37m i DOSBox-mappen for mer informasjon.              º
-º                                                                    º
-º [32mHA DET GOEY![37m                                                       º
-º [32m-DOSBox-laget[37m                                                      º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [32mDOSBox-skall versjon 0.63[37m                                          ï¿½
+ï¿½ DOSBox kjoerer spill for MS-DOS.                                   ï¿½
+ï¿½ For skallkommandoer, skriv [1;33mHELP[37m                                    ï¿½
+ï¿½ For en kort introduksjon, skriv [33mINTRO[37m                              ï¿½
+ï¿½                                                                    ï¿½
+ï¿½ Hvis du oensker stoerre fart, proev [31mctrl-F8[37m og [31mctrl-F12[37m.           ï¿½
+ï¿½ Trykk [31mctrl-F1[37m for ï¿½ aktivere tastaturkartleggeren.                 ï¿½
+ï¿½ Les filen [36mREADME[37m i DOSBox-mappen for mer informasjon.              ï¿½
+ï¿½                                                                    ï¿½
+ï¿½ [32mHA DET GOEY![37m                                                       ï¿½
+ï¿½ [32m-DOSBox-laget[37m                                                      ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 .
 :SHELL_CMD_CHDIR_HELP
 Endrer arbeidskatalog.
@@ -310,7 +310,7 @@ Toemmer skjermen.
 Viser innholdet i en katalog.
 .
 :SHELL_CMD_ECHO_HELP
-Viser meldinger og sl†r av/p† kommando-ekko.
+Viser meldinger og slï¿½r av/pï¿½ kommando-ekko.
 .
 :SHELL_CMD_EXIT_HELP
 Avslutter skallet.
@@ -343,7 +343,7 @@ Legger til kommentarer i en satsvis fil.
 Dette er en simpel versjon av kommandoen, ingen jokersymbol tillat.
 .
 :SHELL_CMD_RENAME_HELP
-Endrer navn p† filer.
+Endrer navn pï¿½ filer.
 .
 :SHELL_CMD_DELETE_HELP
 Sletter filer.
@@ -365,26 +365,26 @@ CD-ROM'er funnet: %d
 .
 :PROGRAM_INTRO_CDROM
 [2J[32;1mHvordan man monterer en fysisk/virtuell CD-ROM-stasjon i DOSBox:[0m
-DOSBox kan emulere CD-ROM'er p† flere niv†er.
+DOSBox kan emulere CD-ROM'er pï¿½ flere nivï¿½er.
 
-[33mBasis[0m-niv†et virker med alle CD-ROM-stasjoner og vanlige mapper.
+[33mBasis[0m-nivï¿½et virker med alle CD-ROM-stasjoner og vanlige mapper.
 Det installerer MSCDEX og markerer filene som skrivebeskyttet.
 Dette er nok for de fleste spillene:
 [34;1mmount d [0;31mD:\[34;1m -t cdrom[0m   eller   [34;1mmount d C:\eksempel -t cdrom[0m
-Hvis dette ikke virker, m† du kanskje fortelle DOSBox etiketten p† CD-ROM'en:
+Hvis dette ikke virker, mï¿½ du kanskje fortelle DOSBox etiketten pï¿½ CD-ROM'en:
 [34;1mmount d C:\eksempel -t cdrom -label ETIKETT[0m
 
-Det [33mneste[0m niv†et legger til litt lavniv†tilgang til CD-ROM-stasjonen, og
+Det [33mneste[0m nivï¿½et legger til litt lavnivï¿½tilgang til CD-ROM-stasjonen, og
 virker derfor ikke med mapper:
 [34;1mmount d [0;31mD:\[34;1m -t cdrom -usecd [33m0[0m
 
-Det [33msiste[0m niv†et med CD-ROM-emulering avhenger av ditt operativsystem:
+Det [33msiste[0m nivï¿½et med CD-ROM-emulering avhenger av ditt operativsystem:
 For [1mWindows 2000[0m, [1mWindows XP[0m og [1mLinux[0m:
 [34;1mmount d [0;31mD:\[34;1m -t cdrom -usecd [33m0 [34m-ioctl[0m
 For [1mWindows 9x[0m med et ASPI-lag installert:
 [34;1mmount d [0;31mD:\[34;1m -t cdrom -usecd [33m0 [34m-aspi[0m
 Erstatt [0;31mD:\[0m med plasseringen til din CD-ROM.
-Erstatt [33;1m0[0m i [34;1m-usecd [33m0[0m med ned nummeret p† CD-ROM-stasjonen, som du f†r ved †
+Erstatt [33;1m0[0m i [34;1m-usecd [33m0[0m med ned nummeret pï¿½ CD-ROM-stasjonen, som du fï¿½r ved ï¿½
 skrive:
 [34;1mmount -cd[0m
 .
@@ -392,13 +392,13 @@ skrive:
 Oppstartsdisk-filen finnes ikke; avbryter.
 .
 :PROGRAM_BOOT_NOT_OPEN
-Kan ikke †pne oppstartsdisk-filen; avbryter.
+Kan ikke ï¿½pne oppstartsdisk-filen; avbryter.
 .
 :PROGRAM_BOOT_PRINT_ERROR
 Denne kommandoen starter DOSBox fra et diskett- eller harddiskbilde.
 
-For denne kommandoen kan du oppgi flere disketter som du kan bytte mellom ved † trykke Ctrl-F4, hvor -l spesifiserer den monterte stasjonen du skal starte opp fra. Hvis du ikke har oppgitt en stasjonsbokstav, blir dette stasjon A.
-De eneste stasjonene du kan starte opp fra er A, C og D. Skal du starte fra en harddisk-stasjon (C eller D), m† du foerst montere bildet med 
+For denne kommandoen kan du oppgi flere disketter som du kan bytte mellom ved ï¿½ trykke Ctrl-F4, hvor -l spesifiserer den monterte stasjonen du skal starte opp fra. Hvis du ikke har oppgitt en stasjonsbokstav, blir dette stasjon A.
+De eneste stasjonene du kan starte opp fra er A, C og D. Skal du starte fra en harddisk-stasjon (C eller D), mï¿½ du foerst montere bildet med 
 [34;1mIMGMOUNT[0m-kommandoen.
 
 Syntaksen for denne kommandoen er:
@@ -409,37 +409,37 @@ Syntaksen for denne kommandoen er:
 Kan ikke starte opp fra stasjon %c.
 .
 :PROGRAM_BOOT_IMAGE_OPEN
-pner bildefil: %s
+ï¿½pner bildefil: %s
 .
 :PROGRAM_BOOT_IMAGE_NOT_OPEN
-Kan ikke †pne %s.
+Kan ikke ï¿½pne %s.
 .
 :PROGRAM_BOOT_BOOT
 Starter opp fra stasjon %c...
 .
 :PROGRAM_IMGMOUNT_SPECIFY_DRIVE
-Du m† oppgi stasjonsbokstaven som bildet skal monteres som.
+Du mï¿½ oppgi stasjonsbokstaven som bildet skal monteres som.
 .
 :PROGRAM_IMGMOUNT_SPECIFY2
-Du m† oppgi stasjonsbokstaven (0 eller 3) som du vil montere bildet som (0,1=fda,fdb;2,3=hda,hdb).
+Du mï¿½ oppgi stasjonsbokstaven (0 eller 3) som du vil montere bildet som (0,1=fda,fdb;2,3=hda,hdb).
 .
 :PROGRAM_IMGMOUNT_SPECIFY_GEOMETRY
 For [33mCD-ROM[0m-bilder:   [34;1mimgmount stasjonsbokstav bildeplassering -t iso[0m
 
-For [33mharddisk[0m-bilder m† du du oppgi diskgeometrien:
+For [33mharddisk[0m-bilder mï¿½ du du oppgi diskgeometrien:
 bytes_per_sector, sectors_per_cylinder, heads_per_cylinder, cylinder_count.
 .
 :PROGRAM_IMGMOUNT_FORMAT_UNSUPPORTED
 Format "%s" stoettes ikke. Oppgi "fat", "iso" eller "none".
 .
 :PROGRAM_IMGMOUNT_SPECIFY_FILE
-Du m† oppgi filbildet du oensker † montere.
+Du mï¿½ oppgi filbildet du oensker ï¿½ montere.
 .
 :PROGRAM_IMGMOUNG_FILE_NOT_FOUND
 Bildefilen ble ikke funnet.
 .
 :PROGRAM_IMGMOUNG_MOUNT
-Bruk [34;1mMOUNT[0m-kommandoen for † montere mapper, ikke [34;1mIMGMOUNT[0m-kommandoen.
+Bruk [34;1mMOUNT[0m-kommandoen for ï¿½ montere mapper, ikke [34;1mIMGMOUNT[0m-kommandoen.
 .
 :PROGRAM_IMGMOUNT_ALLREADY_MOUNTED
 En stasjon er allerede montert som den bokstaven.
@@ -451,11 +451,11 @@ Kan ikke opprette stasjon fra filen.
 Stasjon %d montert som %s
 .
 :SHELL_CMD_SUBST_FAILURE
-SUBST feilet. Enten skrev du feil i kommandolinjen, eller s† er m†lstasjonen allerede i bruk.
-Det er bare mulig † bruke SUBST p† lokale stasjoner.
+SUBST feilet. Enten skrev du feil i kommandolinjen, eller sï¿½ er mï¿½lstasjonen allerede i bruk.
+Det er bare mulig ï¿½ bruke SUBST pï¿½ lokale stasjoner.
 .
 :SHELL_CMD_CHOICE_HELP
-Venter p† et tastetrykk og setter ERRORLEVEL.
+Venter pï¿½ et tastetrykk og setter ERRORLEVEL.
 .
 :SHELL_CMD_ATTRIB_HELP
 Gjoer ingenting; kun for kompatibilitet.

@@ -1,15 +1,15 @@
 :CONFIG_FULLSCREEN
-Starter DOSBox i helskærm/fuldskærm.(Tryk ALT-Enter for at gå tilbage)
+Starter DOSBox i helskï¿½rm/fuldskï¿½rm.(Tryk ALT-Enter for at gï¿½ tilbage)
 .
 :CONFIG_FULLDOUBLE
-Helskærm/fuldskærm i Double Buffering mode. Kan reducére skærm-flimmer, men kan også sløve DOSBox.
+Helskï¿½rm/fuldskï¿½rm i Double Buffering mode. Kan reducï¿½re skï¿½rm-flimmer, men kan ogsï¿½ slï¿½ve DOSBox.
 .
 :CONFIG_FULLRESOLUTION
-Hvilken opløsning der skal anvendes i helskærm/fuldskærm: "original", "desktop" eller fixeret (F.eks. 1024x768).
-  At bruge din monitors oprindelig opløsning (desktop) med aspect=true, kunne give det bedste resultat.
-  Prøv, et output som ikke er surface, hvis du får et lille vindue på en stor skærm.
-  Prøv på Windows 10, med display skaléring (Skaléring og Layout) sat til en værdi over 100%, at bruge
-  en lavere fuldskærmsopløsning, for at undgå vindue-skaléringsproblemer.
+Hvilken oplï¿½sning der skal anvendes i helskï¿½rm/fuldskï¿½rm: "original", "desktop" eller fixeret (F.eks. 1024x768).
+  At bruge din monitors oprindelig oplï¿½sning (desktop) med aspect=true, kunne give det bedste resultat.
+  Prï¿½v, et output som ikke er surface, hvis du fï¿½r et lille vindue pï¿½ en stor skï¿½rm.
+  Prï¿½v pï¿½ Windows 10, med display skalï¿½ring (Skalï¿½ring og Layout) sat til en vï¿½rdi over 100%, at bruge
+  en lavere fuldskï¿½rmsoplï¿½sning, for at undgï¿½ vindue-skalï¿½ringsproblemer.
 .
 :CONFIG_WINDOWRESOLUTION
 Tilpasser vinduet til angivet format (kun hvis "hardwaren" er istand til det).
@@ -19,50 +19,50 @@ Tilpasser vinduet til angivet format (kun hvis "hardwaren" er istand til det).
 Hvilket video system der skal bruges til output.
 .
 :CONFIG_AUTOLOCK
-Automatisk binding af musen ved klik på skærmen(Press CTRL-F10 for at frigøre).
+Automatisk binding af musen ved klik pï¿½ skï¿½rmen(Press CTRL-F10 for at frigï¿½re).
 .
 :CONFIG_SENSITIVITY
-Mus'-følsomhed.
+Mus'-fï¿½lsomhed.
 .
 :CONFIG_WAITONERROR
 Ventetid, inden nedlukning af konsollen, ved evt.fejl i DOSBox.
 .
 :CONFIG_PRIORITY
-DOSBox-Prioriterings-niveauer. "Anden indtastning" efter kommaet er beregnet til når DOSBOX ikke er i focus/minimeret.
+DOSBox-Prioriterings-niveauer. "Anden indtastning" efter kommaet er beregnet til nï¿½r DOSBOX ikke er i focus/minimeret.
  pause er kun gangbar for "anden indtastning").
 .
 :CONFIG_MAPPERFILE
-Fil brugt til at Keymapper-indstillinger.Resetmapper virker kun med standard værdi.
+Fil brugt til at Keymapper-indstillinger.Resetmapper virker kun med standard vï¿½rdi.
 .
 :CONFIG_USESCANCODES
-Undgå brug af Symboltaster, virker måske ikke med alle systemer.
+Undgï¿½ brug af Symboltaster, virker mï¿½ske ikke med alle systemer.
 .
 :CONFIG_LANGUAGE
-Vælg en anden sprogfil/language-file.
+Vï¿½lg en anden sprogfil/language-file.
 .
 :CONFIG_MACHINE
-Hvilken type maskine DOSBox prøver at emulere.
+Hvilken type maskine DOSBox prï¿½ver at emulere.
 .
 :CONFIG_CAPTURES
 Directory(Mappen,Folderen,Biblioteket) hvor captured/indfangede Wave-, Midi-filer og Screenshots gemmes.
 .
 :CONFIG_MEMSIZE
 DOSBox's hukommelseslager i MB.
-   Det er bedst, for at undgå problemer med nogle spil, ikke at ændre denne værdi,
-   Selvom få spil måske kræver en højere værdi.
-   Der er generelt ingen hastighedsforøgelse ved at forhøje denne værdi.
+   Det er bedst, for at undgï¿½ problemer med nogle spil, ikke at ï¿½ndre denne vï¿½rdi,
+   Selvom fï¿½ spil mï¿½ske krï¿½ver en hï¿½jere vï¿½rdi.
+   Der er generelt ingen hastighedsforï¿½gelse ved at forhï¿½je denne vï¿½rdi.
 .
 :CONFIG_FRAMESKIP
 Antal billeder/"frames" Dosbox dropper inden der tegnes 1.
 .
 :CONFIG_ASPECT
-Aspekt-korrektion, kan hvis din output-metode ikke virker med skaléring, virke neddroslende.
+Aspekt-korrektion, kan hvis din output-metode ikke virker med skalï¿½ring, virke neddroslende.
 .
 :CONFIG_SCALER
-Filtermethode til at udvidde/forbedre lave opløsningerer. Hvis 'forced' bliver tilføjet,
-  bliver scaleren brugt, selvom resutatet måske bliver uønsket.
-  Det kan kræve en ramme eller sidebjælker, at tilpasse en scaler, i opløsningen brugt ved fuldskærm,
-  for at udfylde skærmen hélt. Afhængigt af dit hardware, virker en anden scaler/fuldskærmsopløsning måské.
+Filtermethode til at udvidde/forbedre lave oplï¿½sningerer. Hvis 'forced' bliver tilfï¿½jet,
+  bliver scaleren brugt, selvom resutatet mï¿½ske bliver uï¿½nsket.
+  Det kan krï¿½ve en ramme eller sidebjï¿½lker, at tilpasse en scaler, i oplï¿½sningen brugt ved fuldskï¿½rm,
+  for at udfylde skï¿½rmen hï¿½lt. Afhï¿½ngigt af dit hardware, virker en anden scaler/fuldskï¿½rmsoplï¿½sning mï¿½skï¿½.
 .
 :CONFIG_CORE
 CPU Core brugt til emulering. 'auto' skifter til dynamic, hvis passende og til stede...
@@ -72,32 +72,32 @@ CPU Type brugt til emulering. 'auto' er hurtigste valg..
 .
 :CONFIG_CYCLES
 Antal udregninger DOSBOX vil emulere pr. milli-sekund.
-Er denne værdi sat for højt, resulterer det i udfald og hakken.
-Cycles kan indstilles på 3 måder:
-  'auto'         Prøver på at "gætte" hvad spillet/programmet har brug for,
+Er denne vï¿½rdi sat for hï¿½jt, resulterer det i udfald og hakken.
+Cycles kan indstilles pï¿½ 3 mï¿½der:
+  'auto'         Prï¿½ver pï¿½ at "gï¿½tte" hvad spillet/programmet har brug for,
                  det virker som regel, men kan fejle for enkelte spil.
-  'fixed #ant.'  Angiver et fast tal for antal 'cycles'. Dette er normalt hvad er nødvendigt
+  'fixed #ant.'  Angiver et fast tal for antal 'cycles'. Dette er normalt hvad er nï¿½dvendigt
                  hvis 'auto' fejler. (Eksempel: fixed 4000)
-  'max'          Tildeler så mange 'cycles' som din computer kan klare.
+  'max'          Tildeler sï¿½ mange 'cycles' som din computer kan klare.
 
 .
 :CONFIG_CYCLEUP
 Antal 'cycles', der kan skiftes med tastekombinationer.(CTRL-F11/CTRL-F12)
 .
 :CONFIG_CYCLEDOWN
-Et tal lavere end 100 antages som værende i procent.
+Et tal lavere end 100 antages som vï¿½rende i procent.
 .
 :CONFIG_NOSOUND
 Stille/tavs, lyden bliver dog stadig emuleret.
 .
 :CONFIG_RATE
-Mixer-Sampling-Rate; en højere værdi vil sandsynligvis forringe lyd-kvaliteten.
+Mixer-Sampling-Rate; en hï¿½jere vï¿½rdi vil sandsynligvis forringe lyd-kvaliteten.
 .
 :CONFIG_BLOCKSIZE
-Mixerens blokstørrelse; større Blokke kan muligvis forhindre hak i lyden, men lyden får mere 'lag'.
+Mixerens blokstï¿½rrelse; stï¿½rre Blokke kan muligvis forhindre hak i lyden, men lyden fï¿½r mere 'lag'.
 .
 :CONFIG_PREBUFFER
-Hvor mange millisekunders data der skal beholdes på toppen af blokstørrelsen
+Hvor mange millisekunders data der skal beholdes pï¿½ toppen af blokstï¿½rrelsen
 .
 :CONFIG_MPU401
 Type MPU-401 at emulere.
@@ -106,9 +106,9 @@ Type MPU-401 at emulere.
 Enhed, til at behandle MIDI data fra MPU-401.
 .
 :CONFIG_MIDICONFIG
-Specielle konfigurationsmuligheder for enhedsdriveren. Dette er sædvanligvis id'et på enheden du ønsker at bruge
+Specielle konfigurationsmuligheder for enhedsdriveren. Dette er sï¿½dvanligvis id'et pï¿½ enheden du ï¿½nsker at bruge
    (Find id med "mixer /listmidi").
-   i tilfælde med coreaudio, kan du specificere en soundfont her.
+   i tilfï¿½lde med coreaudio, kan du specificere en soundfont her.
    Se README/Manual for flere detaljer.
 .
 :CONFIG_SBTYPE
@@ -130,13 +130,13 @@ Soundblaster High DMA nummer.
 Tillad SoundBlaster-Mixeren at indstille DOSBox-Mixeren.
 .
 :CONFIG_OPLMODE
-Type OPL emulering. På 'auto' bestemmer sblaster-typen. Alle OPL modes er Adlib-kompatible, undtage. 'cms'.
+Type OPL emulering. Pï¿½ 'auto' bestemmer sblaster-typen. Alle OPL modes er Adlib-kompatible, undtage. 'cms'.
 .
 :CONFIG_OPLEMU
-Kilden for OPL emulering. compat eller old leverer måske bedre kvalitet (se også oplrate).
+Kilden for OPL emulering. compat eller old leverer mï¿½ske bedre kvalitet (se ogsï¿½ oplrate).
 .
 :CONFIG_OPLRATE
-OPL-Musik-Emulering Sampling-Rate. Brug 49716 for højeste kvalitet (sæt mixerens rate forholdsvis).
+OPL-Musik-Emulering Sampling-Rate. Brug 49716 for hï¿½jeste kvalitet (sï¿½t mixerens rate forholdsvis).
 .
 :CONFIG_GUS
 Aktivere Gravis Ultrasound-Emulering.
@@ -160,13 +160,13 @@ Der skal eksistere en MIDI-Mappe i denne Mappe
 Timidity-Patches skulle virke ok.
 .
 :CONFIG_PCSPEAKER
-Aktivér PC-højtaler-Emulering.
+Aktivï¿½r PC-hï¿½jtaler-Emulering.
 .
 :CONFIG_PCRATE
-PC-højtaler-Emulerings Sampling-Rate.
+PC-hï¿½jtaler-Emulerings Sampling-Rate.
 .
 :CONFIG_TANDY
-Tandy Sound System-Emulering. Hvis 'auto' kun emulering når maskine er sat til 'tandy'.
+Tandy Sound System-Emulering. Hvis 'auto' kun emulering nï¿½r maskine er sat til 'tandy'.
 .
 :CONFIG_TANDYRATE
 Sampling-Rate for Tandy 3-Voice-Generering.
@@ -177,16 +177,16 @@ Aktiver Disney Sound Source-Emulering. (Covox Voice Master and Speech Thing comp
 :CONFIG_JOYSTICKTYPE
 Joysticks-type at emulere: auto (Standard), none (ingen),
 2axis (op til 2 Joysticks),
-4axis (1joystick, første joystick der bruges),
+4axis (1joystick, fï¿½rste joystick der bruges),
 4axis_2 (1joystick, andet joystick der bruges),
 fcs (Thrustmaster),
 ch (CH Flightstick),
 none deaktiverer joystick-emulering.
-auto vælger emulering afhægigt af rigtigt joystick(s).
+auto vï¿½lger emulering afhï¿½gigt af rigtigt joystick(s).
 (Husk at resette DOSBox's mapperfil, hvis du har gemt den tidlgere).
 .
 :CONFIG_TIMED
-Aktiver timede intervaller for Axis. Eksperimentér med disse, hvis dit Joystick 'flyder' bort.
+Aktiver timede intervaller for Axis. Eksperimentï¿½r med disse, hvis dit Joystick 'flyder' bort.
 .
 :CONFIG_AUTOFIRE
 Fortsat "skydning" medens knappen er trykket ned.
@@ -199,9 +199,9 @@ Aktiver "button wrapping" ved antallet af emulerede antal knapper.
 .
 :CONFIG_SERIAL1
 Angiv enheds-type tilsluttet com port.
-Kan være :disabled, dummy, modem, nullmodem, directserial.
+Kan vï¿½re :disabled, dummy, modem, nullmodem, directserial.
 Yderligere parametre skal findes i samme linie i formatet
- "Parameter:værdi". Parameter for alle typer er irq.
+ "Parameter:vï¿½rdi". Parameter for alle typer er irq.
 for directserial: realport (required), rxdelay (optional).
                  (realport:COM1 realport:ttyS0).
 for modem: listenport (optional).
@@ -235,7 +235,7 @@ IPX over UDP/IP-Emulering aktiveret.
 .
 :AUTOEXEC_CONFIGFILE_HELP
 Linier i denne sektion eksekveres under DOSBOX's opstart.
-Du kan bla. indsætte MOUNT(og IMGMOUNT) kommandoer her.
+Du kan bla. indsï¿½tte MOUNT(og IMGMOUNT) kommandoer her.
 
 .
 :CONFIGFILE_INTRO
@@ -245,13 +245,13 @@ Du kan bla. indsætte MOUNT(og IMGMOUNT) kommandoer her.
 
 .
 :CONFIG_SUGGESTED_VALUES
-Mulige værdier
+Mulige vï¿½rdier
 .
 :PROGRAM_CONFIG_FILE_ERROR
-Kan ikke †bne filen: %s
+Kan ikke ï¿½bne filen: %s
 
 .
-:PROGRAM_CONFIG_USAGE
+:SHELL_CMD_CONFIG_HELP_LONG
 Konfigurations-muligheder:
 CONFIG -writeconf  Skriver den aktuelle konfiguration til disk.
 CONFIG -writelang  Skriver de aktuelle sprogstrenge til disk.
@@ -270,11 +270,11 @@ Afsnit ikke fundet: %s
 
 .
 :PROGRAM_CONFIG_PROPERTY_ERROR
-Afsnit eller tilh›rsforhold ikke tilstede.
+Afsnit eller tilhï¿½rsforhold ikke tilstede.
 
 .
 :PROGRAM_CONFIG_NO_PROPERTY
-Tilh›rsforhold %s i Afsnit %s eksisterer ikke.
+Tilhï¿½rsforhold %s i Afsnit %s eksisterer ikke.
 
 .
 :PROGRAM_CONFIG_GET_SYNTAX
@@ -318,7 +318,7 @@ Drev %c er allerede monteret med %s.
 :PROGRAM_MOUNT_USAGE
 Brug [34;1mMOUNT Drev-Bogstav lokal Directory(Mappe,Folder,Bibliotek)[0m
 For eks. MOUNT c %s
-F†r Mappen %s til at virke som C: drevet i DOSBox
+Fï¿½r Mappen %s til at virke som C: drevet i DOSBox
 Mappen skal eksistere.
 
 .
@@ -355,7 +355,7 @@ Kan ikke afmontere virtuelt Drev.
 
 .
 :PROGRAM_MEM_UPPER
-%10d Kb Ledig "Øvre" hukommelse. i %d blokke (st›rste UMB: %d Kb).
+%10d Kb Ledig "ï¿½vre" hukommelse. i %d blokke (stï¿½rste UMB: %d Kb).
 
 .
 :PROGRAM_LOADFIX_ALLOC
@@ -383,11 +383,11 @@ MSCDEX-fejl: CDDREV-bogstaver skal komme direkte efter hinanden!
 
 .
 :MSCDEX_ERROR_NOT_SUPPORTED
-MSCDEX-fejl: Endnu ikke underst›ttet.
+MSCDEX-fejl: Endnu ikke understï¿½ttet.
 
 .
 :MSCDEX_ERROR_OPEN
-MSCDEX-fejl: Ukorrekt fil, eller umulig at †bne.
+MSCDEX-fejl: Ukorrekt fil, eller umulig at ï¿½bne.
 
 .
 :MSCDEX_TOO_MANY_DRIVES
@@ -407,7 +407,7 @@ Ukendt MSCDEX-Fejl.
 
 .
 :PROGRAM_RESCAN_SUCCESS
-Drev cache t›mt.
+Drev cache tï¿½mt.
 
 .
 :PROGRAM_INTRO
@@ -417,7 +417,7 @@ DOSBox laver en skal/shell til dig som ser ud som gammeldags DOS.
 Assistance til at montere et Drev med kommandoen : [34;1mINTRO MOUNT[0m.
 Assistance til at montere et CD-ROM-Drev med kommandoen : [34;1mINTRO CDROM[0m.
 Assistance til tastaturgenveje med kommandoen : [34;1mINTRO SPECIAL[0m.
-Mere Informationen om DOSBox, bes›g [34;1mhttp://www.dosbox.com/wiki[0m.
+Mere Informationen om DOSBox, besï¿½g [34;1mhttp://www.dosbox.com/wiki[0m.
 
 [31;1mVed fejl kan DOSBox lukke uden advarsel![0m
 
@@ -432,19 +432,19 @@ skal du montere det Directory(Mappe,Folder,Bibliotek) som indeholder filerne.
 
 .
 :PROGRAM_INTRO_MOUNT_WINDOWS
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [32mmount c c:\dosprog\[37m skaber et a C drev med c:\dosprog som indhold.     º
-º                                                                        º
-º [32mc:\dosprog\[37m er et eksempel. erstat det med dit eget spil Directory.   [37m º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [32mmount c c:\dosprog\[37m skaber et a C drev med c:\dosprog som indhold.     ï¿½
+ï¿½                                                                        ï¿½
+ï¿½ [32mc:\dosprog\[37m er et eksempel. erstat det med dit eget spil Directory.   [37m ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 
 .
 :PROGRAM_INTRO_MOUNT_OTHER
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [32mmount c c:\dosprog\[37m skaber et a C drev med ~/dosprog som indhold.     º
-º                                                                        º
-º [32m~/dosprog\[37m er et eksempel. erstat det med dit eget spil Directory .   [37m º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [32mmount c c:\dosprog\[37m skaber et a C drev med ~/dosprog som indhold.     ï¿½
+ï¿½                                                                        ï¿½
+ï¿½ [32m~/dosprog\[37m er et eksempel. erstat det med dit eget spil Directory .   [37m ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 
 .
 :PROGRAM_INTRO_MOUNT_END
@@ -465,7 +465,7 @@ For de fleste spil bruges:
 hvis dette ikke virker, skal CDLabel evt. angives:
 [34;1mmount d C:\example -t cdrom -label CDLABEL[0m
 
-Det [33mn‘ste[0m niveau tilf›jer noget lav-niveau support.
+Det [33mnï¿½ste[0m niveau tilfï¿½jer noget lav-niveau support.
 og virker derfor kun med rigtige CD-ROM-Drev:
 [34;1mmount d [0;31mD:\[34;1m -t cdrom -usecd [33m0[0m
 
@@ -485,7 +485,7 @@ Erstat [33;1m0[0m i [34;1m-usecd [33m0[0m med Nummeret for din CDROM, der f
 Standardindstillinger,
 som kan laves om med [33mkeymapper[0m.
 
-[33;1mALT-ENTER[0m   : Fuldsk‘rm Til/Fra
+[33;1mALT-ENTER[0m   : Fuldskï¿½rm Til/Fra
 [33;1mALT-PAUSE[0m   : Pause DOSBox.
 [33;1mCTRL-F1[0m     : Starte [33mkeymapper[0m.
 [33;1mCTRL-F4[0m     : Skifte Diskette-Image; genopfriske Directory-struktur
@@ -495,9 +495,9 @@ som kan laves om med [33mkeymapper[0m.
 [33;1mCTRL-ALT-F7[0m : Optage OPL-Data (DRO format) Til/Fra
 [33;1mCTRL-ALT-F8[0m : Optage Raw-MIDI-Data Til/Fra
 [33;1mCTRL-F7[0m     : Formindske Frames-tab
-[33;1mCTRL-F8[0m     : Forst›rre Frames-tab
+[33;1mCTRL-F8[0m     : Forstï¿½rre Frames-tab
 [33;1mCTRL-F9[0m     : Afslutte DOSBox
-[33;1mCTRL-F10[0m    : Binde/Frig›e mus
+[33;1mCTRL-F10[0m    : Binde/Frigï¿½e mus
 [33;1mCTRL-F11[0m    : Langsommere emulering (mindre antal DOSBox-Cycles)
 [33;1mCTRL-F12[0m    : Hurtigere emulering (flere DOSBox-Cycles)
 [33;1mALT-F12[0m     : Frigiv hastighed (Turbo-Knap)
@@ -508,7 +508,7 @@ Fejl: Bootdisk-Fil ikke fundet.
 
 .
 :PROGRAM_BOOT_NOT_OPEN
-Fejl: Kan ikke †bne Bootdisk-Fil.
+Fejl: Kan ikke ï¿½bne Bootdisk-Fil.
 
 .
 :PROGRAM_BOOT_WRITE_PROTECTED
@@ -534,11 +534,11 @@ Syntaks for kommandoen er:
 Kan ikke boote fra drev %c.
 .
 :PROGRAM_BOOT_IMAGE_OPEN
-†bner Image: %s
+ï¿½bner Image: %s
 
 .
 :PROGRAM_BOOT_IMAGE_NOT_OPEN
-Kan ikke †bne %s
+Kan ikke ï¿½bne %s
 .
 :PROGRAM_BOOT_BOOT
 Booter fra drev %c...
@@ -548,7 +548,7 @@ Booter fra drev %c...
 PCjr-Cartridge: Maskine er ikke PCjr.
 .
 :PROGRAM_BOOT_CART_LIST_CMDS
-Tilg‘ngelige PCjr cartridge kommandoer:%s.
+Tilgï¿½ngelige PCjr cartridge kommandoer:%s.
 .
 :PROGRAM_BOOT_CART_NO_CMDS
 Der er ingen PCjr cartridge Kommandoer fundet.
@@ -570,8 +570,8 @@ bytes_per_sector, sectors_per_cylinder, heads_per_cylinder, cylinder_count.
 
 .
 :PROGRAM_IMGMOUNT_INVALID_IMAGE
-Kunne ikke indl‘se image fil.
-Unders›g om stien(path) er korrekt og at dit image er tilg‘geligt.
+Kunne ikke indlï¿½se image fil.
+Undersï¿½g om stien(path) er korrekt og at dit image er tilgï¿½geligt.
 
 .
 :PROGRAM_IMGMOUNT_INVALID_GEOMETRY
@@ -580,11 +580,11 @@ Brug parametrene -size bps,spc,hpc,cyl til at specificere geometrien.
 
 .
 :PROGRAM_IMGMOUNT_TYPE_UNSUPPORTED
-Image-Type %s kan ikke bruges. Specific‚r "hdd" , "floppy" ell. "iso".
+Image-Type %s kan ikke bruges. Specificï¿½r "hdd" , "floppy" ell. "iso".
 
 .
 :PROGRAM_IMGMOUNT_FORMAT_UNSUPPORTED
-%s Ukendt Format. Specific‚r "fat" , "iso" ell. "none".
+%s Ukendt Format. Specificï¿½r "fat" , "iso" ell. "none".
 
 .
 :PROGRAM_IMGMOUNT_SPECIFY_FILE
@@ -612,7 +612,7 @@ Drev %d monteret som %s.
 
 .
 :PROGRAM_IMGMOUNT_NON_LOCAL_DRIVE
-Et Image skal ligge p† fysisk eller lokal drev.
+Et Image skal ligge pï¿½ fysisk eller lokal drev.
 
 .
 :PROGRAM_IMGMOUNT_MULTIPLE_NON_CUEISO_FILES
@@ -669,11 +669,11 @@ En kort liste over de mest benyttede kommandoer:
 
 .
 :SHELL_CMD_ECHO_ON
-ECHO er sl†et til
+ECHO er slï¿½et til
 
 .
 :SHELL_CMD_ECHO_OFF
-ECHO er sl†et fra.
+ECHO er slï¿½et fra.
 
 .
 :SHELL_ILLEGAL_SWITCH
@@ -694,11 +694,11 @@ Skift drev med : [31m%c:[0m
 .
 :SHELL_CMD_CHDIR_HINT_2
 Directory-navn (Mappe-navn/Folder-navn/Biblioteks-navn) er mere end 8 tegn langt og/eller indeholder mellemrum.
-Pr›v [31mcd %s[0m
+Prï¿½v [31mcd %s[0m
 
 .
 :SHELL_CMD_CHDIR_HINT_3
-Du er stadig p† drev Z:, skift til et monteret drev med [31mC:[0m.
+Du er stadig pï¿½ drev Z:, skift til et monteret drev med [31mC:[0m.
 
 .
 :SHELL_CMD_MKDIR_ERROR
@@ -718,11 +718,11 @@ Forkert kommando-syntax
 
 .
 :SHELL_CMD_SET_NOT_SET
-Milj›variabel %s ikke defineret
+Miljï¿½variabel %s ikke defineret
 
 .
 :SHELL_CMD_SET_OUT_OF_SPACE
-For lidt milj›-plads
+For lidt miljï¿½-plads
 
 .
 :SHELL_CMD_IF_EXIST_MISSING_FILENAME
@@ -799,38 +799,38 @@ SUBST-fejl enten er der en fejl i kommandolinie, eller drevet er bruges:
 SUBST virker kun med lokale drev.
 .
 :SHELL_STARTUP_BEGIN
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [32mVelkommen til DOSBox v%-8s[37m                                     º
-º                                                                    º
-º For en kort introduktion til nye brugere tast: [33mINTRO[37m               º
-º For brugbare skal/shell kommandoer tast: [33mHELP[37m                      º
-º                                                                    º
-º Hvis du vil have mere fart, tast [31mctrl-F8[37m eller [31mctrl-F12[37m.           º
-º For at aktivere "keymapper" [31mctrl-F1[37m.                               º
-º For mere information se [36mREADME[37m filen i DOSBox-mappen.              º
-º                                                                    º
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [32mVelkommen til DOSBox v%-8s[37m                                     ï¿½
+ï¿½                                                                    ï¿½
+ï¿½ For en kort introduktion til nye brugere tast: [33mINTRO[37m               ï¿½
+ï¿½ For brugbare skal/shell kommandoer tast: [33mHELP[37m                      ï¿½
+ï¿½                                                                    ï¿½
+ï¿½ Hvis du vil have mere fart, tast [31mctrl-F8[37m eller [31mctrl-F12[37m.           ï¿½
+ï¿½ For at aktivere "keymapper" [31mctrl-F1[37m.                               ï¿½
+ï¿½ For mere information se [36mREADME[37m filen i DOSBox-mappen.              ï¿½
+ï¿½                                                                    ï¿½
 
 .
 :SHELL_STARTUP_CGA
-º DOSBox underst?tter Composite CGA mode.                            º
-º Brug [31m(alt-)F11[37m til at skifte farver n†r du er i denne mode.        º
-º                                                                    º
+ï¿½ DOSBox underst?tter Composite CGA mode.                            ï¿½
+ï¿½ Brug [31m(alt-)F11[37m til at skifte farver nï¿½r du er i denne mode.        ï¿½
+ï¿½                                                                    ï¿½
 
 .
 :SHELL_STARTUP_HERC
-º Brug [31mF11[37m til at skifte farver n†r du er i denne mode.        º
-º                                                                    º
+ï¿½ Brug [31mF11[37m til at skifte farver nï¿½r du er i denne mode.        ï¿½
+ï¿½                                                                    ï¿½
 
 .
 :SHELL_STARTUP_DEBUG
-º Tast [31mAlt-Pause[37m for at starte debuggeren eller start exe-filen med [33mDEBUG[37m.     º
-º                                                                     º
+ï¿½ Tast [31mAlt-Pause[37m for at starte debuggeren eller start exe-filen med [33mDEBUG[37m.     ï¿½
+ï¿½                                                                     ï¿½
 
 .
 :SHELL_STARTUP_END
-º [32mMor jer![37m                                                           º
-º [32mDOSBox Teamet.[33mhttp://www.dosbox.com[37m                                º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+ï¿½ [32mMor jer![37m                                                           ï¿½
+ï¿½ [32mDOSBox Teamet.[33mhttp://www.dosbox.com[37m                                ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 
 .
 :SHELL_CMD_CHDIR_HELP
@@ -850,7 +850,7 @@ CD     Viser det aktuelle Drev og Directory.
 
 .
 :SHELL_CMD_CLS_HELP
-Renser sk‘rmen.
+Renser skï¿½rmen.
 
 .
 :SHELL_CMD_DIR_HELP
@@ -864,13 +864,13 @@ Dir /w : output wide-format
 Dir /p : output pages-format(sider) samme som Dir |more
 .
 :SHELL_CMD_ECHO_HELP
-Viser meddelelser og sl†r kommando- Til/Fra.
+Viser meddelelser og slï¿½r kommando- Til/Fra.
 
 .
 :SHELL_CMD_ECHO_HELP_LONG
 ECHO efterfulgt af text viser tekst i batchfil.
 ECHO efterfulgt af . (ECHO.) viser en tom linie i batchfil.
-ECHO off sl†r ekko fra - ECHO on sl†r 'ekko' til.
+ECHO off slï¿½r ekko fra - ECHO on slï¿½r 'ekko' til.
 .
 :SHELL_CMD_EXIT_HELP
 Slutter skallen/shellen og DOSBox.
@@ -899,13 +899,13 @@ RD    [Drev:]Sti
 
 .
 :SHELL_CMD_SET_HELP
-Skriver/fjerner/viser indhold af DOS-milj›variablen.
+Skriver/fjerner/viser indhold af DOS-miljï¿½variablen.
 
 .
 :SHELL_CMD_SET_HELP_LONG
-SET viser milj›variabler.
-SET navn=v‘rdi  s‘tter milj›ariabel.
-SET navn=  sletter milj›variabel.
+SET viser miljï¿½variabler.
+SET navn=vï¿½rdi  sï¿½tter miljï¿½ariabel.
+SET navn=  sletter miljï¿½variabel.
 .
 :SHELL_CMD_IF_HELP
 Tillader betingede operationer i batch filer.
@@ -943,7 +943,7 @@ Dette er den simple version af kommando-fortolkeren, ingen wildcards.
 
 .
 :SHELL_CMD_RENAME_HELP
-Omd›ber en eller flere filer.
+Omdï¿½ber en eller flere filer.
 
 .
 :SHELL_CMD_RENAME_HELP_LONG

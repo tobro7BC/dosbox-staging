@@ -5,12 +5,12 @@ DOSBox rechtstreeks op volledig scherm starten. (Druk op Alt+Enter om terug te g
 Dubbele buffering gebruiken bij weergave op volledig scherm. Hierdoor gaat het beeldscherm mogelijk minder flikkeren, maar wordt DOSBox mogelijk ook traag.
 .
 :CONFIG_FULLRESOLUTION
-De resolutie die moet worden gebruikt voor weergave op volledig scherm: oorspronkelijk of vaste grootte (bijv. 1024×768).
+De resolutie die moet worden gebruikt voor weergave op volledig scherm: oorspronkelijk of vaste grootte (bijv. 1024ï¿½768).
   Het resultaat is mogelijk optimaal als je de eigen resolutie van je beeldscherm gebruikt en ASPECT instelt op TRUE.
   Heb je een groot scherm en zie je een klein venster, kies dan een uitvoerindeling die verschilt van het beeldoppervlak.
 .
 :CONFIG_WINDOWRESOLUTION
-Het venster op dit formaat schalen míts het uitvoerapparaat hardwareschaling ondersteunt.
+Het venster op dit formaat schalen mï¿½ts het uitvoerapparaat hardwareschaling ondersteunt.
   (Schalen wordt niet ondersteund als OUTPUT is ingesteld op SURFACE!)
 .
 :CONFIG_OUTPUT
@@ -39,7 +39,7 @@ Het gebruik van Symkeys vermijden. Deze optie werkt mogelijk niet op alle bestur
 Een ander taalbestand selecteren.
 .
 :CONFIG_MACHINE
-Het type computer dat moet worden geëmuleerd.
+Het type computer dat moet worden geï¿½muleerd.
 .
 :CONFIG_CAPTURES
 De directory waarin bijvoorbeeld WAVE- en MIDI-bestanden en schermopnamen worden vastgelegd.
@@ -81,10 +81,10 @@ Je kunt de cycli op drie manieren instellen:
 Het aantal cycli dat met Ctrl+F11/Ctrl+F12 kan worden verlaagd/verhoogd.
 .
 :CONFIG_CYCLEDOWN
-Als je een kleinere waarde dan 100 opgeeft, wordt deze als percentage geïnterpreteerd.
+Als je een kleinere waarde dan 100 opgeeft, wordt deze als percentage geï¿½nterpreteerd.
 .
 :CONFIG_NOSOUND
-De stille modus inschakelen. Het geluid wordt wel nog steeds geëmuleerd.
+De stille modus inschakelen. Het geluid wordt wel nog steeds geï¿½muleerd.
 .
 :CONFIG_RATE
 De sampling-frequentie voor de mixer. Als je een hogere frequentie voor een apparaat instelt, neemt de geluidskwaliteit waarschijnlijk af.
@@ -96,7 +96,7 @@ De blokgrootte voor de mixer. Met grotere blokken kun je 'stotterend' geluid mog
 Het aantal milliseconden gegevens dat boven op de blokgrootte moet worden bewaard.
 .
 :CONFIG_MPU401
-Het type MPU-401 dat moet worden geëmuleerd.
+Het type MPU-401 dat moet worden geï¿½muleerd.
 .
 :CONFIG_MIDIDEVICE
 Het apparaat dat de MIDI-gegevens van MPU-401 ontvangt.
@@ -106,7 +106,7 @@ Speciale configuratieopties voor het apparaatstuurprogramma. Dit is meestal de I
   Zie de leesmij/handleiding voor meer informatie.
 .
 :CONFIG_SBTYPE
-Het type Soundblaster dat moet worden geëmuleerd. GB staat voor Gameblaster.
+Het type Soundblaster dat moet worden geï¿½muleerd. GB staat voor Gameblaster.
 .
 :CONFIG_SBBASE
 Het I/O-adres van Soundblaster.
@@ -169,10 +169,10 @@ De sampling-frequentie voor de Tandy 3-Voice-generatie.
 Emulatie van Disney Sound Source inschakelen (compatibel met Covox Voice Master en Speech Thing).
 .
 :CONFIG_JOYSTICKTYPE
-Het type joystick dat moet worden geëmuleerd: AUTO (standaard), NONE (geen),
+Het type joystick dat moet worden geï¿½muleerd: AUTO (standaard), NONE (geen),
 2AXIS (ondersteunt twee joysticks),
-4AXIS (ondersteunt één joystick, eerste joystick gebruikt),
-4AXIS_2 (ondersteunt één joystick, tweede joystick gebruikt),
+4AXIS (ondersteunt ï¿½ï¿½n joystick, eerste joystick gebruikt),
+4AXIS_2 (ondersteunt ï¿½ï¿½n joystick, tweede joystick gebruikt),
 FCS (Thrustmaster), CH (CH Flightstick).
 Met NONE wordt joystick-emulatie uitgeschakeld.
 Met AUTO wordt de emulatie gekozen op basis van echte joystick(s).
@@ -188,7 +188,7 @@ Blijven vuren zolang de knop wordt ingedrukt.
 De derde en vierde as verwisselen. Dit kan handig zijn voor bepaalde joysticks.
 .
 :CONFIG_BUTTONWRAP
-'Button wrapping' inschakelen bij het aantal geëmuleerde knoppen.
+'Button wrapping' inschakelen bij het aantal geï¿½muleerde knoppen.
 .
 :CONFIG_SERIAL1
 Het type apparaat instellen dat op de COM-poort is aangesloten.
@@ -233,7 +233,7 @@ Je kunt hier MOUNT-regels opgeven.
 .
 :CONFIGFILE_INTRO
 # Dit is het configuratiebestand voor DOSBox %s. (Gebruik de nieuwste versie van DOSBox.)
-# Regels die met # beginnen, worden als commentaar geïnterpreteerd en door DOSBox genegeerd.
+# Regels die met # beginnen, worden als commentaar geï¿½nterpreteerd en door DOSBox genegeerd.
 # Met commentaarregels kun je een (korte) beschrijving van elke optie geven.
 
 .
@@ -244,7 +244,7 @@ Mogelijke waarden
 Kan het bestand %s niet openen.
 
 .
-:PROGRAM_CONFIG_USAGE
+:SHELL_CMD_CONFIG_HELP_LONG
 Configuratieprogramma:
 Typ -writeconf bestandsnaam om de huidige configuratie weg te schrijven.
 Typ -writelang bestandsnaam om de huidige taaltekenreeksen weg te schrijven.
@@ -419,19 +419,19 @@ moet je de directory met die bestanden aankoppelen.
 
 .
 :PROGRAM_INTRO_MOUNT_WINDOWS
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [32mmount c c:\dosprogs\[37m: station C aankoppelen met daarin c:\dosprogs.         º
-º                                                                             º
-º [32mc:\dosprogs\[37m is een voorbeeld. Typ in plaats hiervan je eigen directory.[37m    º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [32mmount c c:\dosprogs\[37m: station C aankoppelen met daarin c:\dosprogs.         ï¿½
+ï¿½                                                                             ï¿½
+ï¿½ [32mc:\dosprogs\[37m is een voorbeeld. Typ in plaats hiervan je eigen directory.[37m    ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 
 .
 :PROGRAM_INTRO_MOUNT_OTHER
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [32mmount c ~/dosprogs[37m: station C aankoppelen met daarin ~/dosprogs.            º
-º                                                                          º
-º [32m~/dosprogs[37m is een voorbeeld. Typ in plaats hiervan je eigen directory.[37m      º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [32mmount c ~/dosprogs[37m: station C aankoppelen met daarin ~/dosprogs.            ï¿½
+ï¿½                                                                          ï¿½
+ï¿½ [32m~/dosprogs[37m is een voorbeeld. Typ in plaats hiervan je eigen directory.[37m      ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 
 .
 :PROGRAM_INTRO_MOUNT_END
@@ -786,38 +786,38 @@ SUBST is mislukt. De opdrachtregel bevat een fout of het doelstation
 wordt al gebruikt. Je kunt SUBST alleen gebruiken met lokale stations.
 .
 :SHELL_STARTUP_BEGIN
-[44;1mÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
-º [32mWelkom bij DOSBox v%-8s[37m (Nederlandse vertaling: Mark Haasen, 2010)      º
-º                                                                             º
-º Korte inleiding voor nieuwe gebruikers: typ [33mINTRO[37m                           º
-º Lijst van ondersteunde shellopdrachten: typ [33mHELP[37m                            º
-º                                                                             º
-º Druk op [31mCtrl+F11[37m of [31mCtrl+F12[37m om de CPU-emulatiesnelheid aan te passen.      º
-º Druk op [31mCtrl+F1[37m om de toetstoewijzingsfunctie te activeren.                 º
-º Zie het bestand [36mREADME[37m in de directory van DOSBox voor meer informatie.     º
-º                                                                             º
+[44;1mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»
+ï¿½ [32mWelkom bij DOSBox v%-8s[37m (Nederlandse vertaling: Mark Haasen, 2010)      ï¿½
+ï¿½                                                                             ï¿½
+ï¿½ Korte inleiding voor nieuwe gebruikers: typ [33mINTRO[37m                           ï¿½
+ï¿½ Lijst van ondersteunde shellopdrachten: typ [33mHELP[37m                            ï¿½
+ï¿½                                                                             ï¿½
+ï¿½ Druk op [31mCtrl+F11[37m of [31mCtrl+F12[37m om de CPU-emulatiesnelheid aan te passen.      ï¿½
+ï¿½ Druk op [31mCtrl+F1[37m om de toetstoewijzingsfunctie te activeren.                 ï¿½
+ï¿½ Zie het bestand [36mREADME[37m in de directory van DOSBox voor meer informatie.     ï¿½
+ï¿½                                                                             ï¿½
 
 .
 :SHELL_STARTUP_CGA
-º DOSBox ondersteunt de samengestelde CGA-modus.                              º
-º Druk op [31m(Alt+)F11[37m om de kleuren in deze modus te wijzigen.                  º
-º                                                                    º
+ï¿½ DOSBox ondersteunt de samengestelde CGA-modus.                              ï¿½
+ï¿½ Druk op [31m(Alt+)F11[37m om de kleuren in deze modus te wijzigen.                  ï¿½
+ï¿½                                                                    ï¿½
 
 .
 :SHELL_STARTUP_HERC
-º Druk op [31mF11[37m om te wisselen tussen wit, oranje en groen-monochroom.          º
-º                                                                    º
+ï¿½ Druk op [31mF11[37m om te wisselen tussen wit, oranje en groen-monochroom.          ï¿½
+ï¿½                                                                    ï¿½
 
 .
 :SHELL_STARTUP_DEBUG
-º Activeer de foutopsporing met [31mAlt+Pause[37m of start het EXE-bestand met [33mDEBUG[37m. º
-º                                                                    º
+ï¿½ Activeer de foutopsporing met [31mAlt+Pause[37m of start het EXE-bestand met [33mDEBUG[37m. ï¿½
+ï¿½                                                                    ï¿½
 
 .
 :SHELL_STARTUP_END
-º [32mVEEL PLEZIER![37m                                                               º
-º [32mHet DOSBox-team [33mhttp://www.dosbox.com[37m                                       º
-ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼[0m
+ï¿½ [32mVEEL PLEZIER![37m                                                               ï¿½
+ï¿½ [32mHet DOSBox-team [33mhttp://www.dosbox.com[37m                                       ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼[0m
 
 .
 :SHELL_CMD_CHDIR_HELP

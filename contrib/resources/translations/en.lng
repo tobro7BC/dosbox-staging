@@ -619,7 +619,7 @@ Can't open file %s
 Writing config file %s
 
 .
-:PROGRAM_CONFIG_USAGE
+:SHELL_CMD_CONFIG_HELP_LONG
 Config tool:
 -writeconf or -wc without parameter: write to primary loaded config file.
 -writeconf or -wc with filename: write file to config directory.
@@ -1018,19 +1018,19 @@ You have to mount the directory containing the files.
 
 .
 :PROGRAM_INTRO_MOUNT_WINDOWS
-[44;1mษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ [32mmount c c:\dosgames\[37m will create a C drive with c:\dosgames as contents.บ
-บ                                                                         บ
-บ [32mc:\dosgames\[37m is an example. Replace it with your own games directory.  [37m บ
-ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ[0m
+[44;1m๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอป
+๏ฟฝ [32mmount c c:\dosgames\[37m will create a C drive with c:\dosgames as contents.๏ฟฝ
+๏ฟฝ                                                                         ๏ฟฝ
+๏ฟฝ [32mc:\dosgames\[37m is an example. Replace it with your own games directory.  [37m ๏ฟฝ
+๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอผ[0m
 
 .
 :PROGRAM_INTRO_MOUNT_OTHER
-[44;1mษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ [32mmount c ~/dosgames[37m will create a C drive with ~/dosgames as contents.บ
-บ                                                                      บ
-บ [32m~/dosgames[37m is an example. Replace it with your own games directory.[37m  บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ[0m
+[44;1m๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอป
+๏ฟฝ [32mmount c ~/dosgames[37m will create a C drive with ~/dosgames as contents.๏ฟฝ
+๏ฟฝ                                                                      ๏ฟฝ
+๏ฟฝ [32m~/dosgames[37m is an example. Replace it with your own games directory.[37m  ๏ฟฝ
+๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอผ[0m
 
 .
 :PROGRAM_INTRO_MOUNT_END
@@ -1360,7 +1360,7 @@ Codepage %i has been loaded
 Codepage %i has been loaded for layout %s
 
 .
-:PROGRAM_KEYB_HELP_LONG
+:SHELL_CMD_KEYB_HELP_LONG
 Configures a keyboard for a specific language.
 
 Usage:
@@ -1409,7 +1409,7 @@ None or invalid codepage file for layout %s
 
 
 .
-:PROGRAM_SERIAL_HELP
+:SHELL_CMD_SERIAL_HELP_LONG
 Manages the serial ports.
 
 Usage:
@@ -1452,10 +1452,10 @@ Type must be one of the following:
   %s
 
 .
-:PROGRAM_PLACEHOLDER_SHORT_HELP
+:SHELL_CMD_PLACEHOLDER_HELP
 This program is a placeholder
 .
-:PROGRAM_PLACEHOLDER_LONG_HELP
+:SHELL_CMD_PLACEHOLDER_HELP_LONG
 %s is only a placeholder.
 
 Install a 3rd-party and give its PATH precedence.
@@ -1754,43 +1754,43 @@ SUBST failed. You either made an error in your commandline or the target drive i
 It's only possible to use SUBST on Local drives
 .
 :SHELL_STARTUP_BEGIN
-[44;1mษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
-บ [32mWelcome to DOSBox Staging %-40s[37m บ
-บ                                                                    บ
-บ For a short introduction for new users type: [33mINTRO[37m                 บ
-บ For supported shell commands type: [33mHELP[37m                            บ
-บ                                                                    บ
-บ To adjust the emulated CPU speed, use [31m%s+F11[37m and [31m%s+F12[37m.%s%s       บ
-บ To activate the keymapper [31m%s+F1[37m.%s                                 บ
-บ For more information read the [36mREADME[37m file in the DOSBox directory. บ
-บ                                                                    บ
+[44;1m๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอป
+๏ฟฝ [32mWelcome to DOSBox Staging %-40s[37m ๏ฟฝ
+๏ฟฝ                                                                    ๏ฟฝ
+๏ฟฝ For a short introduction for new users type: [33mINTRO[37m                 ๏ฟฝ
+๏ฟฝ For supported shell commands type: [33mHELP[37m                            ๏ฟฝ
+๏ฟฝ                                                                    ๏ฟฝ
+๏ฟฝ To adjust the emulated CPU speed, use [31m%s+F11[37m and [31m%s+F12[37m.%s%s       ๏ฟฝ
+๏ฟฝ To activate the keymapper [31m%s+F1[37m.%s                                 ๏ฟฝ
+๏ฟฝ For more information read the [36mREADME[37m file in the DOSBox directory. ๏ฟฝ
+๏ฟฝ                                                                    ๏ฟฝ
 
 .
 :SHELL_STARTUP_CGA
-บ DOSBox supports Composite CGA mode.                                บ
-บ Use [31mF12[37m to set composite output ON, OFF, or AUTO (default).        บ
-บ [31mF10[37m selects the CGA settings to change and [31m(%s+)F11[37m changes it.   บ
-บ                                                                    บ
+๏ฟฝ DOSBox supports Composite CGA mode.                                ๏ฟฝ
+๏ฟฝ Use [31mF12[37m to set composite output ON, OFF, or AUTO (default).        ๏ฟฝ
+๏ฟฝ [31mF10[37m selects the CGA settings to change and [31m(%s+)F11[37m changes it.   ๏ฟฝ
+๏ฟฝ                                                                    ๏ฟฝ
 
 .
 :SHELL_STARTUP_CGA_MONO
-บ Use [31mF11[37m to cycle through green, amber, white and paper-white mode, บ
-บ and [31m%s+F11[37m to change contrast/brightness settings.                บ
+๏ฟฝ Use [31mF11[37m to cycle through green, amber, white and paper-white mode, ๏ฟฝ
+๏ฟฝ and [31m%s+F11[37m to change contrast/brightness settings.                ๏ฟฝ
 
 .
 :SHELL_STARTUP_HERC
-บ Use [31mF11[37m to cycle through white, amber, and green monochrome color. บ
-บ                                                                    บ
+๏ฟฝ Use [31mF11[37m to cycle through white, amber, and green monochrome color. ๏ฟฝ
+๏ฟฝ                                                                    ๏ฟฝ
 
 .
 :SHELL_STARTUP_DEBUG
-บ Press [31m%s+Pause[37m to enter the debugger or start the exe with [33mDEBUG[37m. บ
-บ                                                                    บ
+๏ฟฝ Press [31m%s+Pause[37m to enter the debugger or start the exe with [33mDEBUG[37m. ๏ฟฝ
+๏ฟฝ                                                                    ๏ฟฝ
 
 .
 :SHELL_STARTUP_END
-บ [33mhttps://dosbox-staging.github.io[37m                                   บ
-ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ[0m
+๏ฟฝ [33mhttps://dosbox-staging.github.io[37m                                   ๏ฟฝ
+๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอผ[0m
 
 
 .
