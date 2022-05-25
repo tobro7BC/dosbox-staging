@@ -354,15 +354,15 @@ bool Program::SetEnv(const char * entry,const char * new_string) {
 
 std::string Program::GetShortHelp(const std::string& name) {
 	std::string short_key = "SHELL_CMD_" + name + "_HELP";
-	std::string long_key = "SHELL_CMD_" + name + "_HELP_LONG";
 	if (std::string str = MSG_Get(short_key.c_str()); !starts_with("Message not Found!", str)) {
 		return str;
-	} else if (std::string str = MSG_Get(long_key.c_str()); !starts_with("Message not Found!", str)) {
+	} 
+	std::string long_key = "SHELL_CMD_" + name + "_HELP_LONG";
+	if (std::string str = MSG_Get(long_key.c_str()); !starts_with("Message not Found!", str)) {
 		auto pos = str.find('\n');
 		return str.substr(0, pos != std::string::npos ? pos + 1 : pos);
-	} else {
-		return "No help available\n";
 	}
+	return "No help available\n";
 }
 
 bool Program::HelpRequested() {
