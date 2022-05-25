@@ -365,6 +365,11 @@ std::string Program::GetShortHelp(const std::string& name) {
 	}
 }
 
+bool Program::HelpRequested() {
+	return cmd->FindExist("/?", false) || cmd->FindExist("-h", false) ||
+	       cmd->FindExist("--help", false);
+}
+
 bool MSG_Write(const char *);
 void restart_program(std::vector<std::string> & parameters);
 
