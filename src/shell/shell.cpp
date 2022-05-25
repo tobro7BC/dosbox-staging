@@ -1442,10 +1442,19 @@ void SHELL_Init() {
 	                             "DOS version %d.%02d\n");
 	MSG_Add("SHELL_CMD_VER_INVALID", "The specified DOS version is not correct.\n");
 
+	// Setup Help
+	for (const auto &c : DOS_Shell::shell_cmds) {
+		auto t = c.second.flags == 1 ? Program::HELP_LIST::COMMON
+		                             : Program::HELP_LIST::ALL;
+		Program::help_names[c.first] = Program::HelpDetail{t,
+		                                                   c.second.help,
+		                                                   true};
+	}
+
 	/* Regular startup */
-	call_shellstop=CALLBACK_Allocate();
+	call_shellstop = CALLBACK_Allocate();
 	/* Setup the startup CS:IP to kill the last running machine when exitted */
-	RealPt newcsip=CALLBACK_RealPointer(call_shellstop);
+	RealPt newcsip = CALLBACK_RealPointer(call_shellstop);
 	SegSet16(cs,RealSeg(newcsip));
 	reg_ip=RealOff(newcsip);
 

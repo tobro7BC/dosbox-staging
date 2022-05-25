@@ -115,7 +115,7 @@ TEST_F(DOS_Shell_CMDSTest, DoCommand_Separating_Chars)
 TEST_F(DOS_Shell_CMDSTest, DoCommand_All_Cmds_Do_Valid_Execute)
 {
 	MockDOS_Shell shell;
-	for (std::pair<std::string, SHELL_Cmd> cmd : shell_cmds) {
+	for (std::pair<std::string, SHELL_Cmd> cmd : DOS_Shell::shell_cmds) {
 		std::string input = cmd.first;
 		assert_DoCommand(input, input, "");
 	}

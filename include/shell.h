@@ -60,9 +60,15 @@ public:
 };
 
 class AutoexecEditor;
+
+struct SHELL_Cmd {
+	uint32_t flags = 0;                               // Flags about the command
+	void (DOS_Shell::*handler)(char *args) = nullptr; // Handler for this command
+	const char *help = nullptr;                       // String with command help
+};
+
 class DOS_Shell : public Program {
 private:
-	enum class HELP_LIST { ALL, COMMON };
 	void PrintHelpForCommands(HELP_LIST requested_list);
 
 	friend class AutoexecEditor;
@@ -127,18 +133,13 @@ public:
 	void CMD_SHIFT(char * args);
 	void CMD_VER(char * args);
 	void CMD_LS(char *args);
+
+	static const std::map<std::string, SHELL_Cmd> shell_cmds;
 	/* The shell's variables */
 	uint16_t input_handle = 0;
 	std::shared_ptr<BatchFile> bf = {}; // shared with BatchFile.prev
 	bool echo = false;
 	bool call = false;
-};
-
-struct SHELL_Cmd {
-	uint32_t flags = 0;                               // Flags about the command
-	void (DOS_Shell::*handler)(char *args) = nullptr; // Handler for this command
-	const char *help = nullptr;                       // String with command help
-	const char *long_help = nullptr;                  // String with long help (optional)
 };
 
 /* Object to manage lines in the autoexec.bat The lines get removed from
