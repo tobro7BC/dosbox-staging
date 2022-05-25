@@ -61,7 +61,7 @@ using comdata_t = std::vector<uint8_t>;
 static std::vector<comdata_t> internal_progs_comdata;
 static std::vector<PROGRAMS_Creator> internal_progs;
 
-void PROGRAMS_MakeFile(const char *name, PROGRAMS_Creator creator)
+void PROGRAMS_MakeFile(const char *name, PROGRAMS_Creator creator, Program::HELP_LIST type)
 {
 	comdata_t comdata(exe_block.begin(), exe_block.end());
 	comdata.at(callback_pos) = static_cast<uint8_t>(call_program & 0xff);
@@ -81,6 +81,17 @@ void PROGRAMS_MakeFile(const char *name, PROGRAMS_Creator creator)
 	// Register the program's main pointer
 	// NOTE: This step must come after the index is saved in the COM data
 	internal_progs.emplace_back(creator);
+	
+	std::string n(name);
+	if (auto pos = n.rfind(".COM"); pos != std::string::npos) {
+		n.erase(pos);
+	}
+	// Internal shell commands have priority
+	if (!contains(Program::help_names, n)) {
+		Program::help_names[n] = Program::HelpDetail{type, n, false};
+	}
+	// Create the program once to register messages
+	creator();
 }
 
 static Bitu PROGRAMS_Handler(void) {
@@ -339,6 +350,19 @@ bool Program::SetEnv(const char * entry,const char * new_string) {
 	/* Clear out the final piece of the environment */
 	mem_writeb(env_write,0);
 	return true;
+}
+
+std::string Program::GetShortHelp(const std::string& name) {
+	std::string short_key = "SHELL_CMD_" + name + "_HELP";
+	std::string long_key = "SHELL_CMD_" + name + "_HELP_LONG";
+	if (std::string str = MSG_Get(short_key.c_str()); !starts_with("Message not Found!", str)) {
+		return str;
+	} else if (std::string str = MSG_Get(long_key.c_str()); !starts_with("Message not Found!", str)) {
+		auto pos = str.find('\n');
+		return str.substr(0, pos != std::string::npos ? pos + 1 : pos);
+	} else {
+		return "No help available\n";
+	}
 }
 
 bool MSG_Write(const char *);

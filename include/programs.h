@@ -68,6 +68,13 @@ private:
 
 class Program {
 public:
+	enum class HELP_LIST { ALL, COMMON };
+	struct HelpDetail {
+		HELP_LIST type;
+		std::string name;
+		bool is_shell_cmd;
+	};
+	
 	Program();
 
 	Program(const Program &) = delete;            // prevent copy
@@ -96,11 +103,14 @@ public:
 	void ChangeToLongCmd();
 
 	static void ResetLastWrittenChar(char c);
+
+	static inline std::map<const std::string, HelpDetail> help_names;
+	std::string GetShortHelp(const std::string& name);
 };
 
 using PROGRAMS_Creator = std::function<std::unique_ptr<Program>()>;
 void PROGRAMS_Destroy([[maybe_unused]] Section* sec);
-void PROGRAMS_MakeFile(char const * const name, PROGRAMS_Creator creator);
+void PROGRAMS_MakeFile(char const * const name, PROGRAMS_Creator creator, Program::HELP_LIST type = Program::HELP_LIST::ALL);
 
 template<class P>
 std::unique_ptr<Program> ProgramCreate() {
