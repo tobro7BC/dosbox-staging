@@ -28,6 +28,7 @@
 #include "std_filesystem.h"
 
 #include "dos_inc.h"
+#include "help_util.h"
 
 #define WIKI_URL                   "https://github.com/dosbox-staging/dosbox-staging/wiki"
 #define WIKI_ADD_UTILITIES_ARTICLE WIKI_URL "/Add-Utilities"
@@ -68,13 +69,6 @@ private:
 
 class Program {
 public:
-	enum class HELP_LIST { ALL, COMMON };
-	struct HelpDetail {
-		HELP_LIST type;
-		std::string name;
-		bool is_shell_cmd;
-	};
-	
 	Program();
 
 	Program(const Program &) = delete;            // prevent copy
@@ -105,13 +99,15 @@ public:
 
 	static void ResetLastWrittenChar(char c);
 
-	static inline std::map<const std::string, HelpDetail> help_names;
-	std::string GetShortHelp(const std::string& name);
+	void AddToHelpList();
+
+protected:
+	HelpUtil::Detail help_detail {};
 };
 
 using PROGRAMS_Creator = std::function<std::unique_ptr<Program>()>;
 void PROGRAMS_Destroy([[maybe_unused]] Section* sec);
-void PROGRAMS_MakeFile(char const * const name, PROGRAMS_Creator creator, Program::HELP_LIST type = Program::HELP_LIST::ALL);
+void PROGRAMS_MakeFile(char const * const name, PROGRAMS_Creator creator);
 
 template<class P>
 std::unique_ptr<Program> ProgramCreate() {

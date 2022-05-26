@@ -30,6 +30,8 @@
 #include "programs.h"
 #endif
 
+#include "help_util.h"
+
 #define CMD_MAXLINE 4096
 #define CMD_MAXCMDS 20
 #define CMD_OLDSIZE 4096
@@ -64,12 +66,13 @@ class AutoexecEditor;
 struct SHELL_Cmd {
 	uint32_t flags = 0;                               // Flags about the command
 	void (DOS_Shell::*handler)(char *args) = nullptr; // Handler for this command
-	const char *help = nullptr;                       // String with command help
+	const char *help = "";                       // String with command help
+	HelpUtil::Category category = HelpUtil::Category::MISC;
 };
 
 class DOS_Shell : public Program {
 private:
-	void PrintHelpForCommands(HELP_LIST requested_list);
+	void PrintHelpForCommands(HelpUtil::Filter req_filter);
 
 	friend class AutoexecEditor;
 	std::list<std::string> l_history{};

@@ -69,21 +69,17 @@ void Add_VFiles(const bool add_autoexec)
 	PROGRAMS_MakeFile("BOOT.COM", ProgramCreate<BOOT>);
 	PROGRAMS_MakeFile("CHOICE.COM", ProgramCreate<CHOICE>);
 	PROGRAMS_MakeFile("HELP.COM", ProgramCreate<HELP>);
-	PROGRAMS_MakeFile("IMGMOUNT.COM",
-	                  ProgramCreate<IMGMOUNT>,
-	                  Program::HELP_LIST::COMMON);
-	PROGRAMS_MakeFile("INTRO.COM", ProgramCreate<INTRO>, Program::HELP_LIST::COMMON);
+	PROGRAMS_MakeFile("IMGMOUNT.COM", ProgramCreate<IMGMOUNT>);
+	PROGRAMS_MakeFile("INTRO.COM", ProgramCreate<INTRO>);
 	PROGRAMS_MakeFile("KEYB.COM", ProgramCreate<KEYB>);
 	PROGRAMS_MakeFile("LOADFIX.COM", ProgramCreate<LOADFIX>);
 	PROGRAMS_MakeFile("LOADROM.COM", ProgramCreate<LOADROM>);
 	PROGRAMS_MakeFile("LS.COM", ProgramCreate<LS>);
 	PROGRAMS_MakeFile("MEM.COM", ProgramCreate<MEM>);
-	PROGRAMS_MakeFile("MOUNT.COM", ProgramCreate<MOUNT>, Program::HELP_LIST::COMMON);
-	PROGRAMS_MakeFile("RESCAN.COM",
-	                  ProgramCreate<RESCAN>,
-	                  Program::HELP_LIST::COMMON);
-	PROGRAMS_MakeFile("MIXER.COM", MIXER_ProgramCreate, Program::HELP_LIST::COMMON);
-	PROGRAMS_MakeFile("CONFIG.COM", CONFIG_ProgramCreate, Program::HELP_LIST::COMMON);
+	PROGRAMS_MakeFile("MOUNT.COM", ProgramCreate<MOUNT>);
+	PROGRAMS_MakeFile("RESCAN.COM", ProgramCreate<RESCAN>);
+	PROGRAMS_MakeFile("MIXER.COM", MIXER_ProgramCreate);
+	PROGRAMS_MakeFile("CONFIG.COM", CONFIG_ProgramCreate);
 	PROGRAMS_MakeFile("SERIAL.COM", ProgramCreate<SERIAL>);
 	PROGRAMS_MakeFile("COMMAND.COM", SHELL_ProgramCreate);
 	if (add_autoexec)
