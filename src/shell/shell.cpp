@@ -170,7 +170,12 @@ DOS_Shell::DOS_Shell()
           bf(nullptr),
           echo(true),
           call(false)
-{}
+{
+	help_detail = {HelpUtil::Filter::ALL,
+	               HelpUtil::Category::MISC,
+	               HelpUtil::CmdType::PROGRAM,
+	               "COMMAND"};
+}
 
 void DOS_Shell::GetRedirection(char *line,
                                std::string &in_file,
@@ -1444,11 +1449,14 @@ void SHELL_Init() {
 
 	// Setup Help
 	for (const auto &c : DOS_Shell::shell_cmds) {
-		auto t = c.second.flags == 1 ? Program::HELP_LIST::COMMON
-		                             : Program::HELP_LIST::ALL;
-		Program::help_names[c.first] = Program::HelpDetail{t,
-		                                                   c.second.help,
-		                                                   true};
+		auto filter = c.second.flags == 1 ? HelpUtil::Filter::COMMON
+		                                  : HelpUtil::Filter::ALL;
+		HelpUtil::add_to_help_list(c.first,
+		                           HelpUtil::Detail{filter,
+		                                            c.second.category,
+		                                            HelpUtil::CmdType::SHELL,
+		                                            c.second.help},
+		                           true);
 	}
 
 	/* Regular startup */

@@ -27,6 +27,13 @@
 
 class HELP final : public Program {
 public:
+	HELP()
+	{
+		help_detail = {HelpUtil::Filter::ALL,
+		               HelpUtil::Category::DOSBOX,
+		               HelpUtil::CmdType::PROGRAM,
+		               "HELP"};
+	}
 	void Run();
 };
 

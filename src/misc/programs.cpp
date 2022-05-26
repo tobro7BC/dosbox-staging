@@ -360,6 +360,13 @@ void restart_program(std::vector<std::string> & parameters);
 
 class CONFIG final : public Program {
 public:
+	CONFIG()
+	{
+		help_detail = {HelpUtil::Filter::COMMON,
+		               HelpUtil::Category::DOSBOX,
+		               HelpUtil::CmdType::PROGRAM,
+		               "CONFIG"};
+	}
 	void Run(void);
 private:
 	void restart(const char* useconfig);

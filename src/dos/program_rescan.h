@@ -25,7 +25,14 @@
 
 class RESCAN final : public Program {
 public:
-	RESCAN() { AddMessages(); }
+	RESCAN()
+	{
+		AddMessages();
+		help_detail = {HelpUtil::Filter::COMMON,
+		               HelpUtil::Category::DOSBOX,
+		               HelpUtil::CmdType::PROGRAM,
+		               "RESCAN"};
+	}
 	void Run(void);
 private:
 	void AddMessages();

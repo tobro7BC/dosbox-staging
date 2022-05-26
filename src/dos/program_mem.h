@@ -24,10 +24,17 @@
 #include "programs.h"
 
 class MEM final : public Program {
-    public:
-        MEM() { AddMessages(); }
-        void Run(void);
-    private:
+public:
+	MEM()
+	{
+		AddMessages();
+		help_detail = {HelpUtil::Filter::ALL,
+		               HelpUtil::Category::MISC,
+		               HelpUtil::CmdType::PROGRAM,
+		               "MEM"};
+	}
+	void Run(void);
+private:
         void AddMessages();
 };
 

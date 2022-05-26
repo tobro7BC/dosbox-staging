@@ -26,7 +26,14 @@
 
 class BIOSTEST final : public Program {
     public:
-        void Run(void);
+	    BIOSTEST()
+	    {
+		    help_detail = {HelpUtil::Filter::ALL,
+		                   HelpUtil::Category::MISC,
+		                   HelpUtil::CmdType::PROGRAM,
+		                   "BIOSTEST"};
+	    }
+	void Run(void);
 };
 
 #endif // DOSBOX_PROGRAM_BIOSTEST_H

@@ -25,7 +25,14 @@
 
 class KEYB final : public Program {
 public:
-	KEYB() { AddMessages(); }
+	KEYB()
+	{
+		AddMessages();
+		help_detail = {HelpUtil::Filter::ALL,
+		               HelpUtil::Category::DOSBOX,
+		               HelpUtil::CmdType::PROGRAM,
+		               "KEYB"};
+	}
 	void Run(void);
 private:
 	void AddMessages();

@@ -938,7 +938,14 @@ static void MIXER_Stop([[maybe_unused]] Section *sec)
 
 class MIXER final : public Program {
 public:
-	MIXER() { AddMessages(); }
+	MIXER()
+	{
+		AddMessages();
+		help_detail = {HelpUtil::Filter::COMMON,
+		               HelpUtil::Category::DOSBOX,
+		               HelpUtil::CmdType::PROGRAM,
+		               "MIXER"};
+	}
 
 	void MakeVolume(char * scan,float & vol0,float & vol1) {
 		Bitu w=0;

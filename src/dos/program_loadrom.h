@@ -25,8 +25,15 @@
 
 class LOADROM final : public Program {
     public:
-        LOADROM() { AddMessages(); }
-        void Run(void);
+	    LOADROM()
+	    {
+		    AddMessages();
+		    help_detail = {HelpUtil::Filter::ALL,
+		                   HelpUtil::Category::DOSBOX,
+		                   HelpUtil::CmdType::PROGRAM,
+		                   "LOADROM"};
+	    }
+	    void Run(void);
     private:
         void AddMessages();
 };

@@ -27,7 +27,14 @@
 
 class AUTOTYPE final : public Program {
 public:
-	AUTOTYPE() { AddMessages(); }
+	AUTOTYPE()
+	{
+		AddMessages();
+		help_detail = {HelpUtil::Filter::ALL,
+		               HelpUtil::Category::DOSBOX,
+		               HelpUtil::CmdType::PROGRAM,
+		               "AUTOTYPE"};
+	}
 	void Run();
 private:
 	void AddMessages();

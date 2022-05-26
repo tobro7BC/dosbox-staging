@@ -27,6 +27,13 @@
 
 class ATTRIB final : public Program {
 public:
+	ATTRIB()
+	{
+		help_detail = {HelpUtil::Filter::ALL,
+		               HelpUtil::Category::FILE,
+		               HelpUtil::CmdType::PROGRAM,
+		               "ATTRIB"};
+	}
 	void Run();
 };
 

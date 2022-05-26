@@ -25,7 +25,14 @@
 
 class LOADFIX final : public Program {
 public:
-    LOADFIX() { AddMessages(); }
+	LOADFIX()
+	{
+		AddMessages();
+		help_detail = {HelpUtil::Filter::ALL,
+		               HelpUtil::Category::DOSBOX,
+		               HelpUtil::CmdType::PROGRAM,
+		               "LOADFIX"};
+	}
 	void Run(void);
 private:
     void AddMessages();

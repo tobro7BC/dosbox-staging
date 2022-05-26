@@ -26,8 +26,21 @@
 
 class BOOT final : public Program {
     public:
-        BOOT() { AddMessages(); }
-        void Run(void);
+	    BOOT()
+	    {
+		    AddMessages();
+		    help_detail = {HelpUtil::Filter::ALL,
+		                   HelpUtil::Category::DOSBOX,
+		                   HelpUtil::CmdType::PROGRAM,
+		                   "BOOT"};
+	    }
+	    void Run(void);
+
+    protected:
+	    HelpUtil::Detail help_detail{HelpUtil::Filter::ALL,
+	                                 HelpUtil::Category::DOSBOX,
+	                                 HelpUtil::CmdType::PROGRAM,
+	                                 "BOOT"};
 
     private:
         void AddMessages();

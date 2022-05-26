@@ -24,12 +24,19 @@
 #include "programs.h"
 
 class INTRO final : public Program {
-    public:
-        INTRO() { AddMessages(); }
-	    void DisplayMount(void);
-        void Run(void);
+public:
+	INTRO()
+	{
+		AddMessages();
+		help_detail = {HelpUtil::Filter::COMMON,
+		               HelpUtil::Category::DOSBOX,
+		               HelpUtil::CmdType::PROGRAM,
+		               "INTRO"};
+	}
+	void DisplayMount(void);
+	void Run(void);
 
-    private:
+private:
         void AddMessages();
         void WriteOutProgramIntroSpecial();
 };
