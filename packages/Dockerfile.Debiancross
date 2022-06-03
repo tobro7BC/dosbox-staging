@@ -1,0 +1,43 @@
+FROM debian:11
+
+ARG DPKG_ARCH=arm64
+ARG DPKG_TRIPLET=aarch64-linux-gnu
+
+ENV MESON_CROSS_FILE=/usr/local/share/meson/cross/${DPKG_ARCH}.txt
+
+# Enable architecture
+RUN dpkg --add-architecture ${DPKG_ARCH}
+
+# Install native tools
+RUN apt-get update \
+    && apt-get -y install \
+        ca-certificates \
+        git \
+        ccache \
+        meson \
+        qemu-user-static \
+        crossbuild-essential-${DPKG_ARCH}
+
+# Install arch specific dependencies
+RUN apt-get update \
+    && apt-get -y install \
+        libasound2-dev:${DPKG_ARCH} \
+        libgtest-dev:${DPKG_ARCH} \
+        libopusfile-dev:${DPKG_ARCH} \
+        libpng-dev:${DPKG_ARCH} \
+        libsdl2-dev:${DPKG_ARCH} \
+        libsdl2-net-dev:${DPKG_ARCH} \
+        libspeexdsp-dev:${DPKG_ARCH}
+
+# Setup Meson
+RUN mkdir -p /usr/local/share/meson/cross \
+    && /usr/share/meson/debcrossgen --arch ${DPKG_ARCH} -o ${MESON_CROSS_FILE} \
+    && sed -i "2i wrap_exe = '/usr/bin/qemu-${DPKG_TRIPLET%%-*}-static'" ${MESON_CROSS_FILE} \
+    && sed -i -r 's@(c|cpp) = '\'"(/usr/bin/[^']+)'@"'\1'" = ['ccache', '"'\2'"']@g" ${MESON_CROSS_FILE}
+
+# Fix opusfile pkgconfig
+RUN cp /usr/lib/pkgconfig/opusfile.pc /usr/lib/${DPKG_TRIPLET}/pkgconfig/opusfile.pc \
+    && sed -i 's@libdir=\${exec_prefix}/lib@libdir=\${prefix}/lib/'"${DPKG_TRIPLET}@g" \
+        /usr/lib/${DPKG_TRIPLET}/pkgconfig/opusfile.pc
+
+ENTRYPOINT [ "/bin/bash" ]
