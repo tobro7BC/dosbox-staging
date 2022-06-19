@@ -121,11 +121,11 @@
       <AdditionalDependencies>gmock_maind.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-        <Command>%systemroot%\System32\xcopy ..\..\contrib\resources $(OutDir)resources /s /i /y  &amp;&amp; ^
-cd $(SolutionDir)  &amp;&amp; ^
-cd ..  &amp;&amp; ^
-$(TargetPath)</Command>
-        <Message>Copy resources to output directory and run tests</Message>
+      <Command>%systemroot%\System32\robocopy ..\..\contrib\resources "$(OutDir)resources" /mir /xf "meson.build" "*.sh"
+
+%systemroot%\System32\xcopy "$(VcpkgManifestRoot)\vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\speexdsp.dll" "$(OutDir)libspeexdsp.dll*" /y
+cd $(SolutionDir).. &amp;&amp; $(TargetPath)</Command>
+      <Message>Copy resources to output directory and run tests</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -155,11 +155,11 @@ $(TargetPath)</Command>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-        <Command>%systemroot%\System32\xcopy ..\..\contrib\resources $(OutDir)resources /s /i /y  &amp;&amp; ^
-cd $(SolutionDir)  &amp;&amp; ^
-cd ..  &amp;&amp; ^
-$(TargetPath)</Command>
-        <Message>Copy resources to output directory and run tests</Message>
+      <Command>%systemroot%\System32\robocopy ..\..\contrib\resources "$(OutDir)resources" /mir /xf "meson.build" "*.sh"
+
+%systemroot%\System32\xcopy "$(VcpkgManifestRoot)\vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\speexdsp.dll" "$(OutDir)libspeexdsp.dll*" /y
+cd $(SolutionDir).. &amp;&amp; $(TargetPath)</Command>
+      <Message>Copy resources to output directory and run tests</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -182,11 +182,11 @@ $(TargetPath)</Command>
       <AdditionalDependencies>gmock_maind.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-        <Command>%systemroot%\System32\xcopy ..\..\contrib\resources $(OutDir)resources /s /i /y  &amp;&amp; ^
-cd $(SolutionDir)  &amp;&amp; ^
-cd ..  &amp;&amp; ^
-$(TargetPath)</Command>
-        <Message>Copy resources to output directory and run tests</Message>
+      <Command>%systemroot%\System32\robocopy ..\..\contrib\resources "$(OutDir)resources" /mir /xf "meson.build" "*.sh"
+
+%systemroot%\System32\xcopy "$(VcpkgManifestRoot)\vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\speexdsp.dll" "$(OutDir)libspeexdsp.dll*" /y
+cd $(SolutionDir).. &amp;&amp; $(TargetPath)</Command>
+      <Message>Copy resources to output directory and run tests</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -216,11 +216,11 @@ $(TargetPath)</Command>
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-        <Command>%systemroot%\System32\xcopy ..\..\contrib\resources $(OutDir)resources /s /i /y  &amp;&amp; ^
-cd $(SolutionDir)  &amp;&amp; ^
-cd ..  &amp;&amp; ^
-$(TargetPath)</Command>
-        <Message>Copy resources to output directory and run tests</Message>
+      <Command>%systemroot%\System32\robocopy ..\..\contrib\resources "$(OutDir)resources" /mir /xf "meson.build" "*.sh"
+
+%systemroot%\System32\xcopy "$(VcpkgManifestRoot)\vcpkg_installed\$(VcpkgTriplet)\$(VcpkgTriplet)\bin\speexdsp.dll" "$(OutDir)libspeexdsp.dll*" /y
+cd $(SolutionDir).. &amp;&amp; $(TargetPath)</Command>
+      <Message>Copy resources to output directory and run tests</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
