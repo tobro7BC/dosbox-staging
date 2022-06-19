@@ -124,11 +124,9 @@ jobs:
           # under MSYS2 reported in bug: https://github.com/msys2/MINGW-packages/issues/11864
 
       - name: Run tests
-        if:   matrix.conf.run_tests
         run:  meson test -C build --print-errorlogs
 
       - name: Summarize warnings
-        if:   matrix.conf.run_tests != true
         env:
           MAX_WARNINGS: ${{ matrix.conf.max_warnings }}
         run:  python ./scripts/count-warnings.py -lf build.log
