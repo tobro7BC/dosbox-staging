@@ -87,7 +87,8 @@ jobs:
         uses: docker/build-push-action@v2
         if: steps.image_check.outputs.CREATE
         with:
-          context: .
+          context: ./packages
+          file: Dockerfile.Debiancross
           push: true
           platforms: linux/amd64
           tags: ${{ steps.meta.outputs.tags }}
