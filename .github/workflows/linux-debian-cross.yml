@@ -95,7 +95,7 @@ jobs:
     name: ${{ matrix.conf.name }}
     needs: build_docker_image
     runs-on: ubuntu-latest
-    container: "${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMG_NAME }}:${{ env.DOCKER_IMG_VERS }}-${{ matrix.conf.arch }}"
+    container: "ghcr.io/${{ github.repository_owner }}/debian-cross-builder:1-${{ matrix.conf.arch }}"
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     strategy:
       matrix:
