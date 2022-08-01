@@ -11,7 +11,7 @@ env:
   CCACHE_MAXSIZE:  "64M"
   CCACHE_COMPRESS: "true"
   CLAMDB_DIR:      "/var/lib/clamav"
-  DOCKER_IMG_VERS: "1"
+  DOCKER_IMG_VERS: "2"
   DOCKER_IMG_NAME: "${{ github.repository_owner }}/debian-cross-builder"
   DOCKER_REGISTRY: ghcr.io
 
@@ -89,6 +89,9 @@ jobs:
         with:
           context: ./packages
           file: ./packages/Dockerfile.Debiancross
+          build-args: |
+            DPKG_ARCH=${{ matrix.conf.arch }}
+            DPKG_TRIPLET=${{ matrix.conf.triplet }}
           push: true
           platforms: linux/amd64
           tags: ${{ steps.meta.outputs.tags }}
@@ -98,7 +101,7 @@ jobs:
     name: ${{ matrix.conf.name }}
     needs: build_docker_image
     runs-on: ubuntu-latest
-    container: "ghcr.io/${{ github.repository_owner }}/debian-cross-builder:1-${{ matrix.conf.arch }}"
+    container: "ghcr.io/${{ github.repository_owner }}/debian-cross-builder:2-${{ matrix.conf.arch }}"
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     strategy:
       matrix:
