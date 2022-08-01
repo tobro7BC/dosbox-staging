@@ -47,7 +47,8 @@ jobs:
               if [ -n "$blob" ]; then
                 created_rfc=$(jq -r '.created' <<< "$blob" )
                 created=$(date --date "$created_rfc" +%s)
-                if $? ; then
+                created_res=$?
+                if [ "$created_res" = "0" ] ; then
                   now=$(date +%s)
                   if [ $((now - created)) -lt 604800 ]; then
                     create_img=false
