@@ -127,7 +127,7 @@ jobs:
       - name: Log environment
         run:  ./scripts/log-env.sh
       
-      - run:  meson setup ${{ matrix.conf.build_flags }} build
+      - run:  meson setup ${{ matrix.conf.build_flags }} --cross-file=${MESON_CROSS_FILE} build
 
       - name: Build
         run: |
