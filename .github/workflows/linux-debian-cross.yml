@@ -35,6 +35,7 @@ jobs:
         id: image_check
         run: |
           set +e
+          set -x
           create_img=true
           ghcr_token=$(echo ${{ secrets.GITHUB_TOKEN }} | base64)
           tag=${{ env.DOCKER_IMG_VERS }}-${{ matrix.conf.arch }}
