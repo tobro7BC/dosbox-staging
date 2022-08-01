@@ -1,0 +1,138 @@
+name: Linux Docker Cross Bulds
+
+on: [push, pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CCACHE_DIR:      "/dev/shm/.ccache"
+  CCACHE_MAXSIZE:  "64M"
+  CCACHE_COMPRESS: "true"
+  CLAMDB_DIR:      "/var/lib/clamav"
+  DOCKER_IMG_VERS: "1"
+  DOCKER_IMG_NAME: "${{ github.repository_owner }}/debian-cross-builder"
+  DOCKER_REGISTRY: ghcr.io
+
+jobs:
+  build_docker_image:
+    name: ${{ matrix.conf.name }}
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+    strategy:
+      matrix:
+        conf:
+          - name: Debian Cross ARM64
+            arch: arm64
+            triplet: aarch64-linux-gnu
+          - name: Debian Cross ARMHF
+            arch: armhf
+            triplet: arm-linux-gnueabihf
+    steps:
+      - name: Check if image needs creating
+        shell: bash
+        id: image_check
+        run: |
+          create_img=true
+          ghcr_token=$(echo ${{ secrets.GITHUB_TOKEN }} | base64)
+          tag=${{ env.DOCKER_IMG_VERS }}-${{ matrix.conf.arch }}
+          manifest=$(curl -s -f -H "Authorization: Bearer ${ghcr_token}" "https://ghcr.io/v2/${{ env.DOCKER_IMG_NAME }}/manifests/${tag}")
+          if [ -n "$manifest" ]; then
+            digest=$(jq -r '.config.digest' <<< "$manifest")
+            if [ "$digest" != "null" ]; then
+              blob=$(curl -s -f -H "Authorization: Bearer ${ghcr_token}" "https://ghcr.io/v2/${{ env.DOCKER_IMG_NAME }}/blobs/${digest}")
+              if [ -n "$blob" ]; then
+                created_rfc=$(jq -r '.created' <<< "$blob" )
+                created=$(date --date "$created_rfc" +%s)
+                if $? ; then
+                  now=$(date +%s)
+                  if [ $((now - created)) -lt 604800 ]; then
+                    create_img=false
+                  fi
+                fi
+              fi
+            fi
+          fi
+          echo "::set-output name=CREATE::$create_img"
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        if: ${{ steps.image_check.CREATE == 'true' }}
+      
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        if: ${{ steps.image_check.CREATE == 'true' }}
+        with:
+          registry: ${{ env.DOCKER_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+        if: ${{ steps.image_check.CREATE == 'true' }}
+      
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v3
+        if: ${{ steps.image_check.CREATE == 'true' }}
+        with:
+          images: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMG_NAME }}
+          tags: |
+            type=raw,${{ env.DOCKER_IMG_VERS }}-${{ matrix.conf.arch }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        if: ${{ steps.image_check.CREATE == 'true' }}
+        with:
+          context: .
+          push: true
+          platforms: linux/amd64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+  compile_dosbox_staging:
+    name: ${{ matrix.conf.name }}
+    needs: build_docker_image
+    runs-on: ubuntu-latest
+    container: "${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMG_NAME }}:${{ env.DOCKER_IMG_VERS }}-${{ matrix.conf.arch }}"
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+    strategy:
+      matrix:
+        conf:
+          - name: GCC ARM 64-bit
+            arch: arm64
+            max_warnings: 0
+          - name: GCC ARM 32-bit
+            arch: armhf
+            max_warnings: 0
+          - name: GCC ARM 64-bit (Debugger)
+            arch: arm64
+            max_warnings: 0
+            build_flags: -Denable_debugger=normal
+          - name: GCC ARM 32-bit (Debugger)
+            arch: armhf
+            max_warnings: 0
+            build_flags: -Denable_debugger=normal
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Log environment
+        run:  ./scripts/log-env.sh
+      
+      - run:  meson setup ${{ matrix.conf.build_flags }} build
+
+      - name: Build
+        run: |
+          set -xo pipefail
+          meson compile -C build |& tee build.log
+
+      - name: Run tests
+        run:  meson test -C build --print-errorlogs
+      
+      - name: Summarize warnings
+        if:   matrix.conf.run_tests != true
+        env:
+          MAX_WARNINGS: ${{ matrix.conf.max_warnings }}
+        run:  ./scripts/count-warnings.py -lf build.log
