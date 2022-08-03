@@ -11,7 +11,8 @@ env:
   CCACHE_MAXSIZE:  "64M"
   CCACHE_COMPRESS: "true"
   CLAMDB_DIR:      "/var/lib/clamav"
-  DOCKER_IMG_VERS: "2"
+  # Remember to also update jobs.compile_dosbox_staging.container vers number
+  DOCKER_IMG_VERS: "3"
   DOCKER_IMG_NAME: "${{ github.repository_owner }}/debian-cross-builder"
   DOCKER_REGISTRY: ghcr.io
 
@@ -102,7 +103,7 @@ jobs:
     name: ${{ matrix.conf.name }}
     needs: build_docker_image
     runs-on: ubuntu-latest
-    container: "ghcr.io/${{ github.repository_owner }}/debian-cross-builder:2-${{ matrix.conf.arch }}"
+    container: "ghcr.io/${{ github.repository_owner }}/debian-cross-builder:3-${{ matrix.conf.arch }}"
     defaults:
       run:
         shell: bash
