@@ -118,11 +118,11 @@ jobs:
             max_warnings: 0
           - name: GCC ARM 64-bit (Debugger)
             arch: arm64
-            max_warnings: 0
+            max_warnings: 1
             build_flags: -Denable_debugger=normal
           - name: GCC ARM 32-bit (Debugger)
             arch: armhf
-            max_warnings: 0
+            max_warnings: 1
             build_flags: -Denable_debugger=normal
     steps:
       - name: Checkout repository
@@ -142,7 +142,6 @@ jobs:
         run:  meson test -C build --print-errorlogs
       
       - name: Summarize warnings
-        if:   matrix.conf.run_tests != true
         env:
           MAX_WARNINGS: ${{ matrix.conf.max_warnings }}
         run:  ./scripts/count-warnings.py -lf build.log
