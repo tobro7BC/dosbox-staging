@@ -1,4 +1,6 @@
 /* PDCurses */
+#include <chrono>
+#include <thread>
 
 #include "pdcsdl.h"
 
@@ -9,16 +11,18 @@ void PDC_beep(void)
 
 void PDC_napms(int ms)
 {
+    constexpr int nap_interval = 50;
+
     PDC_LOG(("PDC_napms() - called: ms=%d\n", ms));
 
-    while (ms > 50)
+    while (ms > nap_interval)
     {
         PDC_pump_and_peep();
-        SDL_Delay(50);
-        ms -= 50;
+        std::this_thread::sleep_for(std::chrono::milliseconds(nap_interval));
+        ms -= nap_interval;
     }
     PDC_pump_and_peep();
-    SDL_Delay(ms);
+    std::this_thread::sleep_for(std::chrono::milliseconds(ms));
 }
 
 const char *PDC_sysname(void)
