@@ -101,13 +101,13 @@ public:
 
 class DEBUG;
 
-DEBUG*	pDebugcom	= 0;
+DEBUG *pDebugcom        = nullptr;
 bool	exitLoop	= false;
 
 
 // Heavy Debugging Vars for logging
 #if C_HEAVY_DEBUG
-static std::ofstream 	cpuLogFile;
+static std::ofstream cpuLogFile;
 static bool		cpuLog			= false;
 static int		cpuLogCounter	= 0;
 static int		cpuLogType		= 1;	// log detail
@@ -204,9 +204,10 @@ uint32_t GetAddress(uint16_t seg, uint32_t offset)
 
 static char empty_sel[] = { ' ',' ',0 };
 
-bool GetDescriptorInfo(char* selname, char* out1, size_t out1_sz, char* out2, size_t out2_sz)
+bool GetDescriptorInfo(char *selname, char *out1, size_t out1_sz, char *out2,
+                       size_t out2_sz)
 {
-	Bitu sel;
+	uint32_t sel;
 	Descriptor desc;
 
 	if (strstr(selname,"cs") || strstr(selname,"CS")) sel = SegValue(cs);
@@ -237,8 +238,8 @@ bool GetDescriptorInfo(char* selname, char* out1, size_t out1_sz, char* out2, si
 		        case DESC_LDT:
 		        case DESC_286_TSS_A:
 		        case DESC_286_TSS_B:
-			case DESC_386_TSS_A:
-			case DESC_386_TSS_B:
+		        case DESC_386_TSS_A:
+		        case DESC_386_TSS_B:
 			        std::snprintf(out1,
 			                      out1_sz,
 			                      "%s: b:%08X type:%02X pag",
@@ -273,7 +274,7 @@ bool GetDescriptorInfo(char* selname, char* out1, size_t out1_sz, char* out2, si
 		        case DESC_286_INT_GATE:
 		        case DESC_286_TRAP_GATE:
 		        case DESC_386_INT_GATE:
-			case DESC_386_TRAP_GATE:
+		        case DESC_386_TRAP_GATE:
 			        std::snprintf(out1,
 			                      out1_sz,
 			                      "%s: s:%08X type:%02X p",
@@ -306,8 +307,8 @@ bool GetDescriptorInfo(char* selname, char* out1, size_t out1_sz, char* out2, si
 		                      desc.saved.seg.g);
 		        return true;
 	} else {
-		strcpy(out1,"                                     ");
-		strcpy(out2,"                                     ");
+		        strcpy(out1, "                                     ");
+		        strcpy(out2, "                                     ");
 	}
 	return false;
 }
@@ -391,9 +392,9 @@ public:
 	                                                     uint32_t off);
 	static void DeactivateBreakpoints();
 	static void ActivateBreakpoints();
-	static void				ActivateBreakpointsExceptAt(PhysPt adr);
-	static bool				CheckBreakpoint		(PhysPt adr);
-	static bool				CheckBreakpoint		(Bitu seg, Bitu off);
+	static void ActivateBreakpointsExceptAt(PhysPt adr);
+	static bool CheckBreakpoint(PhysPt adr);
+	static bool CheckBreakpoint(uint16_t seg, uint32_t off);
 	static bool				CheckIntBreakpoint	(PhysPt adr, uint8_t intNr, uint16_t ahValue, uint16_t alValue);
 	static std::shared_ptr<CBreakpoint> FindPhysBreakpoint(uint16_t seg,
 	                                                       uint32_t off,
@@ -402,8 +403,8 @@ public:
 	                                                              CBreakpoint *skip);
 	static bool IsBreakpoint(uint16_t seg, uint32_t off);
 	static bool DeleteBreakpoint(uint16_t seg, uint32_t off);
-	static bool				DeleteByIndex		(uint16_t index);
-	static void				DeleteAll			(void);
+	static bool DeleteByIndex(uint16_t index);
+	static void DeleteAll(void);
 	static void				ShowList			(void);
 
 
@@ -535,7 +536,7 @@ void CBreakpoint::ActivateBreakpointsExceptAt(PhysPt adr)
 }
 
 // Checks if breakpoint is valid and should stop execution
-bool CBreakpoint::CheckBreakpoint(Bitu seg, Bitu off)
+bool CBreakpoint::CheckBreakpoint(uint16_t seg, uint32_t off)
 {
 	// Quick exit if there are no breakpoints
 	if (BPoints.empty()) return false;
@@ -575,7 +576,7 @@ bool CBreakpoint::CheckBreakpoint(Bitu seg, Bitu off)
 					if (desc.GetLimit()==0) return false;
 				}
 
-				Bitu address; 
+				PhysPt address;
 				if (bp->GetType()==BKPNT_MEMORY_LINEAR) address = bp->GetOffset();
 				else address = GetAddress(bp->GetSegment(),bp->GetOffset());
 				uint8_t value=0;
@@ -744,8 +745,8 @@ static bool StepOver()
 {
 	exitLoop = false;
 	PhysPt start=GetAddress(SegValue(cs),reg_eip);
-	char dline[200];Bitu size;
-	size=DasmI386(dline, start, reg_eip, cpu.code.big);
+	char dline[200];
+	const auto size = DasmI386(dline, start, reg_eip, cpu.code.big);
 
 	if (strstr(dline,"call") || strstr(dline,"int") || strstr(dline,"loop") || strstr(dline,"rep")) {
 		// Don't add a temporary breakpoint if there's already one here
@@ -827,7 +828,7 @@ static void DrawRegisters(void) {
 	SetColor(SegValue(cs)!=oldsegs[cs].val);oldsegs[cs].val=SegValue(cs);mvwprintw (dbg.win_reg,1,31,"%04X",SegValue(cs));
 
 	/*Individual flags*/
-	Bitu changed_flags = reg_flags ^ oldflags;
+	const auto changed_flags = reg_flags ^ oldflags;
 	oldflags = reg_flags;
 
 	SetColor(changed_flags&FLAG_CF);
@@ -869,7 +870,7 @@ static void DrawRegisters(void) {
 	// Selector info, if available
 	if ((cpu.pmode) && curSelectorName[0]) {
 		char out1[200], out2[200];
-		GetDescriptorInfo(curSelectorName,out1,sizeof(out1), out2, sizeof(out2));
+		GetDescriptorInfo(curSelectorName, out1, sizeof(out1), out2, sizeof(out2));
 		mvwprintw(dbg.win_reg,2,28,out1);
 		mvwprintw(dbg.win_reg,3,28,out2);
 	}
@@ -1094,7 +1095,7 @@ bool ParseCommand(char* str) {
 	if (next == std::string::npos)
 		next = command.size();
 	(s_found.erase)(0, next);
-	found = const_cast<char*>(s_found.c_str());
+	found = const_cast<char *>(s_found.c_str());
 
 	if (command == "MEMDUMP") { // Dump memory to file
 		uint16_t seg = (uint16_t)GetHexValue(found,found); found++;
@@ -1200,7 +1201,7 @@ bool ParseCommand(char* str) {
 	if (command == "BPPM") { // Add new breakpoint
 		uint16_t seg = (uint16_t)GetHexValue(found,found);found++; // skip ":"
 		uint32_t ofs = GetHexValue(found,found);
-		auto bp = CBreakpoint::AddMemBreakpoint(seg,ofs);
+		auto bp      = CBreakpoint::AddMemBreakpoint(seg, ofs);
 		if (bp)	{
 			bp->SetType(BKPNT_MEMORY_PROT);
 			DEBUG_ShowMsg("DEBUG: Set prot-mode memory breakpoint at %04X:%08X\n",seg,ofs);
@@ -1210,7 +1211,7 @@ bool ParseCommand(char* str) {
 
 	if (command == "BPLM") { // Add new breakpoint
 		uint32_t ofs = GetHexValue(found,found);
-		auto bp = CBreakpoint::AddMemBreakpoint(0,ofs);
+		auto bp      = CBreakpoint::AddMemBreakpoint(0, ofs);
 		if (bp) bp->SetType(BKPNT_MEMORY_LINEAR);
 		DEBUG_ShowMsg("DEBUG: Set linear memory breakpoint at %08X\n",ofs);
 		return true;
@@ -1308,8 +1309,9 @@ bool ParseCommand(char* str) {
 		DEBUG_ShowMsg("DEBUG: Logfile '%s' created.\n",
 		              std_fs::absolute(log_cpu_txt).string().c_str());
 		//Initialize log object
-		cpuLogFile << std::hex << std::noshowbase << std::setfill('0') << std::uppercase;
-		cpuLog = true;
+		cpuLogFile << std::hex << std::noshowbase << std::setfill('0')
+		           << std::uppercase;
+		cpuLog        = true;
 		cpuLogCounter = GetHexValue(found,found);
 
 		debugging = false;
@@ -1343,7 +1345,7 @@ bool ParseCommand(char* str) {
 	if (command == "SELINFO") {
 		while (found[0] == ' ') found++;
 		char out1[200],out2[200];
-		GetDescriptorInfo(found,out1,sizeof(out1), out2, sizeof(out2));
+		GetDescriptorInfo(found, out1, sizeof(out1), out2, sizeof(out2));
 		DEBUG_ShowMsg("SelectorInfo %s:\n%s\n%s\n",found,out1,out2);
 		return true;
 	}
@@ -1792,20 +1794,26 @@ uint32_t DEBUG_CheckKeys(void) {
 		case KEY_UP:	// up 
 				if (codeViewData.cursorPos>0) codeViewData.cursorPos--;
 				else {
-					Bitu bytes = 0;
-					char dline[200];
-					Bitu size = 0;
-					uint32_t newEIP = codeViewData.useEIP - 1;
-					if(codeViewData.useEIP) {
-						for (; bytes < 10; bytes++) {
-							PhysPt start = GetAddress(codeViewData.useCS,newEIP);
-							size = DasmI386(dline, start, newEIP, cpu.code.big);
-							if(codeViewData.useEIP == newEIP+size) break;
-							newEIP--;
-						}
-						if (bytes>=10) newEIP = codeViewData.useEIP - 1;
+				int bytes = 0;
+				char dline[200];
+				uint32_t size   = 0;
+				uint32_t newEIP = codeViewData.useEIP - 1;
+				if (codeViewData.useEIP) {
+					for (; bytes < 10; bytes++) {
+						PhysPt start = GetAddress(
+						        codeViewData.useCS, newEIP);
+						size = DasmI386(dline,
+						                start,
+						                newEIP,
+						                cpu.code.big);
+						if (codeViewData.useEIP == newEIP + size)
+							break;
+						newEIP--;
 					}
-					codeViewData.useEIP = newEIP;
+					if (bytes >= 10)
+						newEIP = codeViewData.useEIP - 1;
+				}
+				        codeViewData.useEIP = newEIP;
 				}
 				break;
 		case KEY_HOME:	// Home: scroll log page up
@@ -2080,16 +2088,16 @@ static void LogMCBS(void) {
 static void LogGDT(void) {
 	char out1[512];
 	Descriptor desc;
-	Bitu length = cpu.gdt.GetLimit();
-	PhysPt address = cpu.gdt.GetBase();
-	PhysPt max	   = address + length;
-	Bitu i = 0;
+	const auto length = cpu.gdt.GetLimit();
+	auto address      = cpu.gdt.GetBase();
+	const auto max    = address + length;
+	PhysPt i          = 0;
 	LOG(LOG_MISC,LOG_ERROR)("GDT Base:%08X Limit:%08" sBitfs(X),address,length);
 	while (address<max) {
 		desc.Load(address);
 		std::snprintf(out1,
 		              sizeof(out1),
-		              "%04" sBitfs(X) ": b:%08X type: %02X parbg",
+		              "%04u: b:%08X type: %02X parbg",
 		              (i << 3),
 		              desc.GetBase(),
 		              desc.saved.seg.type);
@@ -2105,7 +2113,8 @@ static void LogGDT(void) {
 		              desc.saved.seg.big,
 		              desc.saved.seg.g);
 		LOG(LOG_MISC, LOG_ERROR)("%s", out1);
-		address+=8; i++;
+		address += 8;
+		i++;
 	}
 }
 
@@ -2114,16 +2123,16 @@ static void LogLDT(void) {
 	Descriptor desc;
 	Bitu ldtSelector = cpu.gdt.SLDT();
 	if (!cpu.gdt.GetDescriptor(ldtSelector,desc)) return;
-	Bitu length = desc.GetLimit();
-	PhysPt address = desc.GetBase();
-	PhysPt max	   = address + length;
-	Bitu i = 0;
-	LOG(LOG_MISC,LOG_ERROR)("LDT Base:%08X Limit:%08" sBitfs(X),address,length);
+	const auto length = desc.GetLimit();
+	auto address      = desc.GetBase();
+	const auto max    = address + length;
+	PhysPt i          = 0;
+	LOG(LOG_MISC,LOG_ERROR)("LDT Base:%08X Limit:%08X",address,length);
 	while (address<max) {
 		desc.Load(address);
 		std::snprintf(out1,
 		              sizeof(out1),
-		              "%04" sBitfs(X) ": b:%08X type: %02X parbg",
+		              "%04X: b:%08X type: %02X parbg",
 		              (i << 3) | 4,
 		              desc.GetBase(),
 		              desc.saved.seg.type);
@@ -2139,7 +2148,8 @@ static void LogLDT(void) {
 		              desc.saved.seg.big,
 		              desc.saved.seg.g);
 		LOG(LOG_MISC, LOG_ERROR)("%s", out1);
-		address+=8; i++;
+		address += 8;
+		i++;
 	}
 }
 
@@ -2164,16 +2174,19 @@ static void LogIDT(void) {
 void LogPages(char* selname) {
 	char out1[512];
 	if (paging.enabled) {
-		Bitu sel = GetHexValue(selname,selname);
+		const auto sel = GetHexValue(selname, selname);
 		if ((sel==0x00) && ((*selname==0) || (*selname=='*'))) {
 			for (int i=0; i<0xfffff; i++) {
-				Bitu table_addr=(paging.base.page<<12)+(i >> 10)*4;
+				const PhysPt table_addr = (paging.base.page << 12) +
+				                          (i >> 10) * 4;
 				X86PageEntry table;
 				table.load=phys_readd(table_addr);
 				if (table.block.p) {
 					X86PageEntry entry;
-					Bitu entry_addr=(table.block.base<<12)+(i & 0x3ff)*4;
-					entry.load=phys_readd(entry_addr);
+					const PhysPt entry_addr = (table.block.base
+					                           << 12) +
+					                          (i & 0x3ff) * 4;
+					entry.load = phys_readd(entry_addr);
 					if (entry.block.p) {
 						        std::snprintf(
 						                out1,
@@ -2193,16 +2206,18 @@ void LogPages(char* selname) {
 				}
 			}
 		} else {
-			Bitu table_addr=(paging.base.page<<12)+(sel >> 10)*4;
+			const PhysPt table_addr = (paging.base.page << 12) +
+			                          (sel >> 10) * 4;
 			X86PageEntry table;
 			table.load=phys_readd(table_addr);
 			if (table.block.p) {
 				X86PageEntry entry;
-				Bitu entry_addr=(table.block.base<<12)+(sel & 0x3ff)*4;
-				entry.load=phys_readd(entry_addr);
+				const PhysPt entry_addr = (table.block.base << 12) +
+				                          (sel & 0x3ff) * 4;
+				entry.load = phys_readd(entry_addr);
 				std::snprintf(out1,
 				              sizeof(out1),
-				              "page %05" sBitfs(X) "xxx -> %04Xxxx  flags [puw] %x:%x::%x:%x::%x:%x",
+				              "page %05Xxxx -> %04Xxxx  flags [puw] %x:%x::%x:%x::%x:%x",
 				              sel,
 				              entry.block.base,
 				              entry.block.p,
@@ -2215,7 +2230,7 @@ void LogPages(char* selname) {
 			} else {
 				std::snprintf(out1,
 				              sizeof(out1),
-				              "pagetable %03" sBitfs(X) " not present, flags [puw] %x::%x::%x",
+				              "pagetable %03X not present, flags [puw] %x::%x::%x",
 				              (sel >> 10),
 				              table.block.p,
 				              table.block.us,
@@ -2288,34 +2303,38 @@ static void LogInstruction(uint16_t segValue, uint32_t eipValue, std::ofstream &
 	static char empty[23] = { 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,0 };
 
 	if (cpuLogType == 3) { //Log only cs:ip.
-		out << std::setw(4) << SegValue(cs) << ":" << std::setw(8) << reg_eip << std::endl;
+		out << std::setw(4) << SegValue(cs) << ":" << std::setw(8)
+		    << reg_eip << std::endl;
 		return;
 	}
 
-	PhysPt start = GetAddress(segValue,eipValue);
-	char dline[200];Bitu size;
-	size = DasmI386(dline, start, reg_eip, cpu.code.big);
-	char* res = empty;
-	if (showExtend && (cpuLogType > 0) ) {
+	const auto start = GetAddress(segValue, eipValue);
+	char dline[200];
+	const auto size = DasmI386(dline, start, reg_eip, cpu.code.big);
+	char *res       = empty;
+	if (showExtend && (cpuLogType > 0)) {
 		res = AnalyzeInstruction(dline,false);
 		if (!res || !(*res)) res = empty;
-		Bitu reslen = strlen(res);
+		const auto reslen = strlen(res);
 		if (reslen < 22) memset(res + reslen, ' ',22 - reslen);
 		res[22] = 0;
 	}
-	Bitu len = safe_strlen(dline);
+	auto len = safe_strlen(dline);
 	if (len < 30) memset(dline + len,' ',30 - len);
 	dline[30] = 0;
 
 	// Get register values
 
 	if(cpuLogType == 0) {
-		out << std::setw(4) << SegValue(cs) << ":" << std::setw(4) << reg_eip << "  " << dline;
+		out << std::setw(4) << SegValue(cs) << ":" << std::setw(4)
+		    << reg_eip << "  " << dline;
 	} else if (cpuLogType == 1) {
-		out << std::setw(4) << SegValue(cs) << ":" << std::setw(8) << reg_eip << "  " << dline << "  " << res;
+		out << std::setw(4) << SegValue(cs) << ":" << std::setw(8)
+		    << reg_eip << "  " << dline << "  " << res;
 	} else if (cpuLogType == 2) {
-		char ibytes[200]="";	char tmpc[200];
-		for (Bitu i=0; i<size; i++) {
+		char ibytes[200] = "";
+		char tmpc[200];
+		for (unsigned int i = 0; i < size; i++) {
 			uint8_t value;
 			if (mem_readb_checked(start + i, &value))
 				std::snprintf(tmpc, sizeof(tmpc), "%s", "?? ");
@@ -2324,28 +2343,40 @@ static void LogInstruction(uint16_t segValue, uint32_t eipValue, std::ofstream &
 			strcat(ibytes, tmpc);
 		}
 		len = safe_strlen(ibytes);
-		if (len<21) { for (Bitu i=0; i<21-len; i++) ibytes[len + i] =' '; ibytes[21]=0;} //NOTE THE BRACKETS
-		out << std::setw(4) << SegValue(cs) << ":" << std::setw(8) << reg_eip << "  " << dline << "  " << res << "  " << ibytes;
+		if (len < 21) {
+			for (unsigned int i = 0; i < 21 - len; i++)
+				ibytes[len + i] = ' ';
+			ibytes[21] = 0;
+		} // NOTE THE BRACKETS
+		out << std::setw(4) << SegValue(cs) << ":" << std::setw(8)
+		    << reg_eip << "  " << dline << "  " << res << "  " << ibytes;
 	}
 
-	out << " EAX:" << std::setw(8) << reg_eax << " EBX:" << std::setw(8) << reg_ebx
-	    << " ECX:" << std::setw(8) << reg_ecx << " EDX:" << std::setw(8) << reg_edx
-	    << " ESI:" << std::setw(8) << reg_esi << " EDI:" << std::setw(8) << reg_edi
-	    << " EBP:" << std::setw(8) << reg_ebp << " ESP:" << std::setw(8) << reg_esp
-	    << " DS:"  << std::setw(4) << SegValue(ds)<< " ES:"  << std::setw(4) << SegValue(es);
+	out << " EAX:" << std::setw(8) << reg_eax << " EBX:" << std::setw(8)
+	    << reg_ebx << " ECX:" << std::setw(8) << reg_ecx
+	    << " EDX:" << std::setw(8) << reg_edx << " ESI:" << std::setw(8)
+	    << reg_esi << " EDI:" << std::setw(8) << reg_edi
+	    << " EBP:" << std::setw(8) << reg_ebp << " ESP:" << std::setw(8)
+	    << reg_esp << " DS:" << std::setw(4) << SegValue(ds)
+	    << " ES:" << std::setw(4) << SegValue(es);
 
 	if(cpuLogType == 0) {
-		out << " SS:"  << std::setw(4) << SegValue(ss) << " C"  << (get_CF()>0)  << " Z"   << (get_ZF()>0)
-		    << " S" << (get_SF()>0) << " O"  << (get_OF()>0) << " I"  << GETFLAGBOOL(IF);
+		out << " SS:" << std::setw(4) << SegValue(ss) << " C"
+		    << (get_CF() > 0) << " Z" << (get_ZF() > 0) << " S"
+		    << (get_SF() > 0) << " O" << (get_OF() > 0) << " I"
+		    << GETFLAGBOOL(IF);
 	} else {
-		out << " FS:"  << std::setw(4) << SegValue(fs) << " GS:"  << std::setw(4) << SegValue(gs)
-		    << " SS:"  << std::setw(4) << SegValue(ss)
-		    << " CF:"  << (get_CF()>0)  << " ZF:"   << (get_ZF()>0)  << " SF:"  << (get_SF()>0)
-		    << " OF:"  << (get_OF()>0)  << " AF:"   << (get_AF()>0)  << " PF:"  << (get_PF()>0)
-		    << " IF:"  << GETFLAGBOOL(IF);
+		out << " FS:" << std::setw(4) << SegValue(fs)
+		    << " GS:" << std::setw(4) << SegValue(gs)
+		    << " SS:" << std::setw(4) << SegValue(ss)
+		    << " CF:" << (get_CF() > 0) << " ZF:" << (get_ZF() > 0)
+		    << " SF:" << (get_SF() > 0) << " OF:" << (get_OF() > 0)
+		    << " AF:" << (get_AF() > 0) << " PF:" << (get_PF() > 0)
+		    << " IF:" << GETFLAGBOOL(IF);
 	}
 	if(cpuLogType == 2) {
-		out << " TF:" << GETFLAGBOOL(TF) << " VM:" << GETFLAGBOOL(VM) <<" FLG:" << std::setw(8) << reg_flags
+		out << " TF:" << GETFLAGBOOL(TF) << " VM:" << GETFLAGBOOL(VM)
+		    << " FLG:" << std::setw(8) << reg_flags
 		    << " CR0:" << std::setw(8) << cpu.cr0;
 	}
 	out << std::endl;
@@ -2413,7 +2444,7 @@ void DEBUG_CheckExecuteBreakpoint(uint16_t seg, uint32_t off)
 	if (pDebugcom && pDebugcom->IsActive()) {
 		CBreakpoint::AddBreakpoint(seg,off,true);
 		CBreakpoint::ActivateBreakpointsExceptAt(SegPhys(cs)+reg_eip);
-		pDebugcom = 0;
+		pDebugcom = nullptr;
 	}
 }
 
@@ -2593,7 +2624,7 @@ static void SaveMemoryBin(uint16_t seg, uint32_t ofs1, uint32_t num) {
 	DEBUG_ShowMsg("DEBUG: Memory binary dump file '%s' created.\n",
 	              std_fs::absolute(memdump_bin).string().c_str());
 
-	for (Bitu x = 0; x < num;x++) {
+	for (unsigned int x = 0; x < num; x++) {
 		uint8_t val;
 		if (mem_readb_checked(GetAddress(seg,ofs1+x),&val)) val=0;
 		fwrite(&val,1,1,f);
@@ -2708,19 +2739,19 @@ void DEBUG_HeavyLogInstruction()
 {
 	static char empty[23] = { 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,0 };
 
-	PhysPt start = GetAddress(SegValue(cs),reg_eip);
+	const auto start = GetAddress(SegValue(cs), reg_eip);
 	char dline[200];
 	DasmI386(dline, start, reg_eip, cpu.code.big);
 	char* res = empty;
 	if (showExtend) {
 		res = AnalyzeInstruction(dline,false);
 		if (!res || !(*res)) res = empty;
-		Bitu reslen = strlen(res);
+		const auto reslen = strlen(res);
 		if (reslen < 22) memset(res + reslen, ' ',22 - reslen);
 		res[22] = 0;
 	}
 
-	Bitu len = safe_strlen(dline);
+	const auto len = safe_strlen(dline);
 	if (len < 30) memset(dline + len,' ',30 - len);
 	dline[30] = 0;
 
@@ -2770,23 +2801,34 @@ void DEBUG_HeavyWriteLogInstruction()
 	do {
 		// Write Instructions
 		TLogInst & inst = logInst[startLog];
-		out << std::setw(4) << inst.s_cs << ":" << std::setw(8) << inst.eip << "  "
-		    << inst.dline << "  " << inst.res << " EAX:" << std::setw(8)<< inst.eax
-		    << " EBX:" << std::setw(8) << inst.ebx << " ECX:" << std::setw(8) << inst.ecx
-		    << " EDX:" << std::setw(8) << inst.edx << " ESI:" << std::setw(8) << inst.esi
-		    << " EDI:" << std::setw(8) << inst.edi << " EBP:" << std::setw(8) << inst.ebp
-		    << " ESP:" << std::setw(8) << inst.esp << " DS:"  << std::setw(4) << inst.s_ds
-		    << " ES:"  << std::setw(4) << inst.s_es<< " FS:"  << std::setw(4) << inst.s_fs
-		    << " GS:"  << std::setw(4) << inst.s_gs<< " SS:"  << std::setw(4) << inst.s_ss
-		    << " CF:"  << inst.c  << " ZF:"   << inst.z  << " SF:"  << inst.s
-		    << " OF:"  << inst.o  << " AF:"   << inst.a  << " PF:"  << inst.p
-		    << " IF:"  << inst.i  << std::endl;
+		out << std::setw(4) << inst.s_cs << ":" << std::setw(8)
+		    << inst.eip << "  " << inst.dline << "  " << inst.res
+		    << " EAX:" << std::setw(8) << inst.eax
+		    << " EBX:" << std::setw(8) << inst.ebx
+		    << " ECX:" << std::setw(8) << inst.ecx
+		    << " EDX:" << std::setw(8) << inst.edx
+		    << " ESI:" << std::setw(8) << inst.esi
+		    << " EDI:" << std::setw(8) << inst.edi
+		    << " EBP:" << std::setw(8) << inst.ebp
+		    << " ESP:" << std::setw(8) << inst.esp
+		    << " DS:" << std::setw(4) << inst.s_ds
+		    << " ES:" << std::setw(4) << inst.s_es
+		    << " FS:" << std::setw(4) << inst.s_fs
+		    << " GS:" << std::setw(4) << inst.s_gs
+		    << " SS:" << std::setw(4) << inst.s_ss << " CF:" << inst.c
+		    << " ZF:" << inst.z << " SF:" << inst.s << " OF:" << inst.o
+		    << " AF:" << inst.a << " PF:" << inst.p << " IF:" << inst.i
+		    << std::endl;
 
-/*		fprintf(f,"%04X:%08X   %s  %s  EAX:%08X EBX:%08X ECX:%08X EDX:%08X ESI:%08X EDI:%08X EBP:%08X ESP:%08X DS:%04X ES:%04X FS:%04X GS:%04X SS:%04X CF:%01X ZF:%01X SF:%01X OF:%01X AF:%01X PF:%01X IF:%01X\n",
-			logInst[startLog].s_cs,logInst[startLog].eip,logInst[startLog].dline,logInst[startLog].res,logInst[startLog].eax,logInst[startLog].ebx,logInst[startLog].ecx,logInst[startLog].edx,logInst[startLog].esi,logInst[startLog].edi,logInst[startLog].ebp,logInst[startLog].esp,
-		        logInst[startLog].s_ds,logInst[startLog].s_es,logInst[startLog].s_fs,logInst[startLog].s_gs,logInst[startLog].s_ss,
-		        logInst[startLog].c,logInst[startLog].z,logInst[startLog].s,logInst[startLog].o,logInst[startLog].a,logInst[startLog].p,logInst[startLog].i);*/
-		if (++startLog >= LOGCPUMAX) startLog = 0;
+		/*		fprintf(f,"%04X:%08X   %s  %s  EAX:%08X EBX:%08X
+		   ECX:%08X EDX:%08X ESI:%08X EDI:%08X EBP:%08X ESP:%08X DS:%04X
+		   ES:%04X FS:%04X GS:%04X SS:%04X CF:%01X ZF:%01X SF:%01X
+		   OF:%01X AF:%01X PF:%01X IF:%01X\n",
+		                        logInst[startLog].s_cs,logInst[startLog].eip,logInst[startLog].dline,logInst[startLog].res,logInst[startLog].eax,logInst[startLog].ebx,logInst[startLog].ecx,logInst[startLog].edx,logInst[startLog].esi,logInst[startLog].edi,logInst[startLog].ebp,logInst[startLog].esp,
+		                        logInst[startLog].s_ds,logInst[startLog].s_es,logInst[startLog].s_fs,logInst[startLog].s_gs,logInst[startLog].s_ss,
+		                        logInst[startLog].c,logInst[startLog].z,logInst[startLog].s,logInst[startLog].o,logInst[startLog].a,logInst[startLog].p,logInst[startLog].i);*/
+		if (++startLog >= LOGCPUMAX)
+			startLog = 0;
 	} while (startLog != logCount);
 
 	out.close();
@@ -2794,7 +2836,7 @@ void DEBUG_HeavyWriteLogInstruction()
 }
 
 bool DEBUG_HeavyIsBreakpoint(void) {
-	static Bitu zero_count = 0;
+	static int zero_count = 0;
 	if (cpuLog) {
 		if (cpuLogCounter>0) {
 			LogInstruction(SegValue(cs),reg_eip,cpuLogFile);
