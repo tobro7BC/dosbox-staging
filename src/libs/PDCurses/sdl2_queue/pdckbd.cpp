@@ -81,7 +81,7 @@ void PDC_set_keyboard_binary([[maybe_unused]] bool on)
 
 bool PDC_check_key(void)
 {
-    int haveevent = 0;
+    bool haveevent = false;
 
     PDC_pump_and_peep();
 
@@ -89,12 +89,12 @@ bool PDC_check_key(void)
        should handle before polling for additional events. */
 
     if (event.type == SDL_TEXTINPUT && event.text.text[0]) {
-        haveevent = 1;
+        haveevent = true;
     } else {
         haveevent = !pdc_event_queue.empty();
         if (haveevent) {
             event = pdc_event_queue.front();
-            pdc_event_queue.pop();
+            pdc_event_queue.pop_front();
         }
     }
 
@@ -386,7 +386,7 @@ static int _process_mouse_event(void)
 
                 if (ev.type == SDL_MOUSEBUTTONUP && ev.button.button == btn) {
                     action = BUTTON_CLICKED;
-                    pdc_event_queue.pop();
+                    pdc_event_queue.pop_front();
                 }
             }
         }

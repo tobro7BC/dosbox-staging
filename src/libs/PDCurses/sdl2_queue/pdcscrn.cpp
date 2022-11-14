@@ -2,7 +2,7 @@
 
 #include "pdcsdl.h"
 
-#include <stdlib.h>
+#include <cstdlib>
 #ifndef PDC_WIDE
 # include "../common/font437.h"
 #endif
@@ -37,7 +37,7 @@ Uint32 pdc_mapped[PDC_MAXCOL];
 int pdc_fheight, pdc_fwidth, pdc_fthick, pdc_flastc;
 bool pdc_own_window;
 
-std::queue<SDL_Event> pdc_event_queue;
+std::deque<SDL_Event> pdc_event_queue;
 
 static void _clean(void)
 {

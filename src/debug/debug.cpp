@@ -21,15 +21,18 @@
 
 #if C_DEBUG
 
-#include <string.h>
-#include <list>
-#include <vector>
-#include <ctype.h>
+#include <cctype>
+#include <cstdio>
+#include <cstring>
+
+#include <deque>
 #include <fstream>
 #include <iomanip>
-#include <string>
+#include <list>
+#include <memory>
 #include <sstream>
-using namespace std;
+#include <string>
+#include <vector>
 
 #include "debug.h"
 #include "cross.h" //snprintf
@@ -52,6 +55,9 @@ using namespace std;
 #include "keyboard.h"
 #include "setup.h"
 #include "std_filesystem.h"
+
+extern SDL_Window *pdc_window;
+extern std::deque<SDL_Event> pdc_event_queue;
 
 SDL_Window *GFX_GetSDLWindow(void);
 
@@ -101,7 +107,7 @@ bool	exitLoop	= false;
 
 // Heavy Debugging Vars for logging
 #if C_HEAVY_DEBUG
-static ofstream 	cpuLogFile;
+static std::ofstream 	cpuLogFile;
 static bool		cpuLog			= false;
 static int		cpuLogCounter	= 0;
 static int		cpuLogType		= 1;	// log detail
@@ -172,7 +178,7 @@ static void ClearInputLine(void) {
 
 // History stuff
 #define MAX_HIST_BUFFER 50
-static list<string> histBuff = {};
+static std::list<std::string> histBuff = {};
 static auto histBuffPos = histBuff.end();
 
 /***********/
@@ -198,7 +204,7 @@ uint32_t GetAddress(uint16_t seg, uint32_t offset)
 
 static char empty_sel[] = { ' ',' ',0 };
 
-bool GetDescriptorInfo(char* selname, char* out1, char* out2)
+bool GetDescriptorInfo(char* selname, char* out1, size_t out1_sz, char* out2, size_t out2_sz)
 {
 	Bitu sel;
 	Descriptor desc;
@@ -216,33 +222,89 @@ bool GetDescriptorInfo(char* selname, char* out1, char* out2)
 	if (cpu.gdt.GetDescriptor(sel,desc)) {
 		switch (desc.Type()) {
 			case DESC_TASK_GATE:
-				sprintf(out1,"%s: s:%08X type:%02X p",selname,desc.GetSelector(),desc.saved.gate.type);
-				sprintf(out2,"    TaskGate   dpl : %01X %1X",desc.saved.gate.dpl,desc.saved.gate.p);
-				return true;
-			case DESC_LDT:
-			case DESC_286_TSS_A:
-			case DESC_286_TSS_B:
+			        std::snprintf(out1,
+			                      out1_sz,
+			                      "%s: s:%08X type:%02X p",
+			                      selname,
+			                      desc.GetSelector(),
+			                      desc.saved.gate.type);
+			        std::snprintf(out2,
+			                      out2_sz,
+			                      "    TaskGate   dpl : %01X %1X",
+			                      desc.saved.gate.dpl,
+			                      desc.saved.gate.p);
+			        return true;
+		        case DESC_LDT:
+		        case DESC_286_TSS_A:
+		        case DESC_286_TSS_B:
 			case DESC_386_TSS_A:
 			case DESC_386_TSS_B:
-				sprintf(out1,"%s: b:%08X type:%02X pag",selname,desc.GetBase(),desc.saved.seg.type);
-				sprintf(out2,"    l:%08X dpl : %01X %1X%1X%1X",desc.GetLimit(),desc.saved.seg.dpl,desc.saved.seg.p,desc.saved.seg.avl,desc.saved.seg.g);
-				return true;
-			case DESC_286_CALL_GATE:
-			case DESC_386_CALL_GATE:
-				sprintf(out1,"%s: s:%08X type:%02X p params: %02X",selname,desc.GetSelector(),desc.saved.gate.type,desc.saved.gate.paramcount);
-				sprintf(out2,"    o:%08X dpl : %01X %1X",desc.GetOffset(),desc.saved.gate.dpl,desc.saved.gate.p);
-				return true;
-			case DESC_286_INT_GATE:
-			case DESC_286_TRAP_GATE:
-			case DESC_386_INT_GATE:
+			        std::snprintf(out1,
+			                      out1_sz,
+			                      "%s: b:%08X type:%02X pag",
+			                      selname,
+			                      desc.GetBase(),
+			                      desc.saved.seg.type);
+			        std::snprintf(out2,
+			                      out2_sz,
+			                      "    l:%08X dpl : %01X %1X%1X%1X",
+			                      desc.GetLimit(),
+			                      desc.saved.seg.dpl,
+			                      desc.saved.seg.p,
+			                      desc.saved.seg.avl,
+			                      desc.saved.seg.g);
+			        return true;
+		        case DESC_286_CALL_GATE:
+		        case DESC_386_CALL_GATE:
+			        std::snprintf(out1,
+			                      out1_sz,
+			                      "%s: s:%08X type:%02X p params: %02X",
+			                      selname,
+			                      desc.GetSelector(),
+			                      desc.saved.gate.type,
+			                      desc.saved.gate.paramcount);
+			        std::snprintf(out2,
+			                      out2_sz,
+			                      "    o:%08X dpl : %01X %1X",
+			                      desc.GetOffset(),
+			                      desc.saved.gate.dpl,
+			                      desc.saved.gate.p);
+			        return true;
+		        case DESC_286_INT_GATE:
+		        case DESC_286_TRAP_GATE:
+		        case DESC_386_INT_GATE:
 			case DESC_386_TRAP_GATE:
-				sprintf(out1,"%s: s:%08X type:%02X p",selname,desc.GetSelector(),desc.saved.gate.type);
-				sprintf(out2,"    o:%08X dpl : %01X %1X",desc.GetOffset(),desc.saved.gate.dpl,desc.saved.gate.p);
-				return true;
-		}
-		sprintf(out1,"%s: b:%08X type:%02X parbg",selname,desc.GetBase(),desc.saved.seg.type);
-		sprintf(out2,"    l:%08X dpl : %01X %1X%1X%1X%1X%1X",desc.GetLimit(),desc.saved.seg.dpl,desc.saved.seg.p,desc.saved.seg.avl,desc.saved.seg.r,desc.saved.seg.big,desc.saved.seg.g);
-		return true;
+			        std::snprintf(out1,
+			                      out1_sz,
+			                      "%s: s:%08X type:%02X p",
+			                      selname,
+			                      desc.GetSelector(),
+			                      desc.saved.gate.type);
+			        std::snprintf(out2,
+			                      out2_sz,
+			                      "    o:%08X dpl : %01X %1X",
+			                      desc.GetOffset(),
+			                      desc.saved.gate.dpl,
+			                      desc.saved.gate.p);
+			        return true;
+		        }
+		        std::snprintf(out1,
+		                      out1_sz,
+		                      "%s: b:%08X type:%02X parbg",
+		                      selname,
+		                      desc.GetBase(),
+		                      desc.saved.seg.type);
+		        std::snprintf(out2,
+		                      out2_sz,
+		                      "    l:%08X dpl : %01X %1X%1X%1X%1X%1X",
+		                      desc.GetLimit(),
+		                      desc.saved.seg.dpl,
+		                      desc.saved.seg.p,
+		                      desc.saved.seg.avl,
+		                      desc.saved.seg.r,
+		                      desc.saved.seg.big,
+		                      desc.saved.seg.g);
+		        return true;
 	} else {
 		strcpy(out1,"                                     ");
 		strcpy(out2,"                                     ");
@@ -276,13 +338,13 @@ private:
 
 public:
 	static void       InsertVariable(char* name, PhysPt adr);
-	static CDebugVar* FindVar       (PhysPt adr);
+	static std::shared_ptr<CDebugVar> FindVar(PhysPt adr);
 	static void       DeleteAll     ();
 	static bool       SaveVars      (char* name);
 	static bool       LoadVars      (char* name);
 };
 
-static std::vector<CDebugVar *> varList = {};
+static std::vector<std::shared_ptr<CDebugVar>> varList = {};
 
 /********************/
 /* Breakpoint stuff */
@@ -320,19 +382,26 @@ public:
 	uint16_t GetOther() const noexcept { return alValue; }
 
 	// statics
-	static CBreakpoint*		AddBreakpoint		(uint16_t seg, uint32_t off, bool once);
-	static CBreakpoint*		AddIntBreakpoint	(uint8_t intNum, uint16_t ah, uint16_t al, bool once);
-	static CBreakpoint*		AddMemBreakpoint	(uint16_t seg, uint32_t off);
-	static void				DeactivateBreakpoints();
-	static void				ActivateBreakpoints	();
+	static std::shared_ptr<CBreakpoint> AddBreakpoint(uint16_t seg,
+	                                                  uint32_t off, bool once);
+	static std::shared_ptr<CBreakpoint> AddIntBreakpoint(uint8_t intNum,
+	                                                     uint16_t ah,
+	                                                     uint16_t al, bool once);
+	static std::shared_ptr<CBreakpoint> AddMemBreakpoint(uint16_t seg,
+	                                                     uint32_t off);
+	static void DeactivateBreakpoints();
+	static void ActivateBreakpoints();
 	static void				ActivateBreakpointsExceptAt(PhysPt adr);
 	static bool				CheckBreakpoint		(PhysPt adr);
 	static bool				CheckBreakpoint		(Bitu seg, Bitu off);
 	static bool				CheckIntBreakpoint	(PhysPt adr, uint8_t intNr, uint16_t ahValue, uint16_t alValue);
-	static CBreakpoint*		FindPhysBreakpoint	(uint16_t seg, uint32_t off, bool once);
-	static CBreakpoint*		FindOtherActiveBreakpoint(PhysPt adr, CBreakpoint* skip);
-	static bool				IsBreakpoint		(uint16_t seg, uint32_t off);
-	static bool				DeleteBreakpoint	(uint16_t seg, uint32_t off);
+	static std::shared_ptr<CBreakpoint> FindPhysBreakpoint(uint16_t seg,
+	                                                       uint32_t off,
+	                                                       bool once);
+	static std::shared_ptr<CBreakpoint> FindOtherActiveBreakpoint(PhysPt adr,
+	                                                              CBreakpoint *skip);
+	static bool IsBreakpoint(uint16_t seg, uint32_t off);
+	static bool DeleteBreakpoint(uint16_t seg, uint32_t off);
 	static bool				DeleteByIndex		(uint16_t index);
 	static void				DeleteAll			(void);
 	static void				ShowList			(void);
@@ -377,7 +446,7 @@ void CBreakpoint::Activate(bool _active)
 			} else if (!active) {
 				// Another activate breakpoint is already here.
 				// Find it, and copy its oldData value
-				CBreakpoint *bp = FindOtherActiveBreakpoint(location, this);
+				auto bp = FindOtherActiveBreakpoint(location, this);
 
 				if (!bp || bp->oldData == 0xCC) {
 					// This might also happen if there is a real 0xCC instruction here
@@ -392,7 +461,9 @@ void CBreakpoint::Activate(bool _active)
 					DEBUG_ShowMsg("DEBUG: Internal error while deactivating breakpoint.\n");
 
 				// Check if we are the last active breakpoint at this location
-				bool otherActive = (FindOtherActiveBreakpoint(location, this) != 0);
+				bool otherActive = (FindOtherActiveBreakpoint(location,
+				                                              this) !=
+				                    nullptr);
 
 				// If so, remove 0xCC and set old value
 				if (!otherActive)
@@ -405,29 +476,32 @@ void CBreakpoint::Activate(bool _active)
 }
 
 // Statics
-static std::list<CBreakpoint *> BPoints = {};
+static std::list<std::shared_ptr<CBreakpoint>> BPoints = {};
 
-CBreakpoint* CBreakpoint::AddBreakpoint(uint16_t seg, uint32_t off, bool once)
+std::shared_ptr<CBreakpoint> CBreakpoint::AddBreakpoint(uint16_t seg,
+                                                        uint32_t off, bool once)
 {
-	auto bp = new CBreakpoint();
+	auto bp = std::make_shared<CBreakpoint>();
 	bp->SetAddress		(seg,off);
 	bp->SetOnce			(once);
 	BPoints.push_front	(bp);
 	return bp;
 }
 
-CBreakpoint* CBreakpoint::AddIntBreakpoint(uint8_t intNum, uint16_t ah, uint16_t al, bool once)
+std::shared_ptr<CBreakpoint> CBreakpoint::AddIntBreakpoint(uint8_t intNum,
+                                                           uint16_t ah,
+                                                           uint16_t al, bool once)
 {
-	auto bp = new CBreakpoint();
+	auto bp = std::make_shared<CBreakpoint>();
 	bp->SetInt			(intNum,ah,al);
 	bp->SetOnce			(once);
 	BPoints.push_front	(bp);
 	return bp;
 }
 
-CBreakpoint* CBreakpoint::AddMemBreakpoint(uint16_t seg, uint32_t off)
+std::shared_ptr<CBreakpoint> CBreakpoint::AddMemBreakpoint(uint16_t seg, uint32_t off)
 {
-	auto bp = new CBreakpoint();
+	auto bp = std::make_shared<CBreakpoint>();
 	bp->SetAddress		(seg,off);
 	bp->SetOnce			(false);
 	bp->SetType			(BKPNT_MEMORY);
@@ -438,7 +512,6 @@ CBreakpoint* CBreakpoint::AddMemBreakpoint(uint16_t seg, uint32_t off)
 void CBreakpoint::ActivateBreakpoints()
 {
 	// activate all breakpoints
-	std::list<CBreakpoint*>::iterator i;
 	for (auto &bp : BPoints)
 		bp->Activate(true);
 }
@@ -453,7 +526,6 @@ void CBreakpoint::DeactivateBreakpoints()
 void CBreakpoint::ActivateBreakpointsExceptAt(PhysPt adr)
 {
 	// activate all breakpoints, except those at adr
-	std::list<CBreakpoint*>::iterator i;
 	for (auto &bp : BPoints) {
 		// Do not activate breakpoints at adr
 		if (bp->GetType() == BKPNT_PHYSICAL && bp->GetLocation() == adr)
@@ -477,16 +549,14 @@ bool CBreakpoint::CheckBreakpoint(Bitu seg, Bitu off)
 			// Found
 			if (bp->GetOnce()) {
 				// delete it, if it should only be used once
-				BPoints.erase(i);
 				bp->Activate(false);
-				delete bp;
+				BPoints.erase(i);
 			} else {
 				// Also look for once-only breakpoints at this address
 				bp = FindPhysBreakpoint(seg, off, true);
 				if (bp) {
-					BPoints.remove(bp);
 					bp->Activate(false);
-					delete bp;
+					BPoints.remove(bp);
 				}
 			}
 			return true;
@@ -540,10 +610,10 @@ bool CBreakpoint::CheckIntBreakpoint([[maybe_unused]] PhysPt adr, uint8_t intNr,
 				// Ignore it once ?
 				// Found
 				if (bp->GetOnce()) {
-					// delete it, if it should only be used once
-					BPoints.erase(i);
+					// delete it, if it should only be used
+					// once
 					bp->Activate(false);
-					delete bp;
+					BPoints.erase(i);
 				}
 				return true;
 			}
@@ -556,7 +626,6 @@ void CBreakpoint::DeleteAll()
 {
 	for (auto &bp : BPoints) {
 		bp->Activate(false);
-		delete bp;
 	}
 	BPoints.clear();
 }
@@ -573,16 +642,17 @@ bool CBreakpoint::DeleteByIndex(uint16_t index)
 
 	BPoints.erase(it);
 	bp->Activate(false);
-	delete bp;
 	return true;
 }
 
-CBreakpoint* CBreakpoint::FindPhysBreakpoint(uint16_t seg, uint32_t off, bool once)
+std::shared_ptr<CBreakpoint> CBreakpoint::FindPhysBreakpoint(uint16_t seg,
+                                                             uint32_t off, bool once)
 {
-	if (BPoints.empty()) return 0;
-#if !C_HEAVY_DEBUG
+	if (BPoints.empty())
+		return nullptr;
+#	if !C_HEAVY_DEBUG
 	PhysPt adr = GetAddress(seg, off);
-#endif
+#	endif
 	// Search for matching breakpoint
 	for (auto &bp : BPoints) {
 #	if C_HEAVY_DEBUG
@@ -597,29 +667,30 @@ CBreakpoint* CBreakpoint::FindPhysBreakpoint(uint16_t seg, uint32_t off, bool on
 			return bp;
 	}
 
-	return 0;
+	return nullptr;
 }
 
-CBreakpoint* CBreakpoint::FindOtherActiveBreakpoint(PhysPt adr, CBreakpoint* skip)
+std::shared_ptr<CBreakpoint> CBreakpoint::FindOtherActiveBreakpoint(PhysPt adr,
+                                                                    CBreakpoint *skip)
 {
 	for (auto &bp : BPoints)
-		if (bp != skip && bp->GetType() == BKPNT_PHYSICAL && bp->GetLocation() == adr && bp->IsActive())
+		if (bp.get() != skip && bp->GetType() == BKPNT_PHYSICAL &&
+		    bp->GetLocation() == adr && bp->IsActive())
 			return bp;
-	return 0;
+	return nullptr;
 }
 
 // is there a permanent breakpoint at address ?
 bool CBreakpoint::IsBreakpoint(uint16_t seg, uint32_t off)
 {
-	return FindPhysBreakpoint(seg, off, false) != 0;
+	return FindPhysBreakpoint(seg, off, false) != nullptr;
 }
 
 bool CBreakpoint::DeleteBreakpoint(uint16_t seg, uint32_t off)
 {
-	CBreakpoint* bp = FindPhysBreakpoint(seg, off, false);
+	auto bp = FindPhysBreakpoint(seg, off, false);
 	if (bp) {
 		BPoints.remove(bp);
-		delete bp;
 		return true;
 	}
 
@@ -798,7 +869,7 @@ static void DrawRegisters(void) {
 	// Selector info, if available
 	if ((cpu.pmode) && curSelectorName[0]) {
 		char out1[200], out2[200];
-		GetDescriptorInfo(curSelectorName,out1,out2);
+		GetDescriptorInfo(curSelectorName,out1,sizeof(out1), out2, sizeof(out2));
 		mvwprintw(dbg.win_reg,2,28,out1);
 		mvwprintw(dbg.win_reg,3,28,out2);
 	}
@@ -1015,13 +1086,14 @@ bool ParseCommand(char* str) {
 		*idx = toupper(*idx);
 
 	found = trim(found);
-	string s_found(found);
-	istringstream stream(s_found);
-	string command;
+	std::string s_found(found);
+	std::istringstream stream(s_found);
+	std::string command;
 	stream >> command;
-	string::size_type next = s_found.find_first_not_of(' ',command.size());
-	if(next == string::npos) next = command.size();
-	(s_found.erase)(0,next);
+	std::string::size_type next = s_found.find_first_not_of(' ', command.size());
+	if (next == std::string::npos)
+		next = command.size();
+	(s_found.erase)(0, next);
 	found = const_cast<char*>(s_found.c_str());
 
 	if (command == "MEMDUMP") { // Dump memory to file
@@ -1128,7 +1200,7 @@ bool ParseCommand(char* str) {
 	if (command == "BPPM") { // Add new breakpoint
 		uint16_t seg = (uint16_t)GetHexValue(found,found);found++; // skip ":"
 		uint32_t ofs = GetHexValue(found,found);
-		CBreakpoint* bp = CBreakpoint::AddMemBreakpoint(seg,ofs);
+		auto bp = CBreakpoint::AddMemBreakpoint(seg,ofs);
 		if (bp)	{
 			bp->SetType(BKPNT_MEMORY_PROT);
 			DEBUG_ShowMsg("DEBUG: Set prot-mode memory breakpoint at %04X:%08X\n",seg,ofs);
@@ -1138,7 +1210,7 @@ bool ParseCommand(char* str) {
 
 	if (command == "BPLM") { // Add new breakpoint
 		uint32_t ofs = GetHexValue(found,found);
-		CBreakpoint* bp = CBreakpoint::AddMemBreakpoint(0,ofs);
+		auto bp = CBreakpoint::AddMemBreakpoint(0,ofs);
 		if (bp) bp->SetType(BKPNT_MEMORY_LINEAR);
 		DEBUG_ShowMsg("DEBUG: Set linear memory breakpoint at %08X\n",ofs);
 		return true;
@@ -1236,7 +1308,7 @@ bool ParseCommand(char* str) {
 		DEBUG_ShowMsg("DEBUG: Logfile '%s' created.\n",
 		              std_fs::absolute(log_cpu_txt).string().c_str());
 		//Initialize log object
-		cpuLogFile << hex << noshowbase << setfill('0') << uppercase;
+		cpuLogFile << std::hex << std::noshowbase << std::setfill('0') << std::uppercase;
 		cpuLog = true;
 		cpuLogCounter = GetHexValue(found,found);
 
@@ -1271,7 +1343,7 @@ bool ParseCommand(char* str) {
 	if (command == "SELINFO") {
 		while (found[0] == ' ') found++;
 		char out1[200],out2[200];
-		GetDescriptorInfo(found,out1,out2);
+		GetDescriptorInfo(found,out1,sizeof(out1), out2, sizeof(out2));
 		DEBUG_ShowMsg("SelectorInfo %s:\n%s\n%s\n",found,out1,out2);
 		return true;
 	}
@@ -1452,22 +1524,41 @@ char* AnalyzeInstruction(char* inst, bool saveSelector) {
 				switch (DasmLastOperandSize()) {
 				case 8 : {	uint8_t val = mem_readb(address);
 							outmask[12] = '2';
-							sprintf(result,outmask,prefix,adr,val);
-						}	break;
-				case 16: {	uint16_t val = mem_readw(address);
-							outmask[12] = '4';
-							sprintf(result,outmask,prefix,adr,val);
-						}	break;
-				case 32: {	uint32_t val = mem_readd(address);
-							outmask[12] = '8';
-							sprintf(result,outmask,prefix,adr,val);
-						}	break;
-			}
+				                        std::snprintf(result,
+				                                      sizeof(result),
+				                                      outmask,
+				                                      prefix,
+				                                      adr,
+				                                      val);
+			        } break;
+			        case 16: {
+				                        uint16_t val = mem_readw(
+				                                address);
+				                        outmask[12] = '4';
+				                        std::snprintf(result,
+				                                      sizeof(result),
+				                                      outmask,
+				                                      prefix,
+				                                      adr,
+				                                      val);
+			        } break;
+			        case 32: {
+				                        uint32_t val = mem_readd(
+				                                address);
+				                        outmask[12] = '8';
+				                        std::snprintf(result,
+				                                      sizeof(result),
+				                                      outmask,
+				                                      prefix,
+				                                      adr,
+				                                      val);
+			        } break;
+			        }
 		} else {
-			sprintf(result,"[illegal]");
+			        std::snprintf(result, sizeof(result), "[illegal]");
 		}
 		// Variable found ?
-		CDebugVar* var = CDebugVar::FindVar(address);
+		auto var = CDebugVar::FindVar(address);
 		if (var) {
 			// Replace occurrence
 			char* pos1 = strchr(inst,'[');
@@ -1570,7 +1661,7 @@ char* AnalyzeInstruction(char* inst, bool saveSelector) {
 				}
 			}
 		} else {
-			sprintf(result,"(no jmp)");
+			std::snprintf(result, sizeof(result), "(no jmp)");
 		}
 	}
 	return result;
@@ -1876,10 +1967,6 @@ Bitu DEBUG_Loop(void) {
 	return DEBUG_CheckKeys();
 }
 
-#include <queue>
-extern SDL_Window *pdc_window;
-extern std::queue<SDL_Event> pdc_event_queue;
-
 void DEBUG_Enable(bool pressed)
 {
 	if (!pressed)
@@ -1900,7 +1987,7 @@ void DEBUG_Enable(bool pressed)
 
 	// Defocus the graphical UI and bring the debugger UI into focus
 	GFX_LosingFocus();
-	pdc_event_queue = {};
+	pdc_event_queue.clear();
 	SDL_RaiseWindow(pdc_window);
 	SDL_SetWindowInputFocus(pdc_window);
 	SetCodeWinStart();
@@ -2000,10 +2087,24 @@ static void LogGDT(void) {
 	LOG(LOG_MISC,LOG_ERROR)("GDT Base:%08X Limit:%08" sBitfs(X),address,length);
 	while (address<max) {
 		desc.Load(address);
-		sprintf(out1,"%04" sBitfs(X) ": b:%08X type: %02X parbg",(i<<3),desc.GetBase(),desc.saved.seg.type);
-		LOG(LOG_MISC,LOG_ERROR)("%s",out1);
-		sprintf(out1,"      l:%08X dpl : %01X  %1X%1X%1X%1X%1X",desc.GetLimit(),desc.saved.seg.dpl,desc.saved.seg.p,desc.saved.seg.avl,desc.saved.seg.r,desc.saved.seg.big,desc.saved.seg.g);
-		LOG(LOG_MISC,LOG_ERROR)("%s",out1);
+		std::snprintf(out1,
+		              sizeof(out1),
+		              "%04" sBitfs(X) ": b:%08X type: %02X parbg",
+		              (i << 3),
+		              desc.GetBase(),
+		              desc.saved.seg.type);
+		LOG(LOG_MISC, LOG_ERROR)("%s", out1);
+		std::snprintf(out1,
+		              sizeof(out1),
+		              "      l:%08X dpl : %01X  %1X%1X%1X%1X%1X",
+		              desc.GetLimit(),
+		              desc.saved.seg.dpl,
+		              desc.saved.seg.p,
+		              desc.saved.seg.avl,
+		              desc.saved.seg.r,
+		              desc.saved.seg.big,
+		              desc.saved.seg.g);
+		LOG(LOG_MISC, LOG_ERROR)("%s", out1);
 		address+=8; i++;
 	}
 }
@@ -2020,10 +2121,24 @@ static void LogLDT(void) {
 	LOG(LOG_MISC,LOG_ERROR)("LDT Base:%08X Limit:%08" sBitfs(X),address,length);
 	while (address<max) {
 		desc.Load(address);
-		sprintf(out1,"%04" sBitfs(X) ": b:%08X type: %02X parbg",(i<<3)|4,desc.GetBase(),desc.saved.seg.type);
-		LOG(LOG_MISC,LOG_ERROR)("%s",out1);
-		sprintf(out1,"      l:%08X dpl : %01X  %1X%1X%1X%1X%1X",desc.GetLimit(),desc.saved.seg.dpl,desc.saved.seg.p,desc.saved.seg.avl,desc.saved.seg.r,desc.saved.seg.big,desc.saved.seg.g);
-		LOG(LOG_MISC,LOG_ERROR)("%s",out1);
+		std::snprintf(out1,
+		              sizeof(out1),
+		              "%04" sBitfs(X) ": b:%08X type: %02X parbg",
+		              (i << 3) | 4,
+		              desc.GetBase(),
+		              desc.saved.seg.type);
+		LOG(LOG_MISC, LOG_ERROR)("%s", out1);
+		std::snprintf(out1,
+		              sizeof(out1),
+		              "      l:%08X dpl : %01X  %1X%1X%1X%1X%1X",
+		              desc.GetLimit(),
+		              desc.saved.seg.dpl,
+		              desc.saved.seg.p,
+		              desc.saved.seg.avl,
+		              desc.saved.seg.r,
+		              desc.saved.seg.big,
+		              desc.saved.seg.g);
+		LOG(LOG_MISC, LOG_ERROR)("%s", out1);
 		address+=8; i++;
 	}
 }
@@ -2034,8 +2149,13 @@ static void LogIDT(void) {
 	uint32_t address = 0;
 	while (address<256*8) {
 		if (cpu.idt.GetDescriptor(address,desc)) {
-			sprintf(out1,"%04X: sel:%04X off:%02X",address/8,desc.GetSelector(),desc.GetOffset());
-			LOG(LOG_MISC,LOG_ERROR)("%s",out1);
+			std::snprintf(out1,
+			              sizeof(out1),
+			              "%04X: sel:%04X off:%02X",
+			              address / 8,
+			              desc.GetSelector(),
+			              desc.GetOffset());
+			LOG(LOG_MISC, LOG_ERROR)("%s", out1);
 		}
 		address+=8;
 	}
@@ -2055,10 +2175,20 @@ void LogPages(char* selname) {
 					Bitu entry_addr=(table.block.base<<12)+(i & 0x3ff)*4;
 					entry.load=phys_readd(entry_addr);
 					if (entry.block.p) {
-						sprintf(out1,"page %05Xxxx -> %04Xxxx  flags [uw] %x:%x::%x:%x [d=%x|a=%x]",
-							i,entry.block.base,entry.block.us,table.block.us,
-							entry.block.wr,table.block.wr,entry.block.d,entry.block.a);
-						LOG(LOG_MISC,LOG_ERROR)("%s",out1);
+						        std::snprintf(
+						                out1,
+						                sizeof(out1),
+						                "page %05Xxxx -> %04Xxxx  flags [uw] %x:%x::%x:%x [d=%x|a=%x]",
+						                i,
+						                entry.block.base,
+						                entry.block.us,
+						                table.block.us,
+						                entry.block.wr,
+						                table.block.wr,
+						                entry.block.d,
+						                entry.block.a);
+						        LOG(LOG_MISC, LOG_ERROR)
+						        ("%s", out1);
 					}
 				}
 			}
@@ -2070,11 +2200,27 @@ void LogPages(char* selname) {
 				X86PageEntry entry;
 				Bitu entry_addr=(table.block.base<<12)+(sel & 0x3ff)*4;
 				entry.load=phys_readd(entry_addr);
-				sprintf(out1,"page %05" sBitfs(X) "xxx -> %04Xxxx  flags [puw] %x:%x::%x:%x::%x:%x",sel,entry.block.base,entry.block.p,table.block.p,entry.block.us,table.block.us,entry.block.wr,table.block.wr);
-				LOG(LOG_MISC,LOG_ERROR)("%s",out1);
+				std::snprintf(out1,
+				              sizeof(out1),
+				              "page %05" sBitfs(X) "xxx -> %04Xxxx  flags [puw] %x:%x::%x:%x::%x:%x",
+				              sel,
+				              entry.block.base,
+				              entry.block.p,
+				              table.block.p,
+				              entry.block.us,
+				              table.block.us,
+				              entry.block.wr,
+				              table.block.wr);
+				LOG(LOG_MISC, LOG_ERROR)("%s", out1);
 			} else {
-				sprintf(out1,"pagetable %03" sBitfs(X) " not present, flags [puw] %x::%x::%x",(sel >> 10),table.block.p,table.block.us,table.block.wr);
-				LOG(LOG_MISC,LOG_ERROR)("%s",out1);
+				std::snprintf(out1,
+				              sizeof(out1),
+				              "pagetable %03" sBitfs(X) " not present, flags [puw] %x::%x::%x",
+				              (sel >> 10),
+				              table.block.p,
+				              table.block.us,
+				              table.block.wr);
+				LOG(LOG_MISC, LOG_ERROR)("%s", out1);
 			}
 		}
 	}
@@ -2082,36 +2228,67 @@ void LogPages(char* selname) {
 
 static void LogCPUInfo(void) {
 	char out1[512];
-	sprintf(out1,"cr0:%08" sBitfs(X) " cr2:%08u cr3:%08u  cpl=%" sBitfs(x),cpu.cr0,paging.cr2,paging.cr3,cpu.cpl);
-	LOG(LOG_MISC,LOG_ERROR)("%s",out1);
-	sprintf(out1, "eflags:%08x [vm=%x iopl=%x nt=%x]", reg_flags,
-	        GETFLAG(VM) >> 17, GETFLAG(IOPL) >> 12, GETFLAG(NT) >> 14);
-	LOG(LOG_MISC,LOG_ERROR)("%s",out1);
-	sprintf(out1,"GDT base=%08X limit=%08" sBitfs(X),cpu.gdt.GetBase(),cpu.gdt.GetLimit());
-	LOG(LOG_MISC,LOG_ERROR)("%s",out1);
-	sprintf(out1,"IDT base=%08X limit=%08" sBitfs(X),cpu.idt.GetBase(),cpu.idt.GetLimit());
-	LOG(LOG_MISC,LOG_ERROR)("%s",out1);
+	std::snprintf(out1,
+	              sizeof(out1),
+	              "cr0:%08" sBitfs(X) " cr2:%08u cr3:%08u  cpl=%" sBitfs(x),
+	              cpu.cr0,
+	              paging.cr2,
+	              paging.cr3,
+	              cpu.cpl);
+	LOG(LOG_MISC, LOG_ERROR)("%s", out1);
+	std::snprintf(out1,
+	              sizeof(out1),
+	              "eflags:%08x [vm=%x iopl=%x nt=%x]",
+	              reg_flags,
+	              GETFLAG(VM) >> 17,
+	              GETFLAG(IOPL) >> 12,
+	              GETFLAG(NT) >> 14);
+	LOG(LOG_MISC, LOG_ERROR)("%s", out1);
+	std::snprintf(out1,
+	              sizeof(out1),
+	              "GDT base=%08X limit=%08" sBitfs(X),
+	              cpu.gdt.GetBase(),
+	              cpu.gdt.GetLimit());
+	LOG(LOG_MISC, LOG_ERROR)("%s", out1);
+	std::snprintf(out1,
+	              sizeof(out1),
+	              "IDT base=%08X limit=%08" sBitfs(X),
+	              cpu.idt.GetBase(),
+	              cpu.idt.GetLimit());
+	LOG(LOG_MISC, LOG_ERROR)("%s", out1);
 
 	Bitu sel=CPU_STR();
 	Descriptor desc;
 	if (cpu.gdt.GetDescriptor(sel,desc)) {
-		sprintf(out1,"TR selector=%04" sBitfs(X) ", base=%08X limit=%08X*%X",sel,desc.GetBase(),desc.GetLimit(),desc.saved.seg.g?0x4000:1);
-		LOG(LOG_MISC,LOG_ERROR)("%s",out1);
+		std::snprintf(out1,
+		              sizeof(out1),
+		              "TR selector=%04" sBitfs(X) ", base=%08X limit=%08X*%X",
+		              sel,
+		              desc.GetBase(),
+		              desc.GetLimit(),
+		              desc.saved.seg.g ? 0x4000 : 1);
+		LOG(LOG_MISC, LOG_ERROR)("%s", out1);
 	}
 	sel=CPU_SLDT();
 	if (cpu.gdt.GetDescriptor(sel,desc)) {
-		sprintf(out1,"LDT selector=%04" sBitfs(X) ", base=%08X limit=%08X*%X",sel,desc.GetBase(),desc.GetLimit(),desc.saved.seg.g?0x4000:1);
-		LOG(LOG_MISC,LOG_ERROR)("%s",out1);
+		std::snprintf(out1,
+		              sizeof(out1),
+		              "LDT selector=%04" sBitfs(X) ", base=%08X limit=%08X*%X",
+		              sel,
+		              desc.GetBase(),
+		              desc.GetLimit(),
+		              desc.saved.seg.g ? 0x4000 : 1);
+		LOG(LOG_MISC, LOG_ERROR)("%s", out1);
 	}
 }
 
 #if C_HEAVY_DEBUG
-static void LogInstruction(uint16_t segValue, uint32_t eipValue, ofstream &out)
+static void LogInstruction(uint16_t segValue, uint32_t eipValue, std::ofstream &out)
 {
 	static char empty[23] = { 32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,0 };
 
 	if (cpuLogType == 3) { //Log only cs:ip.
-		out << setw(4) << SegValue(cs) << ":" << setw(8) << reg_eip << endl;
+		out << std::setw(4) << SegValue(cs) << ":" << std::setw(8) << reg_eip << std::endl;
 		return;
 	}
 
@@ -2133,43 +2310,45 @@ static void LogInstruction(uint16_t segValue, uint32_t eipValue, ofstream &out)
 	// Get register values
 
 	if(cpuLogType == 0) {
-		out << setw(4) << SegValue(cs) << ":" << setw(4) << reg_eip << "  " << dline;
+		out << std::setw(4) << SegValue(cs) << ":" << std::setw(4) << reg_eip << "  " << dline;
 	} else if (cpuLogType == 1) {
-		out << setw(4) << SegValue(cs) << ":" << setw(8) << reg_eip << "  " << dline << "  " << res;
+		out << std::setw(4) << SegValue(cs) << ":" << std::setw(8) << reg_eip << "  " << dline << "  " << res;
 	} else if (cpuLogType == 2) {
 		char ibytes[200]="";	char tmpc[200];
 		for (Bitu i=0; i<size; i++) {
 			uint8_t value;
-			if (mem_readb_checked(start+i,&value)) sprintf(tmpc,"%s","?? ");
-			else sprintf(tmpc,"%02X ",value);
-			strcat(ibytes,tmpc);
+			if (mem_readb_checked(start + i, &value))
+				std::snprintf(tmpc, sizeof(tmpc), "%s", "?? ");
+			else
+				std::snprintf(tmpc, sizeof(tmpc), "%02X ", value);
+			strcat(ibytes, tmpc);
 		}
 		len = safe_strlen(ibytes);
 		if (len<21) { for (Bitu i=0; i<21-len; i++) ibytes[len + i] =' '; ibytes[21]=0;} //NOTE THE BRACKETS
-		out << setw(4) << SegValue(cs) << ":" << setw(8) << reg_eip << "  " << dline << "  " << res << "  " << ibytes;
+		out << std::setw(4) << SegValue(cs) << ":" << std::setw(8) << reg_eip << "  " << dline << "  " << res << "  " << ibytes;
 	}
 
-	out << " EAX:" << setw(8) << reg_eax << " EBX:" << setw(8) << reg_ebx
-	    << " ECX:" << setw(8) << reg_ecx << " EDX:" << setw(8) << reg_edx
-	    << " ESI:" << setw(8) << reg_esi << " EDI:" << setw(8) << reg_edi
-	    << " EBP:" << setw(8) << reg_ebp << " ESP:" << setw(8) << reg_esp
-	    << " DS:"  << setw(4) << SegValue(ds)<< " ES:"  << setw(4) << SegValue(es);
+	out << " EAX:" << std::setw(8) << reg_eax << " EBX:" << std::setw(8) << reg_ebx
+	    << " ECX:" << std::setw(8) << reg_ecx << " EDX:" << std::setw(8) << reg_edx
+	    << " ESI:" << std::setw(8) << reg_esi << " EDI:" << std::setw(8) << reg_edi
+	    << " EBP:" << std::setw(8) << reg_ebp << " ESP:" << std::setw(8) << reg_esp
+	    << " DS:"  << std::setw(4) << SegValue(ds)<< " ES:"  << std::setw(4) << SegValue(es);
 
 	if(cpuLogType == 0) {
-		out << " SS:"  << setw(4) << SegValue(ss) << " C"  << (get_CF()>0)  << " Z"   << (get_ZF()>0)
+		out << " SS:"  << std::setw(4) << SegValue(ss) << " C"  << (get_CF()>0)  << " Z"   << (get_ZF()>0)
 		    << " S" << (get_SF()>0) << " O"  << (get_OF()>0) << " I"  << GETFLAGBOOL(IF);
 	} else {
-		out << " FS:"  << setw(4) << SegValue(fs) << " GS:"  << setw(4) << SegValue(gs)
-		    << " SS:"  << setw(4) << SegValue(ss)
+		out << " FS:"  << std::setw(4) << SegValue(fs) << " GS:"  << std::setw(4) << SegValue(gs)
+		    << " SS:"  << std::setw(4) << SegValue(ss)
 		    << " CF:"  << (get_CF()>0)  << " ZF:"   << (get_ZF()>0)  << " SF:"  << (get_SF()>0)
 		    << " OF:"  << (get_OF()>0)  << " AF:"   << (get_AF()>0)  << " PF:"  << (get_PF()>0)
 		    << " IF:"  << GETFLAGBOOL(IF);
 	}
 	if(cpuLogType == 2) {
-		out << " TF:" << GETFLAGBOOL(TF) << " VM:" << GETFLAGBOOL(VM) <<" FLG:" << setw(8) << reg_flags
-		    << " CR0:" << setw(8) << cpu.cr0;
+		out << " TF:" << GETFLAGBOOL(TF) << " VM:" << GETFLAGBOOL(VM) <<" FLG:" << std::setw(8) << reg_flags
+		    << " CR0:" << std::setw(8) << cpu.cr0;
 	}
-	out << endl;
+	out << std::endl;
 }
 #endif
 
@@ -2280,31 +2459,25 @@ void DEBUG_Init(Section* sec) {
 
 void CDebugVar::InsertVariable(char *name, PhysPt adr)
 {
-	varList.push_back(new CDebugVar(name,adr));
+	auto dbg_var = std::make_shared<CDebugVar>(name, adr);
+	varList.push_back(dbg_var);
 }
 
 void CDebugVar::DeleteAll()
 {
-	std::vector<CDebugVar*>::iterator i;
-	CDebugVar* bp;
-	for(i=varList.begin(); i != varList.end(); i++) {
-		bp = static_cast<CDebugVar*>(*i);
-		delete bp;
-	}
-	(varList.clear)();
+	varList.clear();
 }
 
-CDebugVar *CDebugVar::FindVar(PhysPt pt)
+std::shared_ptr<CDebugVar> CDebugVar::FindVar(PhysPt pt)
 {
-	if (varList.empty()) return 0;
+	if (varList.empty())
+		return nullptr;
 
-	std::vector<CDebugVar*>::size_type s = varList.size();
-	CDebugVar* bp;
-	for(std::vector<CDebugVar*>::size_type i = 0; i != s; i++) {
-		bp = static_cast<CDebugVar*>(varList[i]);
+	for (auto &bp : varList) {
 		if (bp->GetAdr() == pt) return bp;
 	}
-	return 0;
+
+	return nullptr;
 }
 
 bool CDebugVar::SaveVars(char *name)
@@ -2324,10 +2497,7 @@ bool CDebugVar::SaveVars(char *name)
 	uint16_t num = (uint16_t)varList.size();
 	fwrite(&num,1,sizeof(num),f);
 
-	std::vector<CDebugVar*>::iterator i;
-	CDebugVar* bp;
-	for(i=varList.begin(); i != varList.end(); i++) {
-		bp = static_cast<CDebugVar*>(*i);
+	for (auto &bp : varList) {
 		// name
 		fwrite(bp->GetName(),1,16,f);
 		// adr
@@ -2383,12 +2553,14 @@ static void SaveMemory(uint16_t seg, uint32_t ofs1, uint32_t num) {
 	char temp[16];
 
 	while (num>16) {
-		sprintf(buffer,"%04X:%04X   ",seg,ofs1);
+		std::snprintf(buffer, sizeof(buffer), "%04X:%04X   ", seg, ofs1);
 		for (uint16_t x=0; x<16; x++) {
 			uint8_t value;
-			if (mem_readb_checked(GetAddress(seg,ofs1+x),&value)) sprintf(temp,"%s","?? ");
-			else sprintf(temp,"%02X ",value);
-			strcat(buffer,temp);
+			if (mem_readb_checked(GetAddress(seg, ofs1 + x), &value))
+				std::snprintf(temp, sizeof(temp), "%s", "?? ");
+			else
+				std::snprintf(temp, sizeof(temp), "%02X ", value);
+			strcat(buffer, temp);
 		}
 		ofs1+=16;
 		num-=16;
@@ -2396,12 +2568,14 @@ static void SaveMemory(uint16_t seg, uint32_t ofs1, uint32_t num) {
 		fprintf(f,"%s\n",buffer);
 	}
 	if (num>0) {
-		sprintf(buffer,"%04X:%04X   ",seg,ofs1);
+		std::snprintf(buffer, sizeof(buffer), "%04X:%04X   ", seg, ofs1);
 		for (uint16_t x=0; x<num; x++) {
 			uint8_t value;
-			if (mem_readb_checked(GetAddress(seg,ofs1+x),&value)) sprintf(temp,"%s","?? ");
-			else sprintf(temp,"%02X ",value);
-			strcat(buffer,temp);
+			if (mem_readb_checked(GetAddress(seg, ofs1 + x), &value))
+				std::snprintf(temp, sizeof(temp), "%s", "?? ");
+			else
+				std::snprintf(temp, sizeof(temp), "%02X ", value);
+			strcat(buffer, temp);
 		}
 		fprintf(f,"%s\n",buffer);
 	}
@@ -2586,27 +2760,27 @@ void DEBUG_HeavyWriteLogInstruction()
 
 	DEBUG_ShowMsg("DEBUG: Creating cpu log LOGCPU_INT_CD.TXT\n");
 
-	ofstream out("LOGCPU_INT_CD.TXT");
+	std::ofstream out("LOGCPU_INT_CD.TXT");
 	if (!out.is_open()) {
 		DEBUG_ShowMsg("DEBUG: Failed.\n");
 		return;
 	}
-	out << hex << noshowbase << setfill('0') << uppercase;
+	out << std::hex << std::noshowbase << std::setfill('0') << std::uppercase;
 	uint32_t startLog = logCount;
 	do {
 		// Write Instructions
 		TLogInst & inst = logInst[startLog];
-		out << setw(4) << inst.s_cs << ":" << setw(8) << inst.eip << "  "
-		    << inst.dline << "  " << inst.res << " EAX:" << setw(8)<< inst.eax
-		    << " EBX:" << setw(8) << inst.ebx << " ECX:" << setw(8) << inst.ecx
-		    << " EDX:" << setw(8) << inst.edx << " ESI:" << setw(8) << inst.esi
-		    << " EDI:" << setw(8) << inst.edi << " EBP:" << setw(8) << inst.ebp
-		    << " ESP:" << setw(8) << inst.esp << " DS:"  << setw(4) << inst.s_ds
-		    << " ES:"  << setw(4) << inst.s_es<< " FS:"  << setw(4) << inst.s_fs
-		    << " GS:"  << setw(4) << inst.s_gs<< " SS:"  << setw(4) << inst.s_ss
+		out << std::setw(4) << inst.s_cs << ":" << std::setw(8) << inst.eip << "  "
+		    << inst.dline << "  " << inst.res << " EAX:" << std::setw(8)<< inst.eax
+		    << " EBX:" << std::setw(8) << inst.ebx << " ECX:" << std::setw(8) << inst.ecx
+		    << " EDX:" << std::setw(8) << inst.edx << " ESI:" << std::setw(8) << inst.esi
+		    << " EDI:" << std::setw(8) << inst.edi << " EBP:" << std::setw(8) << inst.ebp
+		    << " ESP:" << std::setw(8) << inst.esp << " DS:"  << std::setw(4) << inst.s_ds
+		    << " ES:"  << std::setw(4) << inst.s_es<< " FS:"  << std::setw(4) << inst.s_fs
+		    << " GS:"  << std::setw(4) << inst.s_gs<< " SS:"  << std::setw(4) << inst.s_ss
 		    << " CF:"  << inst.c  << " ZF:"   << inst.z  << " SF:"  << inst.s
 		    << " OF:"  << inst.o  << " AF:"   << inst.a  << " PF:"  << inst.p
-		    << " IF:"  << inst.i  << endl;
+		    << " IF:"  << inst.i  << std::endl;
 
 /*		fprintf(f,"%04X:%08X   %s  %s  EAX:%08X EBX:%08X ECX:%08X EDX:%08X ESI:%08X EDI:%08X EBP:%08X ESP:%08X DS:%04X ES:%04X FS:%04X GS:%04X SS:%04X CF:%01X ZF:%01X SF:%01X OF:%01X AF:%01X PF:%01X IF:%01X\n",
 			logInst[startLog].s_cs,logInst[startLog].eip,logInst[startLog].dline,logInst[startLog].res,logInst[startLog].eax,logInst[startLog].ebx,logInst[startLog].ecx,logInst[startLog].edx,logInst[startLog].esi,logInst[startLog].edi,logInst[startLog].ebp,logInst[startLog].esp,

@@ -2,7 +2,7 @@
 #ifndef PDC_SDL2_QUEUE_H
 #define PDC_SDL2_QUEUE_H
 
-#include <queue>
+#include <deque>
 
 #include <SDL.h>
 #ifdef PDC_WIDE
@@ -34,7 +34,7 @@ extern bool pdc_own_window;          /* if pdc_window was not set
                                         before initscr(), PDCurses is
                                         responsible for (owns) it */
 
-extern std::queue<SDL_Event> pdc_event_queue;
+extern std::deque<SDL_Event> pdc_event_queue;
 
 PDCEX  void PDC_update_rects(void);
 PDCEX  void PDC_retile(void);

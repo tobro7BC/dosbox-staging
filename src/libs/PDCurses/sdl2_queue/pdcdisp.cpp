@@ -574,6 +574,6 @@ void PDC_pump_and_peep(void)
     {
         SDL_UpdateWindowSurface(pdc_window);
         rectcount = 0;
-        pdc_event_queue.pop();
+        pdc_event_queue.pop_front();
     }
 }

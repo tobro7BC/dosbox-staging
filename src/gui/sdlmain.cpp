@@ -34,7 +34,7 @@
 #include <math.h>
 
 #if C_DEBUG
-#include <queue>
+#include <deque>
 #endif
 
 #ifdef WIN32
@@ -255,7 +255,7 @@ static const char *vsync_state_as_string(const VSYNC_STATE state)
 
 #if C_DEBUG
 extern SDL_Window *pdc_window;
-extern std::queue<SDL_Event> pdc_event_queue;
+extern std::deque<SDL_Event> pdc_event_queue;
 
 static bool isDebuggerEvent(const SDL_Event &event)
 {
@@ -3969,7 +3969,7 @@ bool GFX_Events()
 	while (SDL_PollEvent(&event)) {
 #if C_DEBUG
 		if (isDebuggerEvent(event)) {
-			pdc_event_queue.push(event);
+			pdc_event_queue.push_front(event);
 			continue;
 		}
 #endif
