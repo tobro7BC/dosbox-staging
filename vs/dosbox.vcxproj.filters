@@ -847,6 +847,9 @@
     <ClCompile Include="..\src\libs\zmbv\zmbv_vfw.cpp">
       <Filter>src\libs\zmbv</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\hardware\ne2000.cpp">
+      <Filter>src\hardware</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\audio_frame.h">
@@ -1437,6 +1440,15 @@
     <ClInclude Include="..\src\libs\zmbv\Resource.h" />
     <ClInclude Include="..\src\libs\zmbv\zmbv.h">
       <Filter>src\libs\zmbv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ne2000.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ethernet.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\misc\ethernet_slirp.h">
+      <Filter>src\misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
