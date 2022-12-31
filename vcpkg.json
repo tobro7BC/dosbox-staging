@@ -15,6 +15,11 @@
         "sdl2-net",
         "speexdsp",
         "tracy",
-        "zlib"
-    ]
+        "zlib",
+        "libslirp"
+    ],
+    "vcpkg-configuration": {
+        "overlay-ports": ["./vcpkg-overlay"]
+    }
+
 }
