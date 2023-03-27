@@ -30,6 +30,7 @@
 #include <thread>
 #include <unistd.h>
 
+#include "antivir.h"
 #include "callback.h"
 #include "control.h"
 #include "cpu.h"
@@ -1207,9 +1208,9 @@ void DOSBOX_Init()
 	                  "(unset by default). The format is the same as for TCP port forwards.");
 #endif
 
-	//	secprop->AddInitFunction(&CREDITS_Init);
+	// Configure internal antivirus
+	ANTIVIR_AddConfigSection(control);
 
-	//TODO ?
 	control->AddSection_line("autoexec", &AUTOEXEC_Init);
 	MSG_Add("AUTOEXEC_CONFIGFILE_HELP",
 		"Lines in this section will be run at startup.\n"

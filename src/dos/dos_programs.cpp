@@ -36,6 +36,7 @@
 #include "program_more.h"
 #include "program_mount.h"
 #include "program_mousectl.h"
+#include "program_msav.h"
 #include "program_placeholder.h"
 #include "program_rescan.h"
 #include "program_serial.h"
@@ -85,6 +86,7 @@ void Add_VFiles(const bool add_autoexec)
 	PROGRAMS_MakeFile("MORE.COM", ProgramCreate<MORE>);
 	PROGRAMS_MakeFile("MOUNT.COM", ProgramCreate<MOUNT>);
 	PROGRAMS_MakeFile("MOUSECTL.COM", ProgramCreate<MOUSECTL>);
+	PROGRAMS_MakeFile("MSAV.EXE", ProgramCreate<MSAV>);
 	PROGRAMS_MakeFile("RESCAN.COM", ProgramCreate<RESCAN>);
 	PROGRAMS_MakeFile("MIXER.COM", MIXER_ProgramCreate);
 	PROGRAMS_MakeFile("CONFIG.COM", CONFIG_ProgramCreate);

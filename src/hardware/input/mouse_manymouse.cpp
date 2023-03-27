@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2022-2022  The DOSBox Staging Team
+ *  Copyright (C) 2022-2023  The DOSBox Staging Team
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -254,7 +254,8 @@ bool ManyMouseGlue::ProbeForMapping(uint8_t &physical_device_idx)
 		HandleEvent(event, true); // handle critical events
 
 	bool success = false;
-	while (!DOS_IsCancelRequest()) {
+	constexpr bool should_q_or_esc_cancel = true;
+	while (!DOS_IsCancelRequest(should_q_or_esc_cancel)) {
 		// Poll mouse events, handle critical ones
 		if (!ManyMouse_PollEvent(&event))
 			continue;

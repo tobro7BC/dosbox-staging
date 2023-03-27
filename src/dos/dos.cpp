@@ -1456,10 +1456,12 @@ static Bitu DOS_26Handler(void) {
 constexpr uint8_t code_ctrl_c = 0x03;
 constexpr uint8_t code_esc    = 0x1b;
 
-bool DOS_IsCancelRequest()
+uint8_t DOS_IsCancelRequest(const bool should_q_or_esc_cancel,
+                            const uint8_t code_if_shutdown)
 {
-	if (shutdown_requested)
-		return true;
+	if (shutdown_requested) {
+		return code_if_shutdown;
+	}
 
 	CALLBACK_Idle();
 	while (!(Files[STDIN]->GetInformation() & (1 << 6))) {
@@ -1469,14 +1471,30 @@ bool DOS_IsCancelRequest()
 		DOS_ReadFile(STDIN, &code, &count);
 
 		// Check if user requested to cancel
-		if (shutdown_requested || count == 0 ||
-			code == 'q' || code == 'Q' ||
-		    code == code_ctrl_c || code == code_esc)
-			return true;
+		if (shutdown_requested) {
+			return code_if_shutdown;
+		}
+
+		if (count == 0) {
+			assert(false);
+			break;
+		}
+
+		if (code == code_ctrl_c) {
+			return code;
+		}
+
+		if (!should_q_or_esc_cancel) {
+			continue;
+		}
+
+		if (code == 'q' || code == 'Q' || code == code_esc) {
+			return code;
+		}
 	}
 
 	// Return control if no key pressed
-	return shutdown_requested;
+	return shutdown_requested ? code_if_shutdown : 0;
 }
 
 DOS_Version DOS_ParseVersion(const char *word, const char *args)

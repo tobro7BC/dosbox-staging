@@ -1,4 +1,5 @@
 libdos_sources = files(
+    'antivir.cpp',
     'cdrom.cpp',
     'cdrom_image.cpp',
     'cdrom_ioctl_linux.cpp',
@@ -39,6 +40,7 @@ libdos_sources = files(
     'program_mount.cpp',
     'program_mount_common.cpp',
     'program_mousectl.cpp',
+    'program_msav.cpp',
     'program_placeholder.cpp',
     'program_rescan.cpp',
     'program_serial.cpp',

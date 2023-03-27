@@ -547,6 +547,53 @@ std::string format_number(const size_t num)
 	return buffer;
 }
 
+std::string format_size(const uint64_t size)
+{
+        std::string unit = "B";
+
+        uint64_t whole_part   = size;
+        uint8_t  decimal_part = 0;
+
+        auto unit_promote = [&](const std::string &new_unit) {
+                if (whole_part < 1024) {
+                        return;
+                }
+
+                // switch from KB to MB, from MB to GB, etc.
+
+                auto tmp = static_cast<float>(whole_part % 1024) * 100 / 1024 +
+                           (decimal_part >= 50 ? 1 : 0);
+                
+                whole_part   = whole_part / 1024;
+                decimal_part = static_cast<uint8_t>(std::lround(tmp));
+                unit         = new_unit;
+
+                if (decimal_part > 99) {
+                        decimal_part = 0;
+                        ++whole_part;
+                }
+        };
+
+        unit_promote("KB");
+        unit_promote("MB");
+        unit_promote("GB");
+        unit_promote("TB");
+        unit_promote("PB");
+        unit_promote("EB");
+
+        const auto separator = dos.tables.country[DOS_DECIMAL_SEPARATOR_OFS];
+
+        std::string result = std::to_string(whole_part) + 
+                             static_cast<char>(separator);
+        if (decimal_part < 10) {
+                result += "0" + std::to_string(decimal_part);
+        } else {
+                result += std::to_string(decimal_part);
+        }
+
+        return result + " " + unit;
+}
+
 std::string shorten_path(const std::string& path, const size_t max_len)
 {
 	// NOTE: This routine tries to shorten the path, but in case of extreme

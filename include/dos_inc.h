@@ -299,7 +299,8 @@ static inline uint16_t long2para(uint32_t size) {
 #define DOSERR_FILE_ALREADY_EXISTS 80
 
 /* Wait/check user input */
-bool DOS_IsCancelRequest();
+uint8_t DOS_IsCancelRequest(const bool should_q_or_esc_cancel = false,
+                            const uint8_t code_if_shutdown = UINT8_MAX);
 
 /* Macros SSET_* and SGET_* are used to safely access fields in memory-mapped
  * DOS structures represented via classes inheriting from MemStruct class.

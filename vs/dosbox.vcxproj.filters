@@ -625,6 +625,9 @@
     <ClCompile Include="..\src\dos\program_mousectl.cpp">
       <Filter>src\dos</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\dos\program_msav.cpp">
+      <Filter>src\dos</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\dos\program_rescan.cpp">
       <Filter>src\dos</Filter>
     </ClCompile>
@@ -804,6 +807,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\ansi_code_markup.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\antivir.h">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\audio_frame.h">
       <Filter>include</Filter>
     </ClInclude>

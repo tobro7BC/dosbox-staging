@@ -72,6 +72,8 @@ union FatAttributeFlags {
 		_data = other._data;
 		return *this;
 	}
+
+	operator uint8_t() const { return _data; }
 };
 
 struct FileStat_Block {
