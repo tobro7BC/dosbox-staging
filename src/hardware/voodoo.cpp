@@ -937,7 +937,7 @@ struct triangle_worker
 	poly_vertex v1, v2, v3;
 	INT32 v1y, v3y, totalpix;
 	SDL_sem* sembegin[TRIANGLE_THREADS];
-	std::atomic_bool done[TRIANGLE_THREADS];
+	std::atomic_int threads_done;
 };
 
 struct voodoo_state
@@ -4274,7 +4274,7 @@ static int triangle_worker_thread_func(void* p)
 		SDL_SemWait(tworker.sembegin[tnum]);
 		if (tworker.threads_active)
 			triangle_worker_work(tworker, tnum, tnum + 1);
-		tworker.done[tnum] = true;
+		tworker.threads_done++;
 	}
 	return 0;
 }
@@ -4283,12 +4283,10 @@ static void triangle_worker_shutdown(triangle_worker& tworker)
 {
 	if (!tworker.threads_active) return;
 	tworker.threads_active = false;
-	for (size_t i = 0; i != TRIANGLE_THREADS; i++) tworker.done[i] = false;
-	for (size_t i = 0; i != TRIANGLE_THREADS; i++) SDL_SemPost(tworker.sembegin[i]);
-	recheckdone:
-	std::this_thread::yield();
-	for (size_t i = 0; i != TRIANGLE_THREADS; i++) if (!tworker.done[i]) goto recheckdone;
-	for (size_t i = 0; i != TRIANGLE_THREADS; i++) SDL_DestroySemaphore(tworker.sembegin[i]);
+	tworker.threads_done = 0;
+	for (int i = 0; i != TRIANGLE_THREADS; i++) SDL_SemPost(tworker.sembegin[i]);
+	while (tworker.threads_done < TRIANGLE_THREADS) std::this_thread::yield();
+	for (int i = 0; i != TRIANGLE_THREADS; i++) SDL_DestroySemaphore(tworker.sembegin[i]);
 }
 
 static void triangle_worker_run(triangle_worker& tworker)
@@ -4331,6 +4329,8 @@ static void triangle_worker_run(triangle_worker& tworker)
 		return;
 	}
 
+	tworker.threads_done = 0;
+	
 	if (!tworker.threads_active)
 	{
 		tworker.threads_active = true;
@@ -4341,12 +4341,9 @@ static void triangle_worker_run(triangle_worker& tworker)
 			                 (void*)i);
 	}
 
-	for (size_t i = 0; i != TRIANGLE_THREADS; i++) tworker.done[i] = false;
-	for (size_t i = 0; i != TRIANGLE_THREADS; i++) SDL_SemPost(tworker.sembegin[i]);
+	for (int i = 0; i != TRIANGLE_THREADS; i++) SDL_SemPost(tworker.sembegin[i]);
 	triangle_worker_work(tworker, TRIANGLE_THREADS, TRIANGLE_WORKERS);
-	recheckdone:
-	std::this_thread::yield();
-	for (size_t i = 0; i != TRIANGLE_THREADS; i++) if (!tworker.done[i]) goto recheckdone;
+	while (tworker.threads_done < TRIANGLE_THREADS) std::this_thread::yield();
 }
 
 /*-------------------------------------------------
