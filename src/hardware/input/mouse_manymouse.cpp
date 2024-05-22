@@ -427,9 +427,18 @@ void ManyMouseGlue::HandleEvent(const ManyMouseEvent &event, const bool critical
 	case MANYMOUSE_EVENT_SCROLL:
 		// LOG_INFO("MANYMOUSE #%u WHEEL #%u %d", event.device,
 		// event.item, event.value);
-		if (no_interface || critical_only || (event.item != 0))
-			break; // only the 1st wheel is supported
-		MOUSE_EventWheel(clamp_to_int16(-event.value), interface_id);
+		if (no_interface || critical_only) {
+			break;
+		}
+		if (event.item == 0) {
+			// vertical scroll
+			MOUSE_EventWheel(0, clamp_to_int16(-event.value),
+			                 interface_id);
+		} else if (event.item == 1) {
+			// horizontal scroll / wheel tilt
+			MOUSE_EventWheel(clamp_to_int16(-event.value), 0,
+			                 interface_id);
+		}
 		break;
 
 	case MANYMOUSE_EVENT_DISCONNECT:

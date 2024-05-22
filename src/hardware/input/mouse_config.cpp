@@ -43,6 +43,7 @@ constexpr auto capture_type_nomouse_str   = "nomouse";
 constexpr auto model_ps2_standard_str     = "standard";
 constexpr auto model_ps2_intellimouse_str = "intellimouse";
 constexpr auto model_ps2_explorer_str     = "explorer";
+constexpr auto model_ps2_explorer4_str    = "explorer4";
 constexpr auto model_ps2_nomouse_str      = "none";
 
 constexpr auto model_com_2button_str      = "2button";
@@ -137,6 +138,8 @@ static void SetPs2Model(const std::string_view model_str)
 		mouse_config.model_ps2 = MouseModelPS2::IntelliMouse;
 	} else if (model_str == model_ps2_explorer_str) {
 		mouse_config.model_ps2 = MouseModelPS2::Explorer;
+	} else if (model_str == model_ps2_explorer4_str) {
+		mouse_config.model_ps2 = MouseModelPS2::Explorer4;
 	} else if (model_str == model_ps2_nomouse_str) {
 		mouse_config.model_ps2 = MouseModelPS2::NoMouse;
 	} else {
@@ -404,18 +407,28 @@ static void config_init(Section_prop &secprop)
 	// TODO: PS/2 mouse might be hot-pluggable
 	prop_str = secprop.Add_string("ps2_mouse_model",
 	                              only_at_start,
-	                              model_ps2_explorer_str);
+	                              model_ps2_explorer4_str);
 	assert(prop_str);
 	prop_str->Set_values({model_ps2_standard_str,
 	                      model_ps2_intellimouse_str,
 	                      model_ps2_explorer_str,
+	                      model_ps2_explorer4_str,
 	                      model_ps2_nomouse_str});
 	prop_str->Set_help(
 	        "PS/2 AUX port mouse model:\n"
 	        "  standard:      3 buttons, standard PS/2 mouse.\n"
 	        "  intellimouse:  3 buttons + wheel, Microsoft IntelliMouse.\n"
-	        "  explorer:      5 buttons + wheel, Microsoft IntelliMouse Explorer (default).\n"
-	        "  none:          no PS/2 mouse emulated.");
+	        "  explorer:      5 buttons + wheel, Microsoft IntelliMouse Explorer.\n"
+	        "  explorer4:     5 buttons + tilting wheel, Microsoft IntelliMouse Explorer 4.0\n"
+	        "                 (default).\n"
+	        "  none:          no PS/2 mouse emulated.\n"
+	        "Notes:\n"
+	        "  - To fully utilize the IntelliMouse or the IntelliMouse Explorer on Windows 9x, install\n"
+	        "    the IntelliPoint software.\n"
+	        "  - The emulated IntelliMouse Explorer mice happen to be compatible with A4Tech 3D Mouse\n"
+	        "    (iWheelWorks) drivers for Windows 3.1x. The 4D+ Mouse drivers are not compatible.\n"
+	        "  - Currently only the VBADOS mouse driver, version at least 0.70, allows to use the\n"
+	        "    tilted wheel.");
 
 	prop_str = secprop.Add_string("com_mouse_model",
 	                              only_at_start,

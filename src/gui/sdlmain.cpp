@@ -3505,8 +3505,11 @@ static void handle_mouse_motion(SDL_MouseMotionEvent* motion)
 
 static void handle_mouse_wheel(SDL_MouseWheelEvent* wheel)
 {
-    const auto tmp = (wheel->direction == SDL_MOUSEWHEEL_NORMAL) ? -wheel->y : wheel->y;
-	MOUSE_EventWheel(check_cast<int16_t>(tmp));
+	const bool needs_reverse = (wheel->direction == SDL_MOUSEWHEEL_NORMAL);
+	const auto wheel_x = needs_reverse ? -wheel->x : wheel->x;
+	const auto wheel_y = needs_reverse ? -wheel->y : wheel->y;
+	MOUSE_EventWheel(check_cast<int16_t>(wheel_x),
+	                 check_cast<int16_t>(wheel_y));
 }
 
 static void handle_mouse_button(SDL_MouseButtonEvent* button)

@@ -57,17 +57,17 @@ extern MousePredefined mouse_predefined;
 // Configuration file content
 // ***************************************************************************
 
-enum class MouseCapture : uint8_t { Seamless, OnClick, OnStart, NoMouse };
+enum class MouseCapture { Seamless, OnClick, OnStart, NoMouse };
 
-enum class MouseModelPS2 : uint8_t {
-	NoMouse      = 0xff,
-	// Values below must match PS/2 protocol IDs
-	Standard     = 0x00,
-	IntelliMouse = 0x03,
-	Explorer     = 0x04,
+enum class MouseModelPS2 {
+	NoMouse, // dummy value or no mouse
+	Standard,
+	IntelliMouse,
+	Explorer,
+	Explorer4,
 };
 
-enum class MouseModelCOM : uint8_t {
+enum class MouseModelCOM  {
 	NoMouse, // dummy value or no mouse
 	Microsoft,
 	Logitech,

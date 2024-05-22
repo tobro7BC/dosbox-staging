@@ -667,7 +667,7 @@ void MOUSE_EventButton(const MouseButtonId button_id, const bool pressed,
 	}
 }
 
-void MOUSE_EventWheel(const int16_t w_rel)
+void MOUSE_EventWheel(const int16_t wx_rel, const int16_t wy_rel)
 {
 	// Event from GFX
 
@@ -679,12 +679,13 @@ void MOUSE_EventWheel(const int16_t w_rel)
 	// Notify mouse interfaces
 	for (auto& interface : mouse_interfaces) {
 		if (interface->IsUsingHostPointer()) {
-			interface->NotifyWheel(w_rel);
+			interface->NotifyWheel(wx_rel, wy_rel);
 		}
 	}
 }
 
-void MOUSE_EventWheel(const int16_t w_rel, const MouseInterfaceId interface_id)
+void MOUSE_EventWheel(const int16_t wx_rel, const int16_t wy_rel,
+                      const MouseInterfaceId interface_id)
 {
 	// Event from ManyMouse
 
@@ -696,7 +697,7 @@ void MOUSE_EventWheel(const int16_t w_rel, const MouseInterfaceId interface_id)
 	// Notify mouse interface
 	auto interface = MouseInterface::Get(interface_id);
 	if (interface && interface->IsUsingEvents()) {
-		interface->NotifyWheel(w_rel);
+		interface->NotifyWheel(wx_rel, wy_rel);
 	}
 }
 

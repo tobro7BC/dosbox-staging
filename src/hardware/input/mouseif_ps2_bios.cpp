@@ -103,15 +103,19 @@ static bool delay_expired = true;
 
 static MouseButtonsAll buttons;     // currently visible button state
 static MouseButtonsAll buttons_all; // state of all 5 buttons as on the host side
-static MouseButtons12S buttons_12S; // buttons with 3/4/5 quished together
+static MouseButtons12S buttons_12S; // buttons with 3/4/5 squished together
 
-static float delta_x = 0.0f; // accumulated mouse movement since last reported
-static float delta_y = 0.0f;
-static int8_t counter_w = 0; // mouse wheel counter
+static float delta_x     = 0.0f; // accumulated mouse movement since last reported
+static float delta_y     = 0.0f;
+static int8_t counter_wy = 0; // mouse wheel counter (vertical - primary)
+static int8_t counter_wx = 0; // mouse wheel counter (horizontal - secondary)
+
+static uint8_t last_buttons_45 = 0; // last reported extra buttons on Explorer 4.0 mouse
 
 static MouseModelPS2 protocol = MouseModelPS2::Standard;
-static uint8_t unlock_idx_im = 0; // sequence index for unlocking extended protocol
-static uint8_t unlock_idx_xp = 0;
+static uint8_t unlock_idx_im  = 0; // sequence index for unlocking extended protocol
+static uint8_t unlock_idx_xp  = 0;
+static uint8_t unlock_idx_xp4 = 0;
 
 // frame to be sent via the i8042 controller
 static std::vector<uint8_t> frame = {};
@@ -158,15 +162,18 @@ void MOUSEPS2_UpdateButtonSquish()
 	// - for PS/2 modes other than IntelliMouse Explorer there is
 	//   no standard way to report buttons 4 and 5
 
-	const bool squish = mouse_shared.active_vmm ||
-	                    (protocol != MouseModelPS2::Explorer);
+	const bool has_5_buttons = (protocol == MouseModelPS2::Explorer) ||
+	                           (protocol == MouseModelPS2::Explorer4);
+
+	const bool squish = mouse_shared.active_vmm || !has_5_buttons;
 	buttons._data = squish ? buttons_12S._data : buttons_all._data;
 }
 
 static void terminate_unlock_sequence()
 {
-	unlock_idx_im = 0;
-	unlock_idx_xp = 0;
+	unlock_idx_im  = 0;
+	unlock_idx_xp  = 0;
+	unlock_idx_xp4 = 0;
 }
 
 static void set_protocol(const MouseModelPS2 new_protocol)
@@ -190,6 +197,9 @@ static void set_protocol(const MouseModelPS2 new_protocol)
 		case MouseModelPS2::Explorer:
 			protocol_name = "IntelliMouse Explorer, wheel, 5 buttons";
 			break;
+		case MouseModelPS2::Explorer4:
+			protocol_name = "IntelliMouse Explorer 4.0, tilting wheel, 5 buttons";
+			break;
 		default: break;
 		}
 
@@ -200,28 +210,64 @@ static void set_protocol(const MouseModelPS2 new_protocol)
 	}
 }
 
-static uint8_t get_reset_wheel_4bit()
+static uint8_t get_device_id()
 {
-	const int8_t tmp = std::clamp(counter_w,
-	                              static_cast<int8_t>(-0x08),
-	                              static_cast<int8_t>(0x07));
-
-	// reading always clears the counter
-	counter_w = 0;
-
-	// 0x0f for -1, 0x0e for -2, etc.
-	return static_cast<uint8_t>((tmp >= 0) ? tmp : 0x10 + tmp);
+	switch (protocol)
+	{
+	case MouseModelPS2::IntelliMouse: return 0x03;
+	case MouseModelPS2::Explorer:
+	case MouseModelPS2::Explorer4: return 0x04;
+	default: return 0x00;
+	}
 }
 
-static uint8_t get_reset_wheel_8bit()
+static uint8_t get_reset_wheel_y(const uint8_t bits)
 {
-	const auto tmp = counter_w;
+	assert(bits > 1 && bits <= 8);
 
-	// reading always clears the counter
-	counter_w = 0;
+	const auto shift      = 1 << bits;
+	const auto limit_low  = static_cast<int8_t>(-shift / 2);
+	const auto limit_high = static_cast<int8_t>((shift / 2) - 1);
 
-	// 0xff for -1, 0xfe for -2, etc.
-	return static_cast<uint8_t>((tmp >= 0) ? tmp : 0x100 + tmp);
+	// Read and reset the counter
+	const int8_t value = std::clamp(counter_wy, limit_low, limit_high);
+	counter_wy = 0;
+
+	// Convert value to two's complement
+	return static_cast<uint8_t>((value >= 0) ? value : shift + value);
+}
+
+static uint8_t get_reset_wheel_tilt(const uint8_t bits)
+{
+	assert(bits > 1 && bits <= 8);
+
+	const auto shift          = 1 << bits;
+	constexpr auto limit_low  = static_cast<int8_t>(-1);
+	constexpr auto limit_high = static_cast<int8_t>(1);
+
+	// Read and reset the counter
+	const int8_t value = std::clamp(counter_wx, limit_low, limit_high);
+	counter_wx = 0;
+
+	// 0x3f for -1, 0x4e for -2, etc.
+	return static_cast<uint8_t>((value >= 0) ? value : shift + value);
+}
+
+static uint8_t get_explorer_buttons_45()
+{
+	// Retrieve extra buttons state for Explorer mice
+
+	using namespace bit::literals;
+
+	uint8_t value = 0;
+	if (buttons.extra_1) {
+		bit::set(value, b4);
+	}
+	if (buttons.extra_2) {
+		bit::set(value, b5);
+	}
+
+	return value;
 }
 
 static int16_t get_scaled_movement(const int16_t d, const bool is_polling)
@@ -252,9 +298,13 @@ static int16_t get_scaled_movement(const int16_t d, const bool is_polling)
 
 static void reset_counters()
 {
-	delta_x   = 0.0f;
-	delta_y   = 0.0f;
-	counter_w = 0;
+	delta_x = 0.0f;
+	delta_y = 0.0f;
+
+	counter_wx = 0;
+	counter_wy = 0;
+
+	last_buttons_45 = 0;
 }
 
 static void build_protocol_frame(const bool is_polling = false)
@@ -286,7 +336,8 @@ static void build_protocol_frame(const bool is_polling = false)
 	dx = get_scaled_movement(dx, is_polling);
 	dy = get_scaled_movement(static_cast<int16_t>(-dy), is_polling);
 
-	if (protocol == MouseModelPS2::Explorer) {
+	if (protocol == MouseModelPS2::Explorer ||
+	    protocol == MouseModelPS2::Explorer4) {
 		// There is no overflow for 5-button mouse protocol, see
 		// HT82M30A datasheet
 		dx = std::clamp(dx,
@@ -323,21 +374,38 @@ static void build_protocol_frame(const bool is_polling = false)
 
 	if (protocol == MouseModelPS2::IntelliMouse) {
 		frame.resize(4);
-		frame[3] = get_reset_wheel_8bit();
+		frame[3] = get_reset_wheel_y(8);
 	} else if (protocol == MouseModelPS2::Explorer) {
 		frame.resize(4);
-		frame[3] = get_reset_wheel_4bit();
-
-		if (buttons.extra_1) {
-			bit::set(frame[3], b4);
-		}
-		if (buttons.extra_2) {
-			bit::set(frame[3], b5);
+		frame[3] = get_reset_wheel_y(4) + get_explorer_buttons_45();
+	} else if (protocol == MouseModelPS2::Explorer4) {
+		frame.resize(4);
+		if ((counter_wy > 0 && counter_wy > counter_wx) ||
+		    (counter_wy < 0 && counter_wy < counter_wx)) {
+			// Report vertical scroll
+			frame[3] = get_reset_wheel_y(6);
+			bit::set(frame[3], b7);
+		} else if (counter_wx != 0) {
+			// Report wheel tilt
+			frame[3] = get_reset_wheel_tilt(6);
+			bit::set(frame[3], b6);
+		} else {
+			// Report state of extra buttons
+			last_buttons_45 = get_explorer_buttons_45(); 
+			frame[3]        = last_buttons_45;
 		}
 	}
 
-	// Protocol frame was build, no need for a second one
-	has_data_for_frame = false;
+	if (protocol == MouseModelPS2::Explorer4) {
+		// A single protocol frame is unable to pass all the data,
+		// in some cases we might need a second one
+		has_data_for_frame = (counter_wx != 0) ||
+		                     (counter_wy != 0) ||
+		                     (last_buttons_45 != get_explorer_buttons_45());
+	} else {
+		// Protocol frame was build, no need for a second one
+		has_data_for_frame = false;
+	}
 }
 
 static void maybe_transfer_frame(); // forward declaration
@@ -420,7 +488,7 @@ static void cmd_get_status()
 
 static void cmd_get_dev_id()
 {
-	I8042_AddAuxByte(static_cast<uint8_t>(protocol));
+	I8042_AddAuxByte(get_device_id());
 	reset_counters();
 }
 
@@ -475,18 +543,39 @@ static void cmd_set_sample_rate(const uint8_t new_rate_hz)
 		}
 	};
 
-	static const std::vector<uint8_t> unlock_sequence_im = {200, 100, 80};
-	static const std::vector<uint8_t> unlock_sequence_xp = {200, 200, 80};
+	static const std::vector<uint8_t> unlock_sequence_im  = {200, 100, 80};
+	static const std::vector<uint8_t> unlock_sequence_xp  = {200, 200, 80};
+	static const std::vector<uint8_t> unlock_sequence_xp4 = {200, 80, 40};
+
+	auto process_unlock_intellimouse = [&] {
+		process_unlock(unlock_sequence_im,
+		               unlock_idx_im,
+		               MouseModelPS2::IntelliMouse);
+	};
+
+	auto process_unlock_explorer = [&] {
+		process_unlock(unlock_sequence_xp,
+		               unlock_idx_xp,
+		               MouseModelPS2::Explorer);
+	};
+
+	auto process_unlock_explorer_4 = [&] {
+		process_unlock(unlock_sequence_xp4,
+		               unlock_idx_xp4,
+		               MouseModelPS2::Explorer4);
+	};
 
 	if (mouse_config.model_ps2 == MouseModelPS2::IntelliMouse) {
-		process_unlock(unlock_sequence_im,
-		               unlock_idx_im,
-		               MouseModelPS2::IntelliMouse);
+		process_unlock_intellimouse();
 	} else if (mouse_config.model_ps2 == MouseModelPS2::Explorer) {
-		process_unlock(unlock_sequence_im,
-		               unlock_idx_im,
-		               MouseModelPS2::IntelliMouse);
-		process_unlock(unlock_sequence_xp, unlock_idx_xp, MouseModelPS2::Explorer);
+		process_unlock_intellimouse();
+		process_unlock_explorer();
+	} else if (mouse_config.model_ps2 == MouseModelPS2::Explorer4) {
+		process_unlock_intellimouse();
+		process_unlock_explorer();
+		if (protocol == MouseModelPS2::Explorer) {
+			process_unlock_explorer_4();
+		}
 	}
 }
 
@@ -710,17 +799,28 @@ void MOUSEPS2_NotifyButton(const MouseButtons12S new_buttons_12S,
 	vmm_needs_dummy_event = false;
 }
 
-void MOUSEPS2_NotifyWheel(const int16_t w_rel)
+void MOUSEPS2_NotifyWheel(const int16_t wx_rel, const int16_t wy_rel)
 {
 	// Note: VMware mouse protocol can support wheel even if the emulated
 	// PS/2 mouse does not have it - this works at least with VBADOS v0.67
-	auto old_counter_w = counter_w;
+
+	const auto old_wx = counter_wx;
+	const auto old_wy = counter_wy;
+
 	if (protocol == MouseModelPS2::IntelliMouse ||
-	    protocol == MouseModelPS2::Explorer) {
-		counter_w = clamp_to_int8(static_cast<int32_t>(counter_w + w_rel));
+	    protocol == MouseModelPS2::Explorer ||
+	    protocol == MouseModelPS2::Explorer4) {
+		counter_wy = clamp_to_int8(static_cast<int32_t>(counter_wy + wy_rel));
 	}
 
-	has_data_for_frame |= (old_counter_w != counter_w) || vmm_needs_dummy_event;
+	if (protocol == MouseModelPS2::Explorer4) {
+		counter_wx = clamp_to_int8(static_cast<int32_t>(counter_wx + wx_rel));
+	}
+
+	has_data_for_frame |= (old_wx != counter_wx) ||
+                              (old_wy != counter_wy) ||
+                              vmm_needs_dummy_event;
+
 	maybe_transfer_frame();
 	vmm_needs_dummy_event = false;
 }
@@ -1000,7 +1100,7 @@ void MOUSEBIOS_Subfunction_C2() // INT 15h, AH = 0xc2
 		set_return_value(BiosRetVal::Success);
 		break;
 	case 0x04: // get mouse type/protocol
-		reg_bh = static_cast<uint8_t>(protocol);
+		reg_bh = get_device_id();
 		set_return_value(BiosRetVal::Success);
 		break;
 	case 0x05: // initialize

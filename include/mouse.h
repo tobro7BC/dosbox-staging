@@ -89,8 +89,9 @@ void MOUSE_EventButton(const MouseButtonId button_id, const bool pressed);
 void MOUSE_EventButton(const MouseButtonId button_id, const bool pressed,
                        const MouseInterfaceId device_id);
 
-void MOUSE_EventWheel(const int16_t w_rel);
-void MOUSE_EventWheel(const int16_t w_rel, const MouseInterfaceId device_id);
+void MOUSE_EventWheel(const int16_t wx_rel, const int16_t wy_rel);
+void MOUSE_EventWheel(const int16_t wx_rel, const int16_t wy_rel,
+                      const MouseInterfaceId device_id);
 
 // Notify that guest OS is being booted, so that certain
 // parts of the emulation (like DOS driver) should be disabled
