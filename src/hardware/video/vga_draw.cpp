@@ -13,7 +13,7 @@
 #include "vga.h"
 
 #include "gui/render.h"
-#include "gui/render_scalers.h"
+#include "gui/render/scaler/scalers.h"
 #include "hardware/pic.h"
 #include "hardware/reelmagic/reelmagic.h"
 #include "ints/int10.h"
