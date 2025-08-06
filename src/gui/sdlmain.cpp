@@ -438,11 +438,9 @@ SDL_Window* GFX_GetSDLWindow()
 
 static void QuitSDL()
 {
-	if (sdl.initialized) {
 #if !C_DEBUGGER
 	SDL_Quit();
 #endif
-	}
 	restore_console_encoding();
 }
 
@@ -4482,8 +4480,6 @@ static void init_sdl()
 	if (sdl.start_event_id == UINT32_MAX) {
 		E_Exit("SDL: Failed to alocate event IDs");
 	}
-
-	sdl.initialized = true;
 
 	SDL_version sdl_version = {};
 	SDL_GetVersion(&sdl_version);
