@@ -4624,7 +4624,7 @@ int sdl_main(int argc, char* argv[])
 	LOG_MSG("%s version %s", DOSBOX_PROJECT_NAME, DOSBOX_GetDetailedVersion());
 	LOG_MSG("---");
 
-	LOG_MSG("LOG: Loguru version %d.%d.%d initialised",
+	LOG_MSG("Loguru version %d.%d.%d initialised",
 	        LOGURU_VERSION_MAJOR,
 	        LOGURU_VERSION_MINOR,
 	        LOGURU_VERSION_PATCH);
@@ -4734,22 +4734,9 @@ int sdl_main(int argc, char* argv[])
 
 		fflush(nullptr);
 
-		if (sdl.wait_on_error) {
-			// TODO Maybe look for some way to show message in linux?
-#if (C_DEBUGGER)
-			GFX_ShowMsg("Press enter to continue");
-
-			fflush(nullptr);
-			fgetc(stdin);
-
-#elif defined(WIN32)
-			// TODO not needed once we should the popup dialog
-			Sleep(5000);
-#endif
-		}
 	} catch (const std::exception& e) {
 		// Catch all exceptions that derive from the standard library
-		LOG_ERR("EXCEPTION: Standard library exception: %s", e.what());
+		LOG_ERR("Standard library exception: %s", e.what());
 		return_code = 1;
 	} catch (...) {
 		// Just exit
