@@ -432,7 +432,7 @@ SDL_Window* GFX_GetSDLWindow()
 }
 #endif
 
-static void QuitSDL()
+static void quit_sdl()
 {
 #if !C_DEBUG
 	SDL_Quit();
@@ -4460,7 +4460,7 @@ static void maybe_create_resource_directories()
 int sdl_main(int argc, char* argv[])
 {
 	// Ensure we perform SDL cleanup and restore console settings
-	atexit(QuitSDL);
+	atexit(quit_sdl);
 
 	CommandLine command_line(argc, argv);
 	control = std::make_unique<Config>(&command_line);
@@ -4631,7 +4631,7 @@ int sdl_main(int argc, char* argv[])
 	// We already do this at exit, but do cleanup earlier in case of normal
 	// exit; this works around problems when atexit order clashes with SDL2
 	// cleanup order. Happens with SDL_VIDEODRIVER=wayland as of SDL 2.0.12.
-	QuitSDL();
+	quit_sdl();
 
 	return return_code;
 }
