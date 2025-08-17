@@ -11,7 +11,6 @@ class IMGMOUNT final : public Program {
 public:
 	IMGMOUNT()
 	{
-		AddMessages();
 		help_detail = {HELP_Filter::Common,
 		               HELP_Category::Dosbox,
 		               HELP_CmdType::Program,
@@ -19,9 +18,6 @@ public:
 	}
 	void ListImgMounts();
 	void Run() override;
-
-    private:
-        static void AddMessages();
 };
 
 #endif // DOSBOX_PROGRAM_IMGMOUNT_H

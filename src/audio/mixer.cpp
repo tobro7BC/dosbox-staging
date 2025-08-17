@@ -3186,36 +3186,6 @@ static void init_mixer_dosbox_settings(SectionProp& sec_prop)
 	MAPPER_AddHandler(handle_toggle_mute, SDL_SCANCODE_F8, PRIMARY_MOD, "mute", "Mute");
 }
 
-static void register_mixer_text_messages()
-{
-	MSG_Add("MIXER_INVALID_CUSTOM_FILTER",
-	        "Invalid custom filter definition: [color=white]'%s'[reset].\n"
-	        "Must be specified in [color=light-cyan]"
-	        "'lfp|hpf ORDER CUTOFF_FREQUENCY'[reset] format.");
-
-	MSG_Add("MIXER_INVALID_CUSTOM_FILTER_ORDER",
-	        "Invalid %s filter order: [color=white]'%s'[reset]. "
-	        "Must be an integer between 1 and %d.");
-
-	MSG_Add("MIXER_INVALID_CUSTOM_FILTER_CUTOFF",
-	        "Invalid %s filter cutoff frequency: "
-	        "[color=white]'%s'[reset]. Must be a positive number.");
-
-	MSG_Add("MIXER_INVALID_CUSTOM_FILTER_TYPE",
-	        "Invalid filter type: [color=white]'%s'[reset]. "
-	        "Must be either 'hpf' or 'lpf'.");
-
-	MSG_Add("MIXER_INVALID_CUSTOM_FILTER_DUPLICATE",
-	        "Invalid custom filter definition: [color=white]'%s'[reset].\n"
-	        "The two filters must be of different types.");
-
-	MSG_Add("MIXER_INVALID_CUSTOM_FADEOUT",
-	        "Invalid custom fade-out definition: [color=white]'%s'[reset].\n"
-	        "Must be specified in [color=light-cyan]'WAIT FADE'[reset] format where [color=light-cyan]WAIT[reset] is between %d and %d\n"
-	        "(in milliseconds) and [color=light-cyan]FADE[reset] is between %d and %d (in milliseconds);\n"
-	        "using [color=white]'off'[reset].");
-}
-
 void MIXER_AddConfigSection(const ConfigPtr& conf)
 {
 	assert(conf);
@@ -3227,6 +3197,4 @@ void MIXER_AddConfigSection(const ConfigPtr& conf)
 	                                          ChangeableAtRuntime);
 	assert(sec);
 	init_mixer_dosbox_settings(*sec);
-
-	register_mixer_text_messages();
 }

@@ -125,7 +125,6 @@ class MIXER final : public Program {
 public:
 	MIXER()
 	{
-		AddMessages();
 		help_detail = {HELP_Filter::Common,
 		               HELP_Category::Dosbox,
 		               HELP_CmdType::Program,
@@ -135,8 +134,6 @@ public:
 
 private:
 	void ShowMixerStatus();
-
-	static void AddMessages();
 };
 
 #endif
